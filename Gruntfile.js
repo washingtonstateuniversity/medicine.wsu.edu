@@ -78,6 +78,26 @@ module.exports = function(grunt) {
                 bin: "vendor/bin/phpcs --extensions=php --ignore=\"*/vendor/*,*/node_modules/*\"",
                 standard: "phpcs.ruleset.xml"
             }
+        },
+
+        watch: {
+            styles: {
+                files: ['css/*.css'],
+                tasks: ['default'],
+                option: {
+                    livereload: 8000
+                }
+            }
+        },
+
+        connect: {
+            server: {
+                options: {
+                    open: true,
+                    port: 8000,
+                    hostname: 'localhost'
+                }
+            }
         }
 
     });
@@ -87,7 +107,10 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks( "grunt-contrib-csslint" );
     grunt.loadNpmTasks( "grunt-contrib-clean" );
     grunt.loadNpmTasks( "grunt-phpcs" );
+    grunt.loadNpmTasks( "grunt-contrib-watch" );
+    grunt.loadNpmTasks( "grunt-contrib-connect" );
 
     // Default task(s).
     grunt.registerTask('default', ['concat', 'postcss', 'csslint', 'clean']);
+    grunt.registerTask( "serve", [ "connect", "watch" ] );
 };
