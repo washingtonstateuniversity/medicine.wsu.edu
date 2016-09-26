@@ -21,6 +21,7 @@ matrix:
       env: WP_TRAVISCI=phpcs
 
 before_script:
+  - composer install
   - npm install -g npm
   - npm install -g grunt-cli
   - npm install
