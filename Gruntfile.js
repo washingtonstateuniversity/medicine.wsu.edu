@@ -1,4 +1,4 @@
-require('es6-promise').polyfill();
+var Promise = require('es6-promise').polyfill();
 
 module.exports = function(grunt) {
     grunt.initConfig({
