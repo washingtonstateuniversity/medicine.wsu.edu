@@ -22,8 +22,6 @@ matrix:
 
 before_script:
   - composer install
-  - npm install -g npm
-  - npm install -g grunt-cli
   - npm install
   - npm prune
   - phpenv versions
