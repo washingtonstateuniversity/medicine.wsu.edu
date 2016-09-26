@@ -1,5 +1,7 @@
 # Elson S. Floyd College of Medicine Theme
 
+[![Build Status](https://travis-ci.org/washingtonstateuniversity/medicine.wsu.edu.svg?branch=master)](https://travis-ci.org/washingtonstateuniversity/medicine.wsu.edu)
+
 ## Local Development
 
 From the theme directory on your local machine:
