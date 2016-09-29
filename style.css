@@ -8,7 +8,162 @@
  Version:        0.0.1
 */
 
+
+
+h1{
+  font-size: 3rem;
+  font-weight: 300;
+  text-transform: uppercase;
+  margin: 2rem 0 1.5rem;
+}
+
+h2{
+  font-size: 1.8rem;
+  font-weight: 400;
+  line-height: 1.3;
+  margin: 1rem 0 .5rem;
+}
+
+h3{
+  font-size: 1.3rem;
+  font-weight: 300;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+h4{
+  font-size: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-top: 1rem;
+}
+h5{
+  font-size: 1rem;
+  font-weight: 700;
+}
+h6{
+  font-size: 1rem;
+  font-weight: 400;
+}
+/* a class to show a header in a unique way. A way to introduce a new section after a large visual */
+.space-case{
+    font-size: 1rem;
+    font-weight: 300;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+}
+.rule,
+.rule-thick,
+.space-case{
+  margin-bottom: 3rem;
+  padding-bottom: 1.5rem;
+  position: relative;
+}
+.rule-thick{
+  margin-bottom: 1.5rem;
+}
+.space-case:after,
+.rule:after,
+.rule-thick:after {
+    content: "";
+    width: 4.5rem;
+    height: 2px;
+    background: #333;
+    position: absolute;
+    bottom: 0;
+    left:0;
+}
+.rule-thick:after{
+  height: 6px;
+}
+
+
+p,
+li,
+blockquote{
+  font-size: .9rem;
+  font-weight: 300;
+  line-height: 1.75;
+}
+li{}
+
+blockquote{
+  border-left: 3px solid #9f9f9f;
+  font-family: 'Open Sans', 'Lucida Sans', 'Lucida Grande', 'Lucida Sans Unicode', sans-serif;
+  margin-left: 3.5rem;
+  padding: .5rem 0 .5rem 1.5rem;
+}
+
+/* --- temporary overwrite to get the nav out of the way --- */
+#spine{
+  display:none;
+}
+/* ------- */
+
+/* overwrite max width constraint */
+#jacket #binder{
+  max-width: 100%;
+}
+/* Overwrite because there is no longer a vertical nav to account for */
+
+main{
+  margin-left: 0;
+}
+main *{
+  box-sizing: border-box;
+}
+/* ------- */
+
+/* --- Max widths for content sections --- */
+.main-header .hgroup,
+main .page > section{
+  width:100%;
+  max-width:1188px;
+  margin: 0 auto;
+}
+/* --- take it to full --- */
+.full-width{
+
+}
+#jacket #binder .bleed-right {
+    max-width: none!important;
+    background: gray;
+    height: 150px;
+    width: calc(1188px + ((100vw - 1188px) / 2)) !important;
+    margin-right: 0!important;
+}
+
+/* --- Page header --- */
+header.main-header{
+  height: auto;
+}
+.main-header .hgroup{
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+}
+.main-header-name{
+  font-size: .9rem;
+  font-weight: 300;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  margin-bottom: .25rem;
+  line-height: 1;
+}
+.main-header-description{
+  font-size: 2.5rem;
+  font-weight: 300;
+  text-transform: uppercase;
+  line-height: 1;
+  margin:0;
+}
+
+
+/* --- Main --- */
+
 main {
-    color: #000;
+    color: #2d2d2d;
+}
+.main-header{
+  /* margin  used for helping with creating type stylesheet */
+  margin-bottom: 3rem;
 }
 /*# sourceMappingURL=style.css.map */
