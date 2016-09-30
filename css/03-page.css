@@ -1,3 +1,7 @@
+
+html{
+  background: #fff;
+}
 /* overwrite max width constraint */
 #jacket #binder{
   max-width: 100%;
@@ -12,28 +16,23 @@ main *{
 }
 /* ------- */
 
+
 /* --- Max widths for content sections --- */
 .main-header .hgroup,
 main .page > section{
   width:100%;
   max-width:1188px;
-  margin: 0 auto;
-}
-/* --- take it to full --- */
-.full-width{
-
-}
-#jacket #binder .bleed-right {
-    max-width: none!important;
-    background: gray;
-    height: 150px;
-    width: calc(1188px + ((100vw - 1188px) / 2)) !important;
-    margin-right: 0!important;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* --- Page header --- */
 header.main-header{
+  color:#fff;
   height: auto;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 .main-header .hgroup{
   padding-top: 5rem;
@@ -55,5 +54,72 @@ header.main-header{
   margin:0;
 }
 
+/* default sizing and padding for columns */
+.row{
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+#jacket .row header{
+  flex:1 100%;
+}
+#jacket .side-right header h2{
+  width:75%;
+}
+#jacket .row .column{
+  padding:0 20px;
+}
+#jacket .row .column:first-of-type{
+  padding-left:0;
+}
+#jacket .row .column:last-of-type{
+  padding-right:0;
+}
 
-/* --- Main --- */
+#jacket .side-right .one,
+#jacket .side-left .two{
+  flex: 3;
+}
+#jacket .side-right .two,
+#jacket .side-left .one,
+#jacket .halves .column,
+#jacket .thirds .column,
+#jacket .quarters .column{
+  flex: 1;
+}
+
+
+/* --- bleeds --- */
+#jacket #binder .bleed-full{
+  max-width: 100%;
+}
+
+#jacket #binder .bleed-right {
+  max-width: none!important;
+  width: calc(1188px + ((100vw - 1188px) / 2)) !important;
+  margin-right: 0!important;
+}
+@media (max-width: 1188px) {
+  #jacket #binder .bleed-right{
+    width:100%!important;
+  }
+}
+
+/* --- Graphic boxes --- */
+.mid-feature{
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 400px;
+  margin: 4rem 0;
+  position: relative;
+}
+.mid-feature .one{
+  color: #fff;
+  position: absolute;
+  bottom:2rem;
+  right:2rem;
+  text-align: right;
+  width:calc(100% - 8rem)!important;
+  max-width: 500px;
+}
