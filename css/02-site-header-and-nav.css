@@ -3,3 +3,7 @@
   display:none;
 }
 /* ------- */
+#site-header{
+  min-height:150px;
+  background: #fff;
+}
