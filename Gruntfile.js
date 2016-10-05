@@ -73,6 +73,17 @@ module.exports = function(grunt) {
             temp: [ 'tmp-style.css', 'tmp-style.css.map' ]
         },
 
+	    jscs: {
+		    scripts : {
+			    src: "src/js/*.js",
+			    options: {
+				    preset: "jquery",
+				    requireCamelCaseOrUpperCaseIdentifiers: false, // We rely on name_name too much to change them all.
+				    maximumLineLength: 250                         // temporary
+			    }
+		    }
+	    },
+
         phpcs: {
             plugin: {
                 src: './'
