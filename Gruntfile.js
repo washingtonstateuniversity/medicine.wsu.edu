@@ -1,16 +1,16 @@
-var Promise = require('es6-promise').polyfill();
+var Promise = require( "es6-promise" ).polyfill();
 
 module.exports = function(grunt) {
 	grunt.initConfig({
-		pkg: grunt.file.readJSON('package.json'),
+		pkg: grunt.file.readJSON( "package.json" ),
 
 		concat: {
 			options: {
 				sourceMap: true
 			},
 			dist: {
-				src: 'css/*.css',
-				dest: 'tmp-style.css'
+				src: "css/*.css",
+				dest: "tmp-style.css"
 			}
 		},
 
@@ -70,7 +70,7 @@ module.exports = function(grunt) {
 			options: {
 				force: true
 			},
-			temp: [ 'tmp-style.css', 'tmp-style.css.map' ]
+			temp: [ "tmp-style.css", "tmp-style.css.map" ]
 		},
 
 		jscs: {
@@ -84,9 +84,41 @@ module.exports = function(grunt) {
 			}
 		},
 
+		jshint: {
+			grunt_script : {
+				src: [ "Gruntfile.js" ],
+				options: {
+					curly: true,
+					eqeqeq: true,
+					noarg: true,
+					quotmark: "double",
+					undef: true,
+					unused: false,
+					node: true     // Define globals available when running in Node.
+				}
+			},
+			theme_scripts : {
+				src: [ "src/js/*.js" ],
+				options: {
+					bitwise: true,
+					curly: true,
+					eqeqeq: true,
+					forin: true,
+					freeze: true,
+					noarg: true,
+					nonbsp: true,
+					quotmark: "double",
+					undef: true,
+					unused: true,
+					browser: true, // Define globals exposed by modern browsers.
+					jquery: true   // Define globals exposed by jQuery.
+				}
+			}
+		},
+
 		phpcs: {
 			plugin: {
-				src: './'
+				src: "./"
 			},
 			options: {
 				bin: "vendor/bin/phpcs --extensions=php --ignore=\"*/vendor/*,*/node_modules/*\"",
@@ -96,8 +128,8 @@ module.exports = function(grunt) {
 
 		watch: {
 			styles: {
-				files: ['css/*.css'],
-				tasks: ['default'],
+				files: [ "css/*.css" ],
+				tasks: [ "default" ],
 				option: {
 					livereload: 8000
 				}
@@ -109,7 +141,7 @@ module.exports = function(grunt) {
 				options: {
 					open: true,
 					port: 8000,
-					hostname: 'localhost'
+					hostname: "localhost"
 				}
 			}
 		}
@@ -124,8 +156,10 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks( "grunt-contrib-watch" );
 	grunt.loadNpmTasks( "grunt-contrib-connect" );
 	grunt.loadNpmTasks( "grunt-jscs" );
+	grunt.loadNpmTasks( "grunt-contrib-jshint" );
+	grunt.loadNpmTasks( "grunt-contrib-uglify" );
 
 	// Default task(s).
-	grunt.registerTask('default', ['concat', 'postcss', 'csslint', 'clean']);
+	grunt.registerTask( "default", ["concat", "postcss", "csslint", "clean"] );
 	grunt.registerTask( "serve", [ "connect", "watch" ] );
 };
