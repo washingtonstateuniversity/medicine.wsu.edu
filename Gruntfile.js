@@ -1,7 +1,7 @@
 var Promise = require( "es6-promise" ).polyfill();
 
-module.exports = function(grunt) {
-	grunt.initConfig({
+module.exports = function( grunt ) {
+	grunt.initConfig( {
 		pkg: grunt.file.readJSON( "package.json" ),
 
 		concat: {
@@ -34,24 +34,24 @@ module.exports = function(grunt) {
 			main: {
 				src: [ "style.css" ],
 				options: {
-					"fallback-colors": false,              // unless we want to support IE8
-					"box-sizing": false,                   // unless we want to support IE7
+					"fallback-colors": false,              // Unless we want to support IE8
+					"box-sizing": false,                   // Unless we want to support IE7
 					"compatible-vendor-prefixes": false,   // The library on this is older than autoprefixer.
 					"gradients": false,                    // This also applies ^
 					"overqualified-elements": false,       // We have weird uses that will always generate warnings.
 					"ids": false,
-					"regex-selectors": false,              // audit
+					"regex-selectors": false,
 					"adjoining-classes": false,
-					"box-model": false,                    // audit
-					"universal-selector": false,           // audit
-					"unique-headings": false,              // audit
-					"outline-none": false,                 // audit
+					"box-model": false,
+					"universal-selector": false,
+					"unique-headings": false,
+					"outline-none": false,
 					"floats": false,
-					"font-sizes": false,                   // audit
+					"font-sizes": false,
 					"important": false,                    // This should be set to 2 one day.
 					"unqualified-attributes": false,       // Should probably be 2 one day.
 					"qualified-headings": false,
-					"known-properties": 1,              // Okay to ignore in the case of known unknowns.
+					"known-properties": 1,                 // Okay to ignore in the case of known unknowns.
 					"duplicate-background-images": 2,
 					"duplicate-properties": 2,
 					"star-property-hack": 2,
@@ -74,18 +74,18 @@ module.exports = function(grunt) {
 		},
 
 		jscs: {
-			scripts : {
-				src: "src/js/*.js",
+			scripts: {
+				src: [ "Gruntfile.js", "src/js/*.js" ],
 				options: {
 					preset: "jquery",
 					requireCamelCaseOrUpperCaseIdentifiers: false, // We rely on name_name too much to change them all.
-					maximumLineLength: 250                         // temporary
+					maximumLineLength: 250
 				}
 			}
 		},
 
 		jshint: {
-			grunt_script : {
+			grunt_script: {
 				src: [ "Gruntfile.js" ],
 				options: {
 					curly: true,
@@ -97,7 +97,7 @@ module.exports = function(grunt) {
 					node: true     // Define globals available when running in Node.
 				}
 			},
-			theme_scripts : {
+			theme_scripts: {
 				src: [ "src/js/*.js" ],
 				options: {
 					bitwise: true,
@@ -146,7 +146,7 @@ module.exports = function(grunt) {
 			}
 		}
 
-	});
+	} );
 
 	grunt.loadNpmTasks( "grunt-postcss" );
 	grunt.loadNpmTasks( "grunt-contrib-concat" );
@@ -160,6 +160,6 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks( "grunt-contrib-uglify" );
 
 	// Default task(s).
-	grunt.registerTask( "default", ["concat", "postcss", "csslint", "clean"] );
+	grunt.registerTask( "default", [ "concat", "postcss", "csslint", "clean" ] );
 	grunt.registerTask( "serve", [ "connect", "watch" ] );
 };
