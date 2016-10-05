@@ -2,6 +2,11 @@
 #spine{
   display:none;
 }
+
+.spine-mobile #spine {
+  display: block;
+}
+
 /* ------- */
 #site-header{
   min-height:150px;
