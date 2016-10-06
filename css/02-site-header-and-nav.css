@@ -1,14 +1,77 @@
 /* --- temporary overwrite to get the nav out of the way --- */
-#spine{
-  display:none;
-}
 
 .spine-mobile #spine {
-  display: block;
+	display: block;
 }
 
 /* ------- */
-#site-header{
-  min-height:150px;
-  background: #fff;
+#site-header {
+	background: #fff;
+}
+@media (min-width: 989px) {
+  #wsu-signature{
+    position:absolute;
+    left:2em;
+    top:1em;
+    width:150px;
+    height:92px;
+  }
+	#spine {
+		min-height: auto!important;
+		position: relative!important;
+		font-size: 12px;
+		width: 100%;
+		height: auto;
+    padding: 87px 0 0;
+	}
+  #spine .spine-sitenav{
+    margin: 0;
+  }
+  #spine .spine-navigation{
+    padding: 0;
+  }
+  #spine .spine-sitenav>ul>li:first-child>a{
+    background: none;
+  }
+  #spine .spine-sitenav>ul>li:first-child>a:hover{
+    background: none;
+  }
+
+	/* --- navigation for site header and site footer --- */
+	.footer-nav > ul,
+	#spine nav.spine-sitenav > ul {
+		display: flex;
+		flex-wrap: wrap;
+		padding: 0;
+	}
+	#spine nav.spine-sitenav > ul {
+		justify-content: flex-end;
+	}
+  #spine nav.spine-sitenav > ul > li{
+    border: none;
+    padding-left: 3em;
+  }
+	.footer-nav > ul > li {
+		flex: 1;
+	}
+	.footer-nav > ul > li {
+		min-width: 180px;
+	}
+  #spine nav.spine-sitenav > ul > li > a {
+		font-weight: 700;
+    margin-bottom: .5em;
+	}
+	.footer-nav > ul > li > a {
+		color: #fff;
+		font-weight: 700;
+	}
+	.footer-nav > ul > li > ul,
+	#spine nav.spine-sitenav > ul > li > ul {
+		padding: 0;
+		margin: .5em 0;
+	}
+	.footer-nav > ul > li > ul a {
+		color: rgba(255, 255, 255, 0.7);
+		font-size: .9em;
+	}
 }
