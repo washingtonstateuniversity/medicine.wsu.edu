@@ -606,20 +606,6 @@
 		},
 
 		/**
-		 * Data on the current state of navigation for use when calculating
-		 * sizes and placement of other elements.
-		 */
-		nav_state:{
-			viewport_ht: 0,
-			scroll_dif: 0,
-			positionLock: 0,
-			scroll_top: 0,
-			spine_ht: 0,
-			glue_ht: 0,
-			height_dif: 0
-		},
-
-		/**
 		 * Setup a scroll container for use with iOS.
 		 */
 		setup_nav_scroll: function() {
@@ -848,10 +834,6 @@
 			spine = self._get_globals( "spine" ).refresh();
 			glue = self._get_globals( "glue" ).refresh();
 			main = self._get_globals( "main" ).refresh();
-
-			self.nav_state.scroll_top = 0;
-			self.nav_state.scroll_dif = 0;
-			self.nav_state.positionLock = 0;
 
 			// The menu button should always trigger a toggle of the mobile navigation.
 			$( "header button" ).on( "click touchend", self.toggle_mobile_nav );
