@@ -677,7 +677,7 @@
 		 * On a resize event, adjust pieces of the Spine framework accordingly.
 		 */
 		framework_adjust_on_resize: function() {
-			var self, viewport_ht, spine, glue, main;
+			var self, spine, glue, main;
 
 			self = this;
 
@@ -696,18 +696,6 @@
 
 			if ( self.is_mobile_view() ) {
 				self.mainheight();
-			}
-
-			viewport_ht = $( window ).height();
-
-			if ( !self.is_mobile_view() ) {
-				glue.css( "min-height", viewport_ht );
-				spine.css( "min-height", viewport_ht );
-
-				$( document ).trigger( "scroll" );
-			} else {
-				glue.css( "min-height", "" );
-				spine.css( "min-height", "" );
 			}
 		},
 
