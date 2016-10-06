@@ -6,7 +6,7 @@ root = true
 end_of_line = lf
 insert_final_newline = true
 
-[*.{js,php,css,md,xml}]
+[*.{js,php,css,md,xml,html}]
 indent_style = tab
 intent_size = 4
 

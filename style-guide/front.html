@@ -18,76 +18,6 @@
 	<link type="text/plain" rel="author" href="https://repo.wsu.edu/spine/1/authors.txt" />
 	<link type="text/html" rel="help" href="https://brand.wsu.edu/media/web" />
 	<!-- SCRIPTS and STYLES -->
-	<!-- Custom scripts and styles should be added with wp_enqueue_script() and wp_enqueue_style() -->
-	<link rel='dns-prefetch' href='//repo.wsu.edu' />
-	<link rel='dns-prefetch' href='//ajax.googleapis.com' />
-	<link rel='dns-prefetch' href='//fonts.googleapis.com' />
-	<link rel='dns-prefetch' href='//s.w.org' />
-	<script type="text/javascript">
-		window._wpemojiSettings = {
-			"baseUrl": "https:\/\/s.w.org\/images\/core\/emoji\/2\/72x72\/",
-			"ext": ".png",
-			"svgUrl": "https:\/\/s.w.org\/images\/core\/emoji\/2\/svg\/",
-			"svgExt": ".svg",
-			"source": {
-				"concatemoji": "https:\/\/hub.wsu.edu\/jeremy\/wp-includes\/js\/wp-emoji-release.min.js?ver=4.6.1"
-			}
-		};
-		! function(a, b, c) {
-			function d(a) {
-				var c, d, e, f, g, h = b.createElement("canvas"),
-					i = h.getContext && h.getContext("2d"),
-					j = String.fromCharCode;
-				if (!i || !i.fillText) return !1;
-				switch (i.textBaseline = "top", i.font = "600 32px Arial", a) {
-					case "flag":
-						return i.fillText(j(55356, 56806, 55356, 56826), 0, 0), !(h.toDataURL().length < 3e3) && (i.clearRect(0, 0, h.width, h.height), i.fillText(j(55356, 57331, 65039, 8205, 55356, 57096), 0, 0), c = h.toDataURL(), i.clearRect(0, 0, h.width, h.height),
-							i.fillText(j(55356, 57331, 55356, 57096), 0, 0), d = h.toDataURL(), c !== d);
-					case "diversity":
-						return i.fillText(j(55356, 57221), 0, 0), e = i.getImageData(16, 16, 1, 1).data, f = e[0] + "," + e[1] + "," + e[2] + "," + e[3], i.fillText(j(55356, 57221, 55356, 57343), 0, 0), e = i.getImageData(16, 16, 1, 1).data, g = e[0] + "," + e[1] +
-							"," + e[2] + "," + e[3], f !== g;
-					case "simple":
-						return i.fillText(j(55357, 56835), 0, 0), 0 !== i.getImageData(16, 16, 1, 1).data[0];
-					case "unicode8":
-						return i.fillText(j(55356, 57135), 0, 0), 0 !== i.getImageData(16, 16, 1, 1).data[0];
-					case "unicode9":
-						return i.fillText(j(55358, 56631), 0, 0), 0 !== i.getImageData(16, 16, 1, 1).data[0]
-				}
-				return !1
-			}
-
-			function e(a) {
-				var c = b.createElement("script");
-				c.src = a, c.type = "text/javascript", b.getElementsByTagName("head")[0].appendChild(c)
-			}
-			var f, g, h, i;
-			for (i = Array("simple", "flag", "unicode8", "diversity", "unicode9"), c.supports = {
-					everything: !0,
-					everythingExceptFlag: !0
-				}, h = 0; h < i.length; h++) c.supports[i[h]] = d(i[h]), c.supports.everything = c.supports.everything && c.supports[i[h]], "flag" !== i[h] && (c.supports.everythingExceptFlag = c.supports.everythingExceptFlag && c.supports[i[h]]);
-			c.supports.everythingExceptFlag = c.supports.everythingExceptFlag && !c.supports.flag, c.DOMReady = !1, c.readyCallback = function() {
-				c.DOMReady = !0
-			}, c.supports.everything || (g = function() {
-				c.readyCallback()
-			}, b.addEventListener ? (b.addEventListener("DOMContentLoaded", g, !1), a.addEventListener("load", g, !1)) : (a.attachEvent("onload", g), b.attachEvent("onreadystatechange", function() {
-				"complete" === b.readyState && c.readyCallback()
-			})), f = c.source || {}, f.concatemoji ? e(f.concatemoji) : f.wpemoji && f.twemoji && (e(f.twemoji), e(f.wpemoji)))
-		}(window, document, window._wpemojiSettings);
-	</script>
-	<style type="text/css">
-		img.wp-smiley,
-		img.emoji {
-			display: inline !important;
-			border: none !important;
-			box-shadow: none !important;
-			height: 1em !important;
-			width: 1em !important;
-			margin: 0 .07em !important;
-			vertical-align: -0.1em !important;
-			background: none !important;
-			padding: 0 !important;
-		}
-	</style>
 	<link rel='stylesheet' id='wsu-spine-css' href='https://repo.wsu.edu/spine/develop/spine.min.css?ver=0.26.16-1.5.1-38560' type='text/css' media='all' />
 	<link rel='stylesheet' id='spine-theme-css' href='https://hub.wsu.edu/jeremy/wp-content/themes/spine/style.css?ver=0.26.16-1.5.1-38560' type='text/css' media='all' />
 	<link rel='stylesheet' id='spine-theme-print-css' href='https://hub.wsu.edu/jeremy/wp-content/themes/spine/css/print.css?ver=0.26.16-1.5.1-38560' type='text/css' media='print' />
@@ -118,145 +48,124 @@
 <body class="home page page-template page-template-template-builder page-template-template-builder-php opensansy single depth-0">
 	<div id="jacket" class="style-skeletal colors-default spacing-default">
 		<div id="binder" class="fluid max-1188">
-			<header id="site-header"> <a href="https://wsu.edu/" id="wsu-signature">Washington State University</a>
-				<div id="spine">
+			<div id="spine" class="spine-column white search-closed  shelved">
+				<div id="glue" class="spine-glue">
+
+					<header class="spine-header">
+						<a href="https://wsu.edu/" id="wsu-signature">Washington State University</a>
+					</header>
+
+					<section id="wsu-actions" class="spine-actions clearfix">
+
+						<ul id="wsu-actions-tabs" class="spine-actions-tabs spine-tabs clearfix">
+							<li id="wsu-search-tab" class="spine-search-tab closed"><button>Search</button></li>
+							<li id="wsu-contact-tab" class="spine-contact-tab closed"><button>Contact</button></li>
+							<li id="wsu-share-tab" class="spine-share-tab closed"><button>Share</button></li>
+						</ul>
+
+					</section><!--/#wsu-actions-->
+
 					<section id="spine-navigation" class="spine-navigation">
+
 						<nav id="spine-sitenav" class="spine-sitenav">
-							<ul id="" class=" ">
-								<li class="page-item-4 parent"> <a href="#" class="tracked" role="touchend_Couplet tapped open_Spine Framework interactions">Research Initiatives</a>
-									<ul>
-										<li class="page-item-295"> <a href="https://research.wsu.edu/research-initiatives/grand-challenges/">Grand Challenges Overview</a> </li>
-										<li class="page-item-6 parent"> <a href="https://research.wsu.edu/research-initiatives/sustaining-health/" class="tracked" role="touchend_Couplet tapped open_Spine Framework interactions">Sustaining Health</a>
-											<ul>
-												<li class="overview"><a href="https://research.wsu.edu/research-initiatives/sustaining-health/">Overview</a></li>
-												<li class="page-item-8"> <a href="https://research.wsu.edu/research-initiatives/sustaining-health/disease-onset/">Disease Onset</a> </li>
-												<li class="page-item-10"> <a href="https://research.wsu.edu/research-initiatives/sustaining-health/treating-disease/">Treating Disease</a> </li>
-												<li class="page-item-12"> <a href="https://research.wsu.edu/research-initiatives/sustaining-health/wellness/">Health &amp; Wellness</a> </li>
-												<li class="page-item-14"> <a href="https://research.wsu.edu/research-initiatives/sustaining-health/communities/">Healthy Communities</a> </li>
-											</ul>
-										</li>
-										<li class="page-item-16 parent"> <a href="https://research.wsu.edu/research-initiatives/sustainable-resources/" class="tracked" role="touchend_Couplet tapped open_Spine Framework interactions">Sustainable Resources</a>
-											<ul>
-												<li class="overview"><a href="https://research.wsu.edu/research-initiatives/sustainable-resources/">Overview</a></li>
-												<li class="page-item-19"> <a href="https://research.wsu.edu/research-initiatives/sustainable-resources/food-production/">Food Production</a> </li>
-												<li class="page-item-21"> <a href="https://research.wsu.edu/research-initiatives/sustainable-resources/water/">Water</a> </li>
-												<li class="page-item-23"> <a href="https://research.wsu.edu/research-initiatives/sustainable-resources/energy/">Energy</a> </li>
-												<li class="page-item-27"> <a href="https://research.wsu.edu/research-initiatives/sustainable-resources/perspectives-policies/">Perspectives &amp; Policy</a> </li>
-											</ul>
-										</li>
-										<li class="page-item-29 parent"> <a href="https://research.wsu.edu/research-initiatives/opportunity-equity/" class="tracked" role="touchend_Couplet tapped open_Spine Framework interactions">Opportunity &amp; Equity</a>
-											<ul>
-												<li class="overview"><a href="https://research.wsu.edu/research-initiatives/opportunity-equity/">Overview</a></li>
-												<li class="page-item-31"> <a href="https://research.wsu.edu/research-initiatives/opportunity-equity/inequal-opportunity/">Inequal Opportunity</a> </li>
-												<li class="page-item-33"> <a href="https://research.wsu.edu/research-initiatives/opportunity-equity/promoting-equity/">Promoting Equity</a> </li>
-												<li class="page-item-35"> <a href="https://research.wsu.edu/research-initiatives/opportunity-equity/policy-advancement/">Policy Evaluation &amp; Advancement</a> </li>
-												<li class="page-item-25"> <a href="https://research.wsu.edu/research-initiatives/opportunity-equity/education/">Improving Education</a> </li>
-											</ul>
-										</li>
-										<li class="page-item-37 parent"> <a href="https://research.wsu.edu/research-initiatives/smart-systems/" class="tracked" role="touchend_Couplet tapped open_Spine Framework interactions">Smart Systems</a>
-											<ul>
-												<li class="overview"><a href="https://research.wsu.edu/research-initiatives/smart-systems/">Overview</a></li>
-												<li class="page-item-43"> <a href="https://research.wsu.edu/research-initiatives/smart-systems/sustainable-systems/">Smart &amp; Sustainable Systems</a> </li>
-												<li class="page-item-39"> <a href="https://research.wsu.edu/research-initiatives/smart-systems/materials/">Foundational &amp; Emergent Materials</a> </li>
-												<li class="page-item-46"> <a href="https://research.wsu.edu/research-initiatives/smart-systems/computing-data/">Computing &amp; Data</a> </li>
-												<li class="page-item-48"> <a href="https://research.wsu.edu/research-initiatives/smart-systems/technology-society/">Technology &amp; Society</a> </li>
-											</ul>
-										</li>
-										<li class="page-item-50 parent"> <a href="https://research.wsu.edu/research-initiatives/national-security/" class="tracked" role="touchend_Couplet tapped open_Spine Framework interactions">National Security</a>
-											<ul>
-												<li class="overview"><a href="https://research.wsu.edu/research-initiatives/national-security/">Overview</a></li>
-												<li class="page-item-52"> <a href="https://research.wsu.edu/research-initiatives/national-security/matter-extreme-conditions/">Matter at Extreme Conditions</a> </li>
-												<li class="page-item-54"> <a href="https://research.wsu.edu/research-initiatives/national-security/nuclear-nonproliferation/">Nuclear Nonproliferation</a> </li>
-												<li class="page-item-56"> <a href="https://research.wsu.edu/research-initiatives/national-security/developing-countries/">Advancement of Developing Countries</a> </li>
-												<li class="page-item-59"> <a href="https://research.wsu.edu/research-initiatives/national-security/health-security/">Global Health Security</a> </li>
-											</ul>
-										</li>
-									</ul>
+							<ul>
+								<li>
+									<a href="http://wp.wsu.dev/">Home Page</a>
 								</li>
-								<li class="page-item-63 parent"> <a href="#" class="tracked" role="touchend_Couplet tapped open_Spine Framework interactions">Achievements</a>
+								<li>
+									<a href="http://wp.wsu.dev/md-programs/">MD Programs</a>
+
 									<ul>
-										<li class="page-item-515"> <a href="https://research.wsu.edu/accomplishments/facts-and-figures/">Facts &amp; Figures</a> </li>
-										<li class="page-item-517"> <a href="https://research.wsu.edu/accomplishments/impact/">Statewide Impact</a> </li>
-										<li class="page-item-93 parent"> <a href="#" class="tracked" role="touchend_Couplet tapped open_Spine Framework interactions">Honors &amp; Awards</a>
+										<li>
+											<a href="#">Admissions</a>
+
 											<ul>
-												<li class="page-item-95"> <a href="https://research.wsu.edu/accomplishments/honors-awards/national-academy/">National Academy</a> </li>
-												<li class="page-item-1319"> <a href="https://ip.wsu.edu/scholars-abroad/meet-wsus-fulbright-scholars/" class="external tracked" role="click_click_internal">Fulbright Scholars</a> </li>
-												<li class="page-item-1643"> <a href="https://research.wsu.edu/accomplishments/honors-awards/faculty-funding-awards/">Faculty Funding Awards</a> </li>
-											</ul>
-										</li>
-									</ul>
-								</li>
-								<li class="page-item-134 parent"> <a href="#" class="tracked" role="touchend_Couplet tapped open_Spine Framework interactions">News &amp; Events</a>
-									<ul>
-										<li class="page-item-3"> <a href="https://research.wsu.edu/news-events/news/">News</a> </li>
-										<li class="page-item-287 parent"> <a href="#" class="tracked" role="touchend_Couplet tapped open_Spine Framework interactions">Events</a>
-											<ul>
-												<li class="page-item-139"> <a href="https://research.wsu.edu/news-events/events-calendar/distinguished-lecture/">Vice President’s Distinguished Lecture</a> </li>
-												<li class="page-item-273"> <a href="http://innovators.wsu.edu" class="external tracked" role="click_click_internal">The Innovators</a> </li>
-											</ul>
-										</li>
-										<li class="page-item-2007"> <a href="https://research.wsu.edu/events/">Calendar</a> </li>
-									</ul>
-								</li>
-								<li class="page-item-2551 parent"> <a href="#" class="tracked" role="touchend_Couplet tapped open_Spine Framework interactions">Researcher Resources</a>
-									<ul>
-										<li class="page-item-2575 parent"> <a href="https://research.wsu.edu/resources-researchers/ethics/" class="tracked" role="touchend_Couplet tapped open_Spine Framework interactions">Ethics &amp; Compliance</a>
-											<ul>
-												<li class="overview"><a href="https://research.wsu.edu/resources-researchers/ethics/">Overview</a></li>
-												<li class="page-item-2647 parent"> <a href="#" class="tracked" role="touchend_Couplet tapped open_Spine Framework interactions">Animals</a>
+												<li>
+													<a href="http://wp.wsu.dev/md-programs/admissions/requirements/">Requirements</a>
+												</li>
+												<li>
+													<a href="#">Application Process</a>
+
 													<ul>
-														<li class="page-item-2439"> <a href="https://research.wsu.edu/resources-researchers/ethics/animals/involvement-care/">Involvement &amp; Care</a> </li>
-														<li class="page-item-2644"> <a href="https://campusvet.wsu.edu" class="external tracked" role="click_click_internal">Campus Vet</a> </li>
-														<li class="page-item-2643"> <a href="https://iacuc.wsu.edu" class="external tracked" role="click_click_internal">Institutional Animal Care and Use Committee</a> </li>
+														<li>
+															<a href="http://wp.wsu.dev/md-programs/admissions/application-process/applying-to-medical-school/">Applying to Medical School</a>
+														</li>
+														<li>
+															<a href="http://wp.wsu.dev/md-programs/admissions/application-process/checklist/">Checklist</a>
+														</li>
+														<li>
+															<a href="http://wp.wsu.dev/md-programs/admissions/application-process/timeline/">Timeline</a>
+														</li>
+														<li>
+															<a href="http://wp.wsu.dev/md-programs/admissions/application-process/application/">Application</a>
+														</li>
+
 													</ul>
 												</li>
+												<li>
+													<a href="http://wp.wsu.dev/md-programs/admissions/explore-campus-locations/">Explore Campus Locations</a>
+												</li>
+
 											</ul>
 										</li>
-										<li class="page-item-2077 parent"> <a href="#" class="tracked" role="touchend_Couplet tapped open_Spine Framework interactions">Support &amp; Operations</a>
-											<ul>
-												<li class="page-item-312"> <a href="http://orso.or.wsu.edu/" class="external tracked" role="click_click_internal">Research Operations &amp; Support</a> </li>
-												<li class="page-item-2046"> <a href="https://research.wsu.edu/resources-researchers/operations-support/coi/">Conflict of Interest</a> </li>
-												<li class="page-item-1772"> <a href="https://research.wsu.edu/resources-researchers/operations-support/roles/">Roles &amp; Responsibilities</a> </li>
-												<li class="page-item-2431"> <a href="https://research.wsu.edu/resources-researchers/operations-support/datapubreporting/">Data &amp; Publication Resources</a> </li>
-											</ul>
+										<li>
+											<a href="#">Curriculum</a>
 										</li>
-										<li class="page-item-1998"> <a href="http://informer.ogrd.wsu.edu/" class="external tracked" role="click_click_internal">Funding Opportunities</a> </li>
-										<li class="page-item-311"> <a href="http://pmu.wsu.edu/" class="external tracked" role="click_click_internal">Research Advancement</a> </li>
+										<li>
+											<a href="#">Student Support Services</a>
+										</li>
+										<li>
+											<a href="#">Residencies &#038; Fellowships</a>
+										</li>
+
 									</ul>
 								</li>
-								<li class="page-item-101"> <a href="https://research.wsu.edu/undergraduate/">Undergraduate Research</a> </li>
-								<li class="page-item-158 parent"> <a href="#" class="tracked" role="touchend_Couplet tapped open_Spine Framework interactions">Office of Research</a>
-									<ul>
-										<li class="page-item-216"> <a href="https://research.wsu.edu/office-research/about/">About</a> </li>
-										<li class="page-item-160"> <a href="https://research.wsu.edu/office-research/vice-president/">Vice President</a> </li>
-										<li class="page-item-162"> <a href="https://research.wsu.edu/office-research/reporting-offices/">Reporting Offices</a> </li>
-										<li class="page-item-118 parent"> <a href="https://research.wsu.edu/office-research/partnerships/" class="tracked" role="touchend_Couplet tapped open_Spine Framework interactions">Partnerships</a>
-											<ul>
-												<li class="overview"><a href="https://research.wsu.edu/office-research/partnerships/">Overview</a></li>
-												<li class="page-item-120"> <a href="https://research.wsu.edu/office-research/partnerships/pnnl/">Pacific Northwest National Laboratory</a> </li>
-											</ul>
-										</li>
-										<li class="page-item-130 parent"> <a href="https://research.wsu.edu/office-research/policies/" class="tracked" role="touchend_Couplet tapped open_Spine Framework interactions">Policies</a>
-											<ul>
-												<li class="overview"><a href="https://research.wsu.edu/office-research/policies/">Overview</a></li>
-												<li class="page-item-144"> <a href="https://research.wsu.edu/office-research/policies/authorship/">Authorship Determination</a> </li>
-												<li class="page-item-148"> <a href="https://research.wsu.edu/office-research/policies/equipment-matching-funds/">Equipment Matching Funds</a> </li>
-												<li class="page-item-146"> <a href="https://research.wsu.edu/office-research/policies/ethics/">Ethics</a> </li>
-												<li class="page-item-1494"> <a href="https://research.wsu.edu/office-research/policies/policies-uas-research-activity/">UAS Research Activity</a> </li>
-												<li class="page-item-2223"> <a href="https://research.wsu.edu/office-research/policies/cannabis_guidance/">Cannabis Guidance</a> </li>
-												<li class="page-item-1538"> <a href="https://research.wsu.edu/office-research/policies/national-level-reports/">National Level Reports</a> </li>
-											</ul>
-										</li>
-										<li class="page-item-169"> <a href="https://research.wsu.edu/office-research/research-council/">Research Council</a> </li>
-										<li class="page-item-171"> <a href="https://research.wsu.edu/office-research/120-day-study/">120-Day Study</a> </li>
-										<li class="page-item-173"> <a href="https://research.wsu.edu/office-research/contact/">Contact Us</a> </li>
-									</ul>
+								<li>
+									<a href="http://wp.wsu.dev/programs/">Programs</a>
 								</li>
+								<li>
+									<a href="http://wp.wsu.dev/research/">Research</a>
+								</li>
+								<li>
+									<a href="http://wp.wsu.dev/clinical-partners/">Clinical Partners</a>
+								</li>
+								<li>
+									<a href="#">About</a>
+								</li>
+
 							</ul>
 						</nav>
+
+						<nav id="spine-offsitenav" class="spine-offsitenav">
+						</nav>
+
 					</section>
-				</div>
-			</header>
+
+					<footer class="spine-footer">
+
+						<nav id="wsu-social-channels" class="spine-social-channels">
+							<ul>
+								<li class="facebook-channel"><a href="https://www.facebook.com/WSUPullman">facebook</a></li>
+								<li class="twitter-channel"><a href="https://twitter.com/wsupullman">twitter</a></li>
+								<li class="youtube-channel"><a href="https://www.youtube.com/washingtonstateuniv">youtube</a></li>
+								<li class="directory-channel"><a href="http://social.wsu.edu">directory</a></li>
+							</ul>
+						</nav>
+
+						<nav id="wsu-global-links" class="spine-global-links">
+							<ul>
+								<li class="mywsu-link"><a href="https://portal.wsu.edu/">myWSU</a></li>
+								<li class="access-link"><a href="https://access.wsu.edu/">Access</a></li>
+								<li class="policies-link"><a href="https://policies.wsu.edu/">Policies</a></li>
+								<li class="copyright-link"><a href="https://copyright.wsu.edu">&copy;</a></li>
+							</ul>
+						</nav>
+
+					</footer>
+
+				</div><!--/glue-->
+			</div><!--/spine-->
+
 			<main class="spine-blank-template">
 				<header class="main-header">
 					<div class="header-group hgroup guttered padded-bottom short"> <sup class="sup-header"><span class="sup-header-default">WSU College of Medicine Style Guide</span></sup> <sub class="sub-header"><span class="sub-header-default">Secondary</span></sub> </div>
@@ -282,55 +191,7 @@
 				</div>
 				<!-- #post -->
 			</main>
-			<div id="spine" class="spine-column darker search-closed  shelved">
-				<div id="glue" class="spine-glue">
-					<header class="spine-header"> <a href="https://wsu.edu/" id="wsu-signature">Washington State University</a> </header>
-					<section id="wsu-actions" class="spine-actions clearfix">
-						<ul id="wsu-actions-tabs" class="spine-actions-tabs spine-tabs clearfix">
-							<li id="wsu-search-tab" class="spine-search-tab closed">
-								<button>Search</button>
-							</li>
-							<li id="wsu-contact-tab" class="spine-contact-tab closed">
-								<button>Contact</button>
-							</li>
-							<li id="wsu-share-tab" class="spine-share-tab closed">
-								<button>Share</button>
-							</li>
-						</ul>
-					</section>
-					<!--/#wsu-actions-->
-					<section id="spine-navigation" class="spine-navigation">
-						<nav id="spine-sitenav" class="spine-sitenav">
-							<ul>
-								<li id="menu-item-25" class="active"><a href="front.html">Front</a></li>
-								<li id="menu-item-26" class="active"><a href="secondary.html">Secondary</a></li>
-								<li id="menu-item-27" class="active"><a href="tertiary.html">Tertiary</a></li>
-							</ul>
-						</nav>
-						<nav id="spine-offsitenav" class="spine-offsitenav"> </nav>
-					</section>
-					<footer class="spine-footer">
-						<nav id="wsu-social-channels" class="spine-social-channels">
-							<ul>
-								<li class="facebook-channel"><a href="https://www.facebook.com/WSUPullman">facebook</a></li>
-								<li class="twitter-channel"><a href="https://twitter.com/wsupullman">twitter</a></li>
-								<li class="youtube-channel"><a href="https://www.youtube.com/washingtonstateuniv">youtube</a></li>
-								<li class="directory-channel"><a href="http://social.wsu.edu">directory</a></li>
-							</ul>
-						</nav>
-						<nav id="wsu-global-links" class="spine-global-links">
-							<ul>
-								<li class="mywsu-link"><a href="https://portal.wsu.edu/">myWSU</a></li>
-								<li class="access-link"><a href="https://access.wsu.edu/">Access</a></li>
-								<li class="policies-link"><a href="https://policies.wsu.edu/">Policies</a></li>
-								<li class="copyright-link"><a href="https://copyright.wsu.edu">&copy;</a></li>
-							</ul>
-						</nav>
-					</footer>
-				</div>
-				<!--/glue-->
-			</div>
-			<!--/spine-->
+
 		</div>
 		<!--/binder-->
 	</div>
