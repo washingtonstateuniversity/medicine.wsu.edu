@@ -606,20 +606,6 @@
 		},
 
 		/**
-		 * Data on the current state of navigation for use when calculating
-		 * sizes and placement of other elements.
-		 */
-		nav_state:{
-			viewport_ht: 0,
-			scroll_dif: 0,
-			positionLock: 0,
-			scroll_top: 0,
-			spine_ht: 0,
-			glue_ht: 0,
-			height_dif: 0
-		},
-
-		/**
 		 * Setup a scroll container for use with iOS.
 		 */
 		setup_nav_scroll: function() {
@@ -677,8 +663,7 @@
 		 * On a resize event, adjust pieces of the Spine framework accordingly.
 		 */
 		framework_adjust_on_resize: function() {
-			var self, spread, verso, page, para, recto, recto_margin, verso_width,
-				viewport_ht, spine, glue, main;
+			var self, spine, glue, main;
 
 			self = this;
 
@@ -693,53 +678,8 @@
 				self.set_spine_state( "full" );
 			}
 
-			self.sizing();
-			self.equalizing();
-
 			if ( self.is_mobile_view() ) {
 				self.mainheight();
-			}
-
-			// Only run function if an unbound element exists
-			if ( $( ".unbound, #binder.broken" ).length ) {
-				spread = $( window ).width();
-				verso = self._get_globals( "main" ).offset().left;
-				page = self._get_globals( "main" ).width();
-				recto = spread - self._get_globals( "main" ).offset().left;
-				recto_margin = "";
-
-				if ( recto >= page ) {
-					recto_margin = recto - page;
-				} else {
-					recto_margin = 0;
-				}
-
-				/* Broken Binding */
-				if ( $( "#binder" ).is( ".broken" ) ) {
-					self._get_globals( "main" ).css( "width", recto );
-				}
-
-				verso_width = verso + self._get_globals( "main" ).width();
-
-				$( ".unbound:not(.element).recto" ).css( "width", recto ).css( "margin-right", -( recto_margin ) );
-				$( ".unbound.element.recto" ).each( function() {
-					para = $( this ).width();
-					$( this ).css( "width", para + recto_margin ).css( "margin-right", -( recto_margin ) );
-				} );
-				$( ".unbound.verso" ).css( "width", verso_width ).css( "margin-left", -( verso ) );
-				$( ".unbound.verso.recto" ).css( "width", spread );
-			}
-
-			viewport_ht = $( window ).height();
-
-			if ( !self.is_mobile_view() ) {
-				glue.css( "min-height", viewport_ht );
-				spine.css( "min-height", viewport_ht );
-
-				$( document ).trigger( "scroll" );
-			} else {
-				glue.css( "min-height", "" );
-				spine.css( "min-height", "" );
 			}
 		},
 
@@ -794,73 +734,6 @@
 			self.setup_printing();
 
 			$( window ).on( "resize orientationchange", function() { self.framework_adjust_on_resize(); } ).trigger( "resize" );
-
-			if ( !self.is_mobile_view() ) {
-				$( document ).trigger( "scroll" );
-			}
-		},
-
-		/**
-		 * Label `#jacket` with the current window size.
-		 *
-		 * @param {HTMLelement} jacket
-		 */
-		sizing: function( jacket ) {
-			var current_width, jacket_classes, px_width, size_intermediate, size_medium, size_large;
-
-            jacket = jacket || $( "#jacket" );
-
-            current_width = $( window ).width();
-
-			size_intermediate = "size-intermediate size-smallish size-lt-medium size-lt-large size-lt-xlarge size-gt-small";
-			size_medium = "size-medium size-lt-xlarge size-lt-large size-gt-intermediate size-gt-smallish size-gt-small";
-			size_large = "size-large size-lt-xlarge size-gt-small size-gt-intermediate size-gt-smallish size-gt-medium";
-
-			px_width = "";
-
-			if ( current_width >= 1188 ) {
-				jacket_classes = "size-xlarge size-gt-small size-gt-intermediate size-gt-smallish size-gt-medium size-gt-large";
-			} else if ( current_width >= 990 ) {
-				jacket_classes = size_large;
-			} else if ( ( current_width < 990 ) && current_width >= 792 ) {
-				px_width = "size-lt-990";
-				jacket_classes = $( "#binder" ).is( ".fluid" ) ? size_large : size_medium;
-			} else if ( current_width < 792 && current_width >= 694 ) {
-				px_width = "size-lt-792";
-				jacket_classes = $( "#binder" ).is( ".fixed" ) ? size_intermediate : size_medium;
-			} else if ( current_width < 694 && current_width >= 396 ) {
-				jacket_classes = "size-small size-lt-intermediate size-lt-smallish size-lt-medium size-lt-large size-lt-xlarge";
-			} else {
-				jacket_classes = "size-small size-lt-small size-lt-intermediate size-lt-smallish size-lt-medium size-lt-large size-lt-xlarge";
-			}
-
-			jacket.stripClass( "size-" ).addClass( jacket_classes + " " + px_width );
-		},
-
-		/**
-		 * Equalize columns in a layout.
-		 */
-		equalizing: function() {
-			var obj;
-
-			if ( $( ".equalize" ).length ) {
-				obj = $( ".equalize" );
-				obj.find( ".column" ).css( "min-height", "" );
-
-				$.each( obj, function() {
-					var tallestBox = 0;
-					$.each( $( ".column", this ), function() {
-						tallestBox = ( $( this ).outerHeight() > tallestBox ) ? $( this ).outerHeight() : tallestBox;
-					} );
-
-					if ( ( $( window ).width() <= 792 && !obj.is( ".equalize-medium" ) ) || ( $( window ).width() <= 694 && !obj.is( ".equalize-small" ) ) ) {
-						$( ".column", this ).not( ".unequaled" ).css( "min-height", "1" );
-					} else {
-						$( ".column", this ).not( ".unequaled" ).css( "min-height", tallestBox );
-					}
-					$( "section.equalize .column", this ).css( "min-height", "auto" );
-				} );
-			}
 		},
 
 		/**
@@ -880,21 +753,6 @@
 				$( "main:not(.height-auto)" ).css( "min-height", main_height );
 			}
 		},
-
-		/**
-		 * Sets up framework html and other DOM attributes
-		 */
-		setup_jacket: function() {},
-
-		/**
-		 * Sets up framework html and other DOM attributes
-		 */
-		setup_binder: function() {},
-
-		 /**
-		 * Sets up framework html and other DOM attributes
-		 */
-		setup_content: function() {},
 
 		/**
 		 * Toggle the display and removal of the mobile navigation.
@@ -967,7 +825,7 @@
 		 * Sets up the spine area
 		 */
 		setup_spine: function() {
-			var self, spine, glue, main, viewport_ht, spine_ht, height_dif, positionLock;
+			var self, spine, glue, main;
 
 			$( "#spine .spine-header" ).prepend( "<button id='shelve' type='button' />" );
 
@@ -976,10 +834,6 @@
 			spine = self._get_globals( "spine" ).refresh();
 			glue = self._get_globals( "glue" ).refresh();
 			main = self._get_globals( "main" ).refresh();
-
-			self.nav_state.scroll_top = 0;
-			self.nav_state.scroll_dif = 0;
-			self.nav_state.positionLock = 0;
 
 			// The menu button should always trigger a toggle of the mobile navigation.
 			$( "header button" ).on( "click touchend", self.toggle_mobile_nav );
@@ -990,47 +844,6 @@
 					self.toggle_mobile_nav( e );
 				}
 			} );
-
-			if ( !self.is_mobile_view() ) {
-
-				// Watch for DOM changes and resize the Spine to match.
-				$.observeDOM( glue, function() {
-					self.apply_nav_func( self );
-				} );
-
-				// Fixed/Sticky Horizontal Header
-				$( document ).on( "scroll", function() {
-					self.apply_nav_func( self );
-				} );
-
-				$( document ).keydown( function( e ) {
-					if ( e.which === 35 || e.which === 36 ) {
-						viewport_ht	= $( window ).height();
-						spine_ht	= spine[ 0 ].scrollHeight;
-						height_dif	= viewport_ht - spine_ht;
-
-						if ( e.which === 35 ) {
-							positionLock = height_dif;
-						} else if ( e.which === 36 ) {
-							positionLock = 0;
-						}
-
-						spine.css( { "position": "fixed", "top": positionLock + "px" } );
-						self.nav_state.positionLock = positionLock;
-					}
-				} );
-
-				// Apply the `.skimmed` class to the Spine on non mobile views after 148px.
-				$( document ).scroll( function() {
-					var top;
-					top = $( document ).scrollTop();
-					if ( top > 148 ) {
-						$( "#spine" ).addClass( "skimmed" );
-					} else {
-						$( "#spine" ).removeClass( "skimmed" );
-					}
-				} );
-			}
 
 			/**
 			 * When the navigation area is shorter than the available window, add a margin to the
@@ -1045,70 +858,6 @@
 					var margin = window.innerHeight - nav_height - footer_height;
 					spine_footer.css( "margin-top", margin );
 				}
-			}
-		},
-
-		/**
-		 * Ensure Spine navigation is properly positioned and sized to snap to the top
-		 * and bottom of the document.
-		 *
-		 * @param self
-		 */
-		apply_nav_func: function( self ) {
-			var spine, glue, main, top, scroll_top, positionLock, scroll_dif, glue_ht;
-
-			spine = self._get_globals( "spine" ).refresh();
-			glue = self._get_globals( "glue" ).refresh();
-			main = self._get_globals( "main" ).refresh();
-
-			scroll_top   = self.nav_state.scroll_top;
-			positionLock = self.nav_state.positionLock;
-
-			top          = $( document ).scrollTop();
-			scroll_dif   = scroll_top - top;
-			scroll_top   = top;
-			glue_ht		 = glue.height();
-
-			self.nav_state.scroll_top = scroll_top;
-
-			// Main should always be at least as high as `#glue`.
-			main.css( { "min-height": glue_ht } );
-
-			/**
-			 * When the content in `main` is larger than the content in `#glue`, maintain a
-			 * fixed top position on `#spine` for smooth and predictable navigation scrolling.
-			 */
-			if ( main.outerHeight( true ) > glue_ht ) {
-				var upper_bound = glue_ht - window.innerHeight;
-
-				/**
-				 * Assume fluid movement by default. As long as we are within the upper bounds
-				 * we can calculate the position based on scroll location whether the scroll
-				 * goes up or down.
-				 */
-				positionLock = positionLock + scroll_dif;
-
-				/**
-				 * If the position is ever greater than 0, we've scrolled too far up and can
-				 * reset the position to 0.
-				 */
-				if ( positionLock > 0 ) {
-					positionLock = 0;
-				}
-
-				/**
-				 * If we ever scroll to a place where the new position would be calculated
-				 * outside of the upper bound, then reset it to the upper bound. This prevents
-				 * from scrolling too far down.
-				 */
-				if ( positionLock < ( -1 * upper_bound ) ) {
-					positionLock = ( -1 * upper_bound );
-				}
-
-				spine.css( { "position": "fixed", "top": positionLock + "px" } );
-				self.nav_state.positionLock = positionLock;
-			} else if ( spine.is( "#spine[style]" ) ) {
-				spine.removeAttr( "style" );
 			}
 		},
 
@@ -1268,11 +1017,6 @@
 				couplets.on( "click", function( e ) {
 					e.preventDefault();
 					$( e.target ).closest( "li" ).toggleClass( "opened" );
-				} );
-
-				// Trigger a scroll action when an anchor link is used.
-				$( "main a[href*='#']:not([href*='://'])" ).on( "mouseup", function() {
-					$( document ).trigger( "scroll" );
 				} );
 			}
 
