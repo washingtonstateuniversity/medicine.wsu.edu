@@ -748,10 +748,6 @@
 			self.setup_printing();
 
 			$( window ).on( "resize orientationchange", function() { self.framework_adjust_on_resize(); } ).trigger( "resize" );
-
-			if ( !self.is_mobile_view() ) {
-				$( document ).trigger( "scroll" );
-			}
 		},
 
 		/**
@@ -1039,11 +1035,6 @@
 				couplets.on( "click", function( e ) {
 					e.preventDefault();
 					$( e.target ).closest( "li" ).toggleClass( "opened" );
-				} );
-
-				// Trigger a scroll action when an anchor link is used.
-				$( "main a[href*='#']:not([href*='://'])" ).on( "mouseup", function() {
-					$( document ).trigger( "scroll" );
 				} );
 			}
 
