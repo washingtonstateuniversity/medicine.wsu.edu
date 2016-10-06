@@ -812,21 +812,6 @@
 		},
 
 		/**
-		 * Sets up framework html and other DOM attributes
-		 */
-		setup_jacket: function() {},
-
-		/**
-		 * Sets up framework html and other DOM attributes
-		 */
-		setup_binder: function() {},
-
-		 /**
-		 * Sets up framework html and other DOM attributes
-		 */
-		setup_content: function() {},
-
-		/**
 		 * Toggle the display and removal of the mobile navigation.
 		 *
 		 * @param e
