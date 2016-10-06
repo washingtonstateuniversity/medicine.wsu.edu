@@ -144,7 +144,6 @@
 			}
 
 			self.sizing();
-			self.equalizing();
 
 			if ( self.is_mobile_view() ) {
 				self.mainheight();
@@ -255,32 +254,6 @@
 			}
 
 			jacket.stripClass( "size-" ).addClass( jacket_classes + " " + px_width );
-		},
-
-		/**
-		 * Equalize columns in a layout.
-		 */
-		equalizing: function() {
-			var obj;
-
-			if ( $( ".equalize" ).length ) {
-				obj = $( ".equalize" );
-				obj.find( ".column" ).css( "min-height", "" );
-
-				$.each( obj, function() {
-					var tallestBox = 0;
-					$.each( $( ".column", this ), function() {
-						tallestBox = ( $( this ).outerHeight() > tallestBox ) ? $( this ).outerHeight() : tallestBox;
-					} );
-
-					if ( ( $( window ).width() <= 792 && !obj.is( ".equalize-medium" ) ) || ( $( window ).width() <= 694 && !obj.is( ".equalize-small" ) ) ) {
-						$( ".column", this ).not( ".unequaled" ).css( "min-height", "1" );
-					} else {
-						$( ".column", this ).not( ".unequaled" ).css( "min-height", tallestBox );
-					}
-					$( "section.equalize .column", this ).css( "min-height", "auto" );
-				} );
-			}
 		},
 
 		/**
