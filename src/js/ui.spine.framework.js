@@ -128,8 +128,7 @@
 		 * On a resize event, adjust pieces of the Spine framework accordingly.
 		 */
 		framework_adjust_on_resize: function() {
-			var self, spread, verso, page, para, recto, recto_margin, verso_width,
-				viewport_ht, spine, glue, main;
+			var self, viewport_ht, spine, glue, main;
 
 			self = this;
 
@@ -149,36 +148,6 @@
 
 			if ( self.is_mobile_view() ) {
 				self.mainheight();
-			}
-
-			// Only run function if an unbound element exists
-			if ( $( ".unbound, #binder.broken" ).length ) {
-				spread = $( window ).width();
-				verso = self._get_globals( "main" ).offset().left;
-				page = self._get_globals( "main" ).width();
-				recto = spread - self._get_globals( "main" ).offset().left;
-				recto_margin = "";
-
-				if ( recto >= page ) {
-					recto_margin = recto - page;
-				} else {
-					recto_margin = 0;
-				}
-
-				/* Broken Binding */
-				if ( $( "#binder" ).is( ".broken" ) ) {
-					self._get_globals( "main" ).css( "width", recto );
-				}
-
-				verso_width = verso + self._get_globals( "main" ).width();
-
-				$( ".unbound:not(.element).recto" ).css( "width", recto ).css( "margin-right", -( recto_margin ) );
-				$( ".unbound.element.recto" ).each( function() {
-					para = $( this ).width();
-					$( this ).css( "width", para + recto_margin ).css( "margin-right", -( recto_margin ) );
-				} );
-				$( ".unbound.verso" ).css( "width", verso_width ).css( "margin-left", -( verso ) );
-				$( ".unbound.verso.recto" ).css( "width", spread );
 			}
 
 			viewport_ht = $( window ).height();
