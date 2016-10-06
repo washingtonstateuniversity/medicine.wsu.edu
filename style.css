@@ -302,6 +302,7 @@ main * {
 /* --- Max widths for content sections --- */
 #site-header,
 .main-header .hgroup,
+.breadcrumbs,
 .site-footer > *,
 main .page > .section-wrapper > section,
 main .page > section {
@@ -319,6 +320,7 @@ header.main-header {
 	background-position: center center;
 	background-repeat: no-repeat;
 	background-size: cover;
+  margin-bottom: 1em;
 }
 .main-header .hgroup {
 	padding-top: 2.5em;
@@ -339,6 +341,10 @@ header.main-header {
 	line-height: 1;
 	margin: 0;
 	padding: 0;
+}
+
+.breadcrumbs{
+  font-size: .9em;
 }
 
 /* default sizing and padding for columns */
