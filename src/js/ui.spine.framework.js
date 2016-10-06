@@ -143,8 +143,6 @@
 				self.set_spine_state( "full" );
 			}
 
-			self.sizing();
-
 			if ( self.is_mobile_view() ) {
 				self.mainheight();
 			}
@@ -205,43 +203,6 @@
 			if ( !self.is_mobile_view() ) {
 				$( document ).trigger( "scroll" );
 			}
-		},
-
-		/**
-		 * Label `#jacket` with the current window size.
-		 *
-		 * @param {HTMLelement} jacket
-		 */
-		sizing: function( jacket ) {
-			var current_width, jacket_classes, px_width, size_intermediate, size_medium, size_large;
-
-            jacket = jacket || $( "#jacket" );
-
-            current_width = $( window ).width();
-
-			size_intermediate = "size-intermediate size-smallish size-lt-medium size-lt-large size-lt-xlarge size-gt-small";
-			size_medium = "size-medium size-lt-xlarge size-lt-large size-gt-intermediate size-gt-smallish size-gt-small";
-			size_large = "size-large size-lt-xlarge size-gt-small size-gt-intermediate size-gt-smallish size-gt-medium";
-
-			px_width = "";
-
-			if ( current_width >= 1188 ) {
-				jacket_classes = "size-xlarge size-gt-small size-gt-intermediate size-gt-smallish size-gt-medium size-gt-large";
-			} else if ( current_width >= 990 ) {
-				jacket_classes = size_large;
-			} else if ( ( current_width < 990 ) && current_width >= 792 ) {
-				px_width = "size-lt-990";
-				jacket_classes = $( "#binder" ).is( ".fluid" ) ? size_large : size_medium;
-			} else if ( current_width < 792 && current_width >= 694 ) {
-				px_width = "size-lt-792";
-				jacket_classes = $( "#binder" ).is( ".fixed" ) ? size_intermediate : size_medium;
-			} else if ( current_width < 694 && current_width >= 396 ) {
-				jacket_classes = "size-small size-lt-intermediate size-lt-smallish size-lt-medium size-lt-large size-lt-xlarge";
-			} else {
-				jacket_classes = "size-small size-lt-small size-lt-intermediate size-lt-smallish size-lt-medium size-lt-large size-lt-xlarge";
-			}
-
-			jacket.stripClass( "size-" ).addClass( jacket_classes + " " + px_width );
 		},
 
 		/**
