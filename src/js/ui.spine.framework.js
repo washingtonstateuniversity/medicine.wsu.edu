@@ -418,7 +418,7 @@
 		 * Sets up the spine area
 		 */
 		setup_spine: function() {
-			var self, spine, glue, main, viewport_ht, spine_ht, height_dif, positionLock;
+			var self, spine, glue, main;
 
 			$( "#spine .spine-header" ).prepend( "<button id='shelve' type='button' />" );
 
@@ -442,47 +442,6 @@
 				}
 			} );
 
-			if ( !self.is_mobile_view() ) {
-
-				// Watch for DOM changes and resize the Spine to match.
-				$.observeDOM( glue, function() {
-					self.apply_nav_func( self );
-				} );
-
-				// Fixed/Sticky Horizontal Header
-				$( document ).on( "scroll", function() {
-					self.apply_nav_func( self );
-				} );
-
-				$( document ).keydown( function( e ) {
-					if ( e.which === 35 || e.which === 36 ) {
-						viewport_ht	= $( window ).height();
-						spine_ht	= spine[ 0 ].scrollHeight;
-						height_dif	= viewport_ht - spine_ht;
-
-						if ( e.which === 35 ) {
-							positionLock = height_dif;
-						} else if ( e.which === 36 ) {
-							positionLock = 0;
-						}
-
-						spine.css( { "position": "fixed", "top": positionLock + "px" } );
-						self.nav_state.positionLock = positionLock;
-					}
-				} );
-
-				// Apply the `.skimmed` class to the Spine on non mobile views after 148px.
-				$( document ).scroll( function() {
-					var top;
-					top = $( document ).scrollTop();
-					if ( top > 148 ) {
-						$( "#spine" ).addClass( "skimmed" );
-					} else {
-						$( "#spine" ).removeClass( "skimmed" );
-					}
-				} );
-			}
-
 			/**
 			 * When the navigation area is shorter than the available window, add a margin to the
 			 * Spine footer so that the scroll container becomes active. This avoids issues on
@@ -496,70 +455,6 @@
 					var margin = window.innerHeight - nav_height - footer_height;
 					spine_footer.css( "margin-top", margin );
 				}
-			}
-		},
-
-		/**
-		 * Ensure Spine navigation is properly positioned and sized to snap to the top
-		 * and bottom of the document.
-		 *
-		 * @param self
-		 */
-		apply_nav_func: function( self ) {
-			var spine, glue, main, top, scroll_top, positionLock, scroll_dif, glue_ht;
-
-			spine = self._get_globals( "spine" ).refresh();
-			glue = self._get_globals( "glue" ).refresh();
-			main = self._get_globals( "main" ).refresh();
-
-			scroll_top   = self.nav_state.scroll_top;
-			positionLock = self.nav_state.positionLock;
-
-			top          = $( document ).scrollTop();
-			scroll_dif   = scroll_top - top;
-			scroll_top   = top;
-			glue_ht		 = glue.height();
-
-			self.nav_state.scroll_top = scroll_top;
-
-			// Main should always be at least as high as `#glue`.
-			main.css( { "min-height": glue_ht } );
-
-			/**
-			 * When the content in `main` is larger than the content in `#glue`, maintain a
-			 * fixed top position on `#spine` for smooth and predictable navigation scrolling.
-			 */
-			if ( main.outerHeight( true ) > glue_ht ) {
-				var upper_bound = glue_ht - window.innerHeight;
-
-				/**
-				 * Assume fluid movement by default. As long as we are within the upper bounds
-				 * we can calculate the position based on scroll location whether the scroll
-				 * goes up or down.
-				 */
-				positionLock = positionLock + scroll_dif;
-
-				/**
-				 * If the position is ever greater than 0, we've scrolled too far up and can
-				 * reset the position to 0.
-				 */
-				if ( positionLock > 0 ) {
-					positionLock = 0;
-				}
-
-				/**
-				 * If we ever scroll to a place where the new position would be calculated
-				 * outside of the upper bound, then reset it to the upper bound. This prevents
-				 * from scrolling too far down.
-				 */
-				if ( positionLock < ( -1 * upper_bound ) ) {
-					positionLock = ( -1 * upper_bound );
-				}
-
-				spine.css( { "position": "fixed", "top": positionLock + "px" } );
-				self.nav_state.positionLock = positionLock;
-			} else if ( spine.is( "#spine[style]" ) ) {
-				spine.removeAttr( "style" );
 			}
 		},
 
