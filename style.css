@@ -203,30 +203,47 @@ blockquote cite{
 }
 
 /* ------- */
-#site-header {
-	background: #fff;
-}
 @media (min-width: 989px) {
-  #wsu-signature{
-    position:absolute;
-    left:2em;
-    top:1em;
-    width:150px;
-    height:92px;
-  }
 	#spine {
 		min-height: auto!important;
 		position: relative!important;
 		font-size: 12px;
 		width: 100%;
-		height: auto;
-    padding: 87px 0 0;
+	}
+	#glue{
+		position: static;
+		width:100%;
+		max-width: 1188px;
+		margin-left: auto;
+		margin-right: auto;
+	}
+	#spine #glue:before,
+	.spine-full #glue:before{
+		display: none;
+	}
+	#spine header{
+		position: absolute;
+		top: 1em;
+		left:1em;
+		width: 0;
+	}
+	#wsu-signature{
+    width:150px;
+    height:92px;
+		text-indent: 99163px;
+  }
+	#spine .spine-actions,
+	.spine-offsitenav,
+	#spine footer{
+		display: none;
 	}
   #spine .spine-sitenav{
-    margin: 0;
+    padding: 86px 0 0;
+		margin: 0;
   }
   #spine .spine-navigation{
     padding: 0;
+		margin: 0;
   }
   #spine .spine-sitenav>ul>li:first-child>a{
     background: none;
@@ -234,7 +251,61 @@ blockquote cite{
   #spine .spine-sitenav>ul>li:first-child>a:hover{
     background: none;
   }
-
+	#spine nav.spine-sitenav > ul > li{
+    position:static;
+	}
+	#spine nav.spine-sitenav > ul > li.opened{
+		padding-bottom: 112px;
+	}
+	#spine nav.spine-sitenav > ul > li.opened > ul{
+    position:absolute;
+    width:100%;
+    display:-webkit-box;
+    display:-ms-flexbox;
+    display:flex;
+    background:#333;
+		left: 0;
+	}
+	#spine nav.spine-sitenav > ul > li.opened > ul:before{
+    width:100%;
+    background:#333;
+    height:100%;
+    content:"";
+    position:absolute;
+    left:-50%;
+		top:0;
+	}
+	#spine nav.spine-sitenav > ul > li.opened > ul:after{
+    width:100%;
+    background:#333;
+    height:100%;
+    content:"";
+    position:absolute;
+    left:50%;
+		top:0;
+	}
+	#spine nav.spine-sitenav > ul > li > ul{
+    display:-webkit-box;
+    display:-ms-flexbox;
+    display:flex;
+	}
+	#spine nav > ul > li.opened > ul > li{
+		-webkit-box-flex: 1;
+		    -ms-flex: 1;
+		        flex: 1;
+	}
+	#spine nav > ul > li.opened > ul > li > a{
+		color: #fff;
+		font-weight: 700;
+	}
+	#spine nav > ul > li.opened > ul > li,
+	#spine nav > ul > li.opened > ul > li > ul > li{
+		display: block;
+		margin-left: 0;
+	}
+	#spine .spine-sitenav > ul > li > ul  a{
+		color:rgba(255,255,255,.8);
+	}
 	/* --- navigation for site header and site footer --- */
 	.footer-nav > ul,
 	#spine nav.spine-sitenav > ul {
@@ -271,9 +342,9 @@ blockquote cite{
 		font-weight: 700;
 	}
 	.footer-nav > ul > li > ul,
-	#spine nav.spine-sitenav > ul > li > ul {
-		padding: 0;
-		margin: .5em 0;
+	#spine nav.spine-sitenav > ul > li.opened > ul {
+		padding: 1em 0;
+		margin: .25em 0;
 	}
 	.footer-nav > ul > li > ul a {
 		color: rgba(255, 255, 255, 0.7);
@@ -300,7 +371,6 @@ main * {
 /* ------- */
 
 /* --- Max widths for content sections --- */
-#site-header,
 .main-header .hgroup,
 .breadcrumbs,
 .site-footer > *,
