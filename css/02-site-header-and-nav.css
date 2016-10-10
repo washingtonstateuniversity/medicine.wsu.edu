@@ -102,6 +102,25 @@
 	#spine .spine-sitenav > ul > li > ul  a{
 		color:rgba(255,255,255,.8);
 	}
+	/* - show parent icon - */
+	#spine nav li.parent.opened>a:after,
+	#spine nav li.parent>a:after{
+		display: inline;
+		position: inherit;
+		padding-left:.5em;
+	}
+	#spine nav li.parent.opened>a:focus:after,
+	#spine nav li.parent.opened>a:hover:after,
+	#spine nav li.parent>a:focus:after,
+	#spine nav li.parent>a:hover:after{
+		display: inline;
+	}
+
+	/* - don't show icon on second level nav (third level is already visible) - */
+	#spine nav.spine-sitenav > ul > li > ul > li.opened > a:after,
+	#spine nav.spine-sitenav > ul > li > ul > li.parent > a:after{
+    display:none;
+	}
 	/* --- navigation for site header and site footer --- */
 	.footer-nav > ul,
 	#spine nav.spine-sitenav > ul {
