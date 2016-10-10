@@ -583,6 +583,36 @@ header.main-header {
   background-image: url("https://hd.unsplash.com/photo-1471074454408-f7db62d99254");
 }
 
+/* video wrapper allows you to easily position the video within the content and set the width and max-width of the video */
+.video-wrap-control {
+	width: 400px;
+}
+
+.video-in-scroll {
+	position: fixed;
+	z-index: 2;
+	bottom: 1rem;
+	right: 1rem;
+	width: 30vw;
+}
+
+/* The inner uses padding bottom (a percentage of it's own width) to allow the video player have a height that is responsive to the width */
+.video-wrap-inner {
+	position: relative;
+	padding-bottom: 56.25%;
+	padding-top: 25px;
+	height: 0;
+}
+
+/* the iFrame fills the container it is in using absolute positioning */
+.video-wrap-inner iframe {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
 main {
     color: #2d2d2d;
 }

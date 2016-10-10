@@ -12,7 +12,7 @@ module.exports = function( grunt ) {
 				src: "css/*.css",
 				dest: "tmp-style.css"
 			},
-			scripts: {
+			spine_js: {
 				src: [
 					"src/js/wsu_autocomplete.js",
 					"src/js/ui.spine.js",
@@ -22,6 +22,10 @@ module.exports = function( grunt ) {
 					"src/js/spine.js"
 				],
 				dest: "js/spine.js"
+			},
+			video_js: {
+				src: [ "src/js/video.js" ],
+				dest: "js/video.js"
 			}
 		},
 
@@ -128,9 +132,13 @@ module.exports = function( grunt ) {
 		},
 
 		uglify: {
-			build: {
+			spine_js: {
 				src: "js/spine.js",
 				dest: "js/spine.min.js"
+			},
+			video_js: {
+				src: "js/video.js",
+				dest: "js/video.min.js"
 			}
 		},
 
