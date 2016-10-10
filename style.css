@@ -149,8 +149,8 @@ main ul li {
     right: 0;
 }
 
-/* slight size adjustments for side-right */
-.side-right .two {
+/* slight size adjustments for margin-right */
+.margin-right .two {
     font-size: .9rem;
 }
 
@@ -456,7 +456,7 @@ header.main-header {
 .breadcrumbs{
   font-size: .7em;
 }
-
+@media (min-width: 989px) {
 /* default sizing and padding for columns */
 .row {
 	display: -webkit-box;
@@ -473,7 +473,7 @@ header.main-header {
 	    -ms-flex: 1 100%;
 	        flex: 1 100%;
 }
-#jacket .side-right header h2 {
+#jacket .margin-right header h2 {
 	width: 75%;
 }
 #jacket .row .column {
@@ -487,21 +487,21 @@ header.main-header {
 }
 
 #jacket .side-left .two,
-#jacket .side-right .one {
+#jacket .margin-right .one {
 	-webkit-box-flex: 3;
 	    -ms-flex: 3;
 	        flex: 3;
 }
 #jacket .halves .column,
 #jacket .quarters .column,
-#jacket .side-left .one,
-#jacket .side-right .two,
+#jacket .margin-left .one,
+#jacket .margin-right .two,
 #jacket .thirds .column {
 	-webkit-box-flex: 1;
 	    -ms-flex: 1;
 	        flex: 1;
 }
-
+}
 /* --- bleeds --- */
 #jacket #binder .bleed-full {
 	max-width: 100%;
