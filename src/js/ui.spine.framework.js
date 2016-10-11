@@ -160,12 +160,12 @@
 				self.setup_tabs( "contact", contactHtml );
 			}
 
-			self.setup_nav();
-
 			// Set the initial state of the Spine on page load. Mobile is defined as less than 990px.
 			if ( self.is_mobile_view() ) {
+				self.setup_mobile_navigation();
 				self.set_spine_state( "mobile" );
 			} else {
+				self.setup_standard_navigation();
 				$( "html" ).addClass( "spine-full" );
 			}
 
@@ -384,14 +384,21 @@
 		},
 
 		/**
-		 * Sets up navigation system
+		 * Sets up the navigation used on standard screen devices.
+		 *
+		 * @since 0.0.3
 		 */
-		setup_nav: function() {
+		setup_standard_navigation: function() {
 			var self = this;
 
 			// Apply the `parent` class to each parent list item of an unordered list in the navigation.
 			$( "#spine nav ul, #spine ul" ).parents( "li" ).addClass( "parent" );
 
+			/**
+			 * Couplets are anchor elements that are children of `.parent` list items.
+			 *
+			 * @type {any}
+			 */
 			var couplets = $( "#spine nav li.parent > a" );
 
 			// Assign active elements a class of dogeared unless those elements contain other active elements.
@@ -473,6 +480,105 @@
 
 			// Mark external URLs in the nav menu.
 			$( ".spine-navigation a[href^='http']:not([href*='://" + window.location.hostname + "'])" ).addClass( "external" );
+		},
+
+		/**
+		 * Sets up the mobile navigation system.
+		 *
+		 * @since 0.0.1 Forked from the WSU Spine
+		 * @since 0.0.3 Altered to only run on mobile devices.
+		 */
+		setup_mobile_navigation: function() {
+
+			// Apply the `parent` class to each parent list item of an unordered list in the navigation.
+			$( "#spine nav ul, #spine ul" ).parents( "li" ).addClass( "parent" );
+
+			/**
+			 * Couplets are anchor elements that are children of `.parent` list items.
+			 *
+			 * @type {any}
+			 */
+			var couplets = $( "#spine nav li.parent > a" );
+
+			// Assign active elements a class of dogeared unless those elements contain other active elements.
+			$( "#spine .active:not(:has(.active))" ).addClass( "dogeared" );
+
+			/**
+			 * Walk through each of the anchor elements in the navigation to establish when "Overview"
+			 * items should be added and what the text should read.
+			 */
+			couplets.each( function() {
+				var tar, title, url;
+				tar = $( this );
+				url = tar.attr( "href" );
+
+				// "Overview" anchors are only added for parents with URLs.
+				if ( "#" === url ) {
+					return;
+				}
+
+				var classes = "overview";
+
+				// If a generated overview's parent is marked as dogeared, do the same with the overview.
+				if ( tar.closest( ".parent" ).is( ".dogeared" ) ) {
+					classes += " dogeared";
+				}
+
+				title = ( tar.is( "[title]" )  ) ? tar.attr( "title" ) : "Overview";
+				title = ( tar.is( "[data-overview]" ) ) ? tar.data( "overview" ) : title;
+				title = title.length > 0 ? title : "Overview"; // This is just triple checking that a value made it here.
+
+				tar.parent( "li" ).children( "ul" ).prepend( "<li class='" + classes + "'></li>" );
+				tar.clone( true, true ).appendTo( tar.parent( "li" ).find( "ul .overview:first" ) );
+				tar.parent( "li" ).find( "ul .overview:first a" ).html( title );
+
+				// When the overview page is active, that area of the navigation should be opened.
+				if ( tar.parent( "li" ).hasClass( "active" ) ) {
+					tar.parents( "li" ).removeClass( "active" ).addClass( "opened dogeared" );
+				}
+			} );
+
+			/**
+			 * Account for historical markup in the WSU ecosystem and add the `active` and `dogeared` classes
+			 * to any list items that already have classes similar to `current` or `active`. Also apply the
+			 * `opened` and `dogeared` classes to any parent list items of these active elements.
+			 *
+			 * `active` and `dogeared` are both used for the styling of active menu items in the navigation.
+			 */
+			$( "#spine nav li[class*=current], #spine nav li[class*=active]" ).addClass( "active dogeared" ).parents( "li" ).addClass( "opened dogeared" );
+
+			/**
+			 * Also look for any anchor elements using a similar method and apply `active` and `dogeared` classes to
+			 * all parent list items.
+			 */
+			$( "#spine nav li a[class*=current], #spine nav li a[class*=active]" ).parents( "li" ).addClass( "active dogeared" );
+
+			/**
+			 * Setup navigation events depending on what the screen size is when the document first
+			 * loads. If mobile, we use touch events for navigation.
+			 *
+			 * Some additional handling is necessary on mobile to properly handle the sequence of
+			 * touchstart, touchmove, and touchend without confusion.
+			 */
+			couplets.on( "mousedown touchstart", function( e ) {
+				$( e.target ).on( "mouseup touchend", $.ui.spine.prototype._toggle_spine_nav_list );
+				$( e.target ).on( "mousemove touchmove", function( e ) {
+					$( e.target ).off( "mouseup touchend", $.ui.spine.prototype._toggle_spine_nav_list );
+				} );
+			} );
+
+			// Mark external URLs in the nav menu.
+			$( ".spine-navigation a[href^='http']:not([href*='://" + window.location.hostname + "'])" ).addClass( "external" );
+		},
+
+		/**
+		 * Clears any navigation behavior when switching states between mobile and
+		 * standard screen sizes.
+		 *
+		 * @since 0.0.3
+		 */
+		clear_navigation: function() {
+
 		},
 
 		/**
