@@ -104,6 +104,7 @@
 		position:absolute;
 		left:50%;
 		top:0;
+		z-index: -1;
 	}
 	#spine nav.spine-sitenav > ul > li > ul{
 		display:flex;

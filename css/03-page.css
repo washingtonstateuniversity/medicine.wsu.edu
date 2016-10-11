@@ -9,7 +9,9 @@ html {
 /* Overwrite because there is no longer a vertical nav to account for */
 
 main {
+	background: #fff;
 	margin-left: 0;
+	position: relative;
 }
 main * {
 	box-sizing: border-box;
