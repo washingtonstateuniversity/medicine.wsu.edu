@@ -136,8 +136,8 @@ main ul li {
     right: 0;
 }
 
-/* slight size adjustments for side-right */
-.side-right .two {
+/* slight size adjustments for margin-right */
+.margin-right .two {
     font-size: .9rem;
 }
 

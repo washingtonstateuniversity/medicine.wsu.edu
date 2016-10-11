@@ -11,6 +11,7 @@
 		position: relative!important;
 		font-size: 12px;
 		width: 100%;
+		z-index: 0;
 	}
 	#glue{
 		position: static;
@@ -40,7 +41,7 @@
 		display: none;
 	}
 	#spine .spine-sitenav{
-		padding: 86px 0 0;
+		padding: 90px 0 0;
 		margin: 0;
 	}
 	#spine .spine-navigation{
@@ -55,18 +56,38 @@
 	}
 	#spine nav.spine-sitenav > ul > li{
 		position:static;
+		padding-bottom: 0;
+		transition: all .3s ease;
 	}
 	#spine nav.spine-sitenav > ul > li.opened{
 		padding-bottom: 112px;
 	}
-	#spine nav.spine-sitenav > ul > li.opened > ul{
+	#spine nav > ul > li > a{
+		padding:0;
+	}
+	#spine nav.spine-sitenav > ul > li > ul{
 		position:absolute;
 		width:100%;
 		display:flex;
 		background:#333;
 		left: 0;
 	}
-	#spine nav.spine-sitenav > ul > li.opened > ul:before{
+	#spine nav.spine-sitenav > ul > li > ul > li{
+		display:inline;
+	}
+	/* bring opened sub nav to front */
+	#spine nav.spine-sitenav > ul > li.opened > ul{
+		z-index: 2;
+	}
+	/* prevent sub menus from flashing in during close transition */
+	#spine nav.spine-sitenav > ul > li.last-opened > ul{
+		z-index: 1;
+	}
+	#spine nav li.parent.active>a,
+	#spine nav li.parent.opened>a{
+		padding-bottom: 0;;
+	}
+	#spine nav.spine-sitenav > ul > li > ul:before{
 		width:100%;
 		background:#333;
 		height:100%;
@@ -75,7 +96,7 @@
 		left:-50%;
 		top:0;
 	}
-	#spine nav.spine-sitenav > ul > li.opened > ul:after{
+	#spine nav.spine-sitenav > ul > li > ul:after{
 		width:100%;
 		background:#333;
 		height:100%;
@@ -87,15 +108,15 @@
 	#spine nav.spine-sitenav > ul > li > ul{
 		display:flex;
 	}
-	#spine nav > ul > li.opened > ul > li{
+	#spine nav > ul > li > ul > li{
 		flex: 1;
 	}
-	#spine nav > ul > li.opened > ul > li > a{
+	#spine nav > ul > li > ul > li > a{
 		color: #fff;
 		font-weight: 700;
 	}
-	#spine nav > ul > li.opened > ul > li,
-	#spine nav > ul > li.opened > ul > li > ul > li{
+	#spine nav > ul > li > ul > li,
+	#spine nav > ul > li > ul > li > ul > li{
 		display: block;
 		margin-left: 0;
 	}
@@ -143,16 +164,15 @@
 	}
 	#spine nav.spine-sitenav > ul > li > a {
 		font-weight: 700;
-		margin-bottom: .5em;
+		margin-bottom: 1em;
 	}
 	.footer-nav > ul > li > a {
 		color: #fff;
 		font-weight: 700;
 	}
 	.footer-nav > ul > li > ul,
-	#spine nav.spine-sitenav > ul > li.opened > ul {
+	#spine nav.spine-sitenav > ul > li > ul {
 		padding: 1em 0;
-		margin: .25em 0;
 	}
 	.footer-nav > ul > li > ul a {
 		color: rgba(255, 255, 255, 0.7);

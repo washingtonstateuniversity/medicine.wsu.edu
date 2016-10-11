@@ -62,7 +62,7 @@ header.main-header {
 .breadcrumbs{
   font-size: .7em;
 }
-
+@media (min-width: 989px) {
 /* default sizing and padding for columns */
 .row {
 	display: flex;
@@ -72,7 +72,7 @@ header.main-header {
 #jacket .row header {
 	flex: 1 100%;
 }
-#jacket .side-right header h2 {
+#jacket .margin-right header h2 {
 	width: 75%;
 }
 #jacket .row .column {
@@ -86,17 +86,17 @@ header.main-header {
 }
 
 #jacket .side-left .two,
-#jacket .side-right .one {
+#jacket .margin-right .one {
 	flex: 3;
 }
 #jacket .halves .column,
 #jacket .quarters .column,
-#jacket .side-left .one,
-#jacket .side-right .two,
+#jacket .margin-left .one,
+#jacket .margin-right .two,
 #jacket .thirds .column {
 	flex: 1;
 }
-
+}
 /* --- bleeds --- */
 #jacket #binder .bleed-full {
 	max-width: 100%;

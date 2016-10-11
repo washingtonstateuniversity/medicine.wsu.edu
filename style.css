@@ -149,8 +149,8 @@ main ul li {
     right: 0;
 }
 
-/* slight size adjustments for side-right */
-.side-right .two {
+/* slight size adjustments for margin-right */
+.margin-right .two {
     font-size: .9rem;
 }
 
@@ -209,6 +209,7 @@ blockquote cite{
 		position: relative!important;
 		font-size: 12px;
 		width: 100%;
+		z-index: 0;
 	}
 	#glue{
 		position: static;
@@ -238,7 +239,7 @@ blockquote cite{
 		display: none;
 	}
 	#spine .spine-sitenav{
-		padding: 86px 0 0;
+		padding: 90px 0 0;
 		margin: 0;
 	}
 	#spine .spine-navigation{
@@ -253,11 +254,17 @@ blockquote cite{
 	}
 	#spine nav.spine-sitenav > ul > li{
 		position:static;
+		padding-bottom: 0;
+		-webkit-transition: all .3s ease;
+		transition: all .3s ease;
 	}
 	#spine nav.spine-sitenav > ul > li.opened{
 		padding-bottom: 112px;
 	}
-	#spine nav.spine-sitenav > ul > li.opened > ul{
+	#spine nav > ul > li > a{
+		padding:0;
+	}
+	#spine nav.spine-sitenav > ul > li > ul{
 		position:absolute;
 		width:100%;
 		display:-webkit-box;
@@ -266,7 +273,22 @@ blockquote cite{
 		background:#333;
 		left: 0;
 	}
-	#spine nav.spine-sitenav > ul > li.opened > ul:before{
+	#spine nav.spine-sitenav > ul > li > ul > li{
+		display:inline;
+	}
+	/* bring opened sub nav to front */
+	#spine nav.spine-sitenav > ul > li.opened > ul{
+		z-index: 2;
+	}
+	/* prevent sub menus from flashing in during close transition */
+	#spine nav.spine-sitenav > ul > li.last-opened > ul{
+		z-index: 1;
+	}
+	#spine nav li.parent.active>a,
+	#spine nav li.parent.opened>a{
+		padding-bottom: 0;;
+	}
+	#spine nav.spine-sitenav > ul > li > ul:before{
 		width:100%;
 		background:#333;
 		height:100%;
@@ -275,7 +297,7 @@ blockquote cite{
 		left:-50%;
 		top:0;
 	}
-	#spine nav.spine-sitenav > ul > li.opened > ul:after{
+	#spine nav.spine-sitenav > ul > li > ul:after{
 		width:100%;
 		background:#333;
 		height:100%;
@@ -289,17 +311,17 @@ blockquote cite{
 		display:-ms-flexbox;
 		display:flex;
 	}
-	#spine nav > ul > li.opened > ul > li{
+	#spine nav > ul > li > ul > li{
 		-webkit-box-flex: 1;
 		    -ms-flex: 1;
 		        flex: 1;
 	}
-	#spine nav > ul > li.opened > ul > li > a{
+	#spine nav > ul > li > ul > li > a{
 		color: #fff;
 		font-weight: 700;
 	}
-	#spine nav > ul > li.opened > ul > li,
-	#spine nav > ul > li.opened > ul > li > ul > li{
+	#spine nav > ul > li > ul > li,
+	#spine nav > ul > li > ul > li > ul > li{
 		display: block;
 		margin-left: 0;
 	}
@@ -354,16 +376,15 @@ blockquote cite{
 	}
 	#spine nav.spine-sitenav > ul > li > a {
 		font-weight: 700;
-		margin-bottom: .5em;
+		margin-bottom: 1em;
 	}
 	.footer-nav > ul > li > a {
 		color: #fff;
 		font-weight: 700;
 	}
 	.footer-nav > ul > li > ul,
-	#spine nav.spine-sitenav > ul > li.opened > ul {
+	#spine nav.spine-sitenav > ul > li > ul {
 		padding: 1em 0;
-		margin: .25em 0;
 	}
 	.footer-nav > ul > li > ul a {
 		color: rgba(255, 255, 255, 0.7);
@@ -435,7 +456,7 @@ header.main-header {
 .breadcrumbs{
   font-size: .7em;
 }
-
+@media (min-width: 989px) {
 /* default sizing and padding for columns */
 .row {
 	display: -webkit-box;
@@ -452,7 +473,7 @@ header.main-header {
 	    -ms-flex: 1 100%;
 	        flex: 1 100%;
 }
-#jacket .side-right header h2 {
+#jacket .margin-right header h2 {
 	width: 75%;
 }
 #jacket .row .column {
@@ -466,21 +487,21 @@ header.main-header {
 }
 
 #jacket .side-left .two,
-#jacket .side-right .one {
+#jacket .margin-right .one {
 	-webkit-box-flex: 3;
 	    -ms-flex: 3;
 	        flex: 3;
 }
 #jacket .halves .column,
 #jacket .quarters .column,
-#jacket .side-left .one,
-#jacket .side-right .two,
+#jacket .margin-left .one,
+#jacket .margin-right .two,
 #jacket .thirds .column {
 	-webkit-box-flex: 1;
 	    -ms-flex: 1;
 	        flex: 1;
 }
-
+}
 /* --- bleeds --- */
 #jacket #binder .bleed-full {
 	max-width: 100%;
