@@ -124,6 +124,12 @@
 	#spine .spine-sitenav > ul > li > ul  a{
 		color:rgba(255,255,255,.8);
 	}
+	/* - overwrite padding on last-child - */
+	#spine nav li.parent.active li:last-child a,
+	#spine nav li.parent.opened li:last-child a {
+    padding: .25em 0;
+}
+
 	/* - show parent icon - */
 	#spine nav li.parent.opened>a:after,
 	#spine nav li.parent>a:after{
