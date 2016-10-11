@@ -1,8 +1,3 @@
- /*!
- *
- * Depends:
- *		jquery.ui.v.js
- */
 /*jshint multistr: true */
 ( function( $ ) {
 	$.extend( $.ui.spine.prototype, {
@@ -430,7 +425,19 @@
 			// Disclosure
 			couplets.on( "click", function( e ) {
 				e.preventDefault();
-				$( e.target ).closest( "li" ).toggleClass( "opened" );
+				var $parent = $( e.target ).closest( "li" );
+				var padding = $parent.find( "> .sub-menu" ).outerHeight();
+
+				$( ".spine-sitenav > ul > li" ).each( function( t, x ) {
+					if ( $( x ).hasClass( "opened" ) ) {
+						$( x ).css( "padding-bottom", 0 );
+						$( x ).css( "z-index", 1 );
+						$( x ).removeClass( "opened" );
+					}
+				} );
+				$parent.toggleClass( "opened" );
+				$parent.css( { "z-index": 2 } );
+				$parent.css( { "padding-bottom": padding } );
 			} );
 
 			// Mark external URLs in the nav menu.
