@@ -128,7 +128,7 @@
 	#spine nav li.parent.active li:last-child a,
 	#spine nav li.parent.opened li:last-child a {
     padding: .25em 0;
-}
+	}
 
 	/* - show parent icon - */
 	#spine nav li.parent.opened>a:after,

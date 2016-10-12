@@ -49,6 +49,14 @@ h6 {
     font-size: 1em;
     font-weight: 400;
 }
+/* headers lead off content, don't want top padding on H elements within headers */
+main header h2,
+main header h3,
+main header h4,
+main header h5 {
+  padding-top:0;
+}
+
 /* links with animated underline */
 main a {
   font-weight: 400;
@@ -195,6 +203,10 @@ blockquote cite{
   left: 0;
   right: 0;
 }
+.block-head{
+  font-size: .9em;
+  text-transform: uppercase;
+}
 
 /* --- temporary overwrite to get the nav out of the way --- */
 
@@ -333,7 +345,7 @@ blockquote cite{
 	#spine nav li.parent.active li:last-child a,
 	#spine nav li.parent.opened li:last-child a {
     padding: .25em 0;
-}
+	}
 
 	/* - show parent icon - */
 	#spine nav li.parent.opened>a:after,
