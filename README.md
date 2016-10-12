@@ -56,15 +56,19 @@ There are three different bleed types:
 
 `bleed-full` applied to a `<section>` or `section-wrapper` will make that element fill the width of the window. It is recommended to place `bleed-full` on the `section-wrapper` so that the content within the section won't go full width, making it easier to read. If the content needs to go full width, then apply `bleed-full` to the section.
 
+### Image bleeds
+
 *Note:* For images that bleed full or bleed right use `img-mid-feature`. This applies a min-hieght as well as positioning for the background image. 
 
-In addition to using `img-mid-feature` you will need to use `bleed-full` for a full bleed. For an image that only bleeds right you will use `bleed-right` instead of `bleed-full`.
+In addition to using `img-mid-feature` you will need to use `bleed-full` for a full bleed. 
 
-#### caption
+For an image that only bleeds right you will use `bleed-right` instead of `bleed-full`.
+
+### Captions
 
 To display a caption on top of the image use the `caption` class on your element, e.g., `<p>`, `<div>`.
 
-#### Colors for background of non-image feature
+### Colors for background of non-image feature
 
 Use `lightest-back` on the `section-wrapper` or `<section>`, depending on what element you want to go full width. 
 
