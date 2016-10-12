@@ -933,18 +933,19 @@
 		 * @since 0.0.3
 		 */
 		setup_standard_navigation: function() {
+			var $spine_nav = $( ".spine-sitenav" );
 
 			// Apply the `parent` class to each parent list item of an unordered list in the navigation.
-			$( "#spine nav ul, #spine ul" ).parents( "li" ).addClass( "parent" );
+			$spine_nav.find( "ul" ).parents( "li" ).addClass( "parent" );
 
-			var top_level_parent_anchors = jQuery( ".spine-sitenav > ul > .parent > a" );
+			var top_level_parent_anchors = $spine_nav.find( "> ul > .parent > a" );
 
 			/**
 			 * Couplets are anchor elements that are children of `.parent` list items.
 			 *
 			 * @type {any}
 			 */
-			var couplets = $( "#spine nav li.parent > a" );
+			var couplets = $spine_nav.find( "li.parent > a" );
 
 			/**
 			 * Walk through each of the anchor elements in the navigation to establish when "Overview"
@@ -971,7 +972,7 @@
 				tar.parent( "li" ).find( "ul .overview:first a" ).html( title );
 			} );
 
-			$( "#spine nav .active" ).parents( "li" ).addClass( "active" );
+			$spine_nav.find( ".active" ).parents( "li" ).addClass( "active" );
 
 			top_level_parent_anchors.on( "click", function( e ) {
 				e.preventDefault();
@@ -991,7 +992,7 @@
 				var padding = $parent.find( "> .sub-menu" ).outerHeight();
 				var existing_menu = false;
 
-				$( ".spine-sitenav > ul > li" ).each( function( t, x ) {
+				$spine_nav.find( "> ul > li" ).each( function( t, x ) {
 					if ( $( x ).hasClass( "opened" ) ) {
 						existing_menu = true;
 						$( x ).css( { "z-index": 1, "padding-bottom": 0 } );
@@ -1021,7 +1022,7 @@
 			} );
 
 			// Mark external URLs in the nav menu.
-			$( ".spine-navigation a[href^='http']:not([href*='://" + window.location.hostname + "'])" ).addClass( "external" );
+			$spine_nav.find( "a[href^='http']:not([href*='://" + window.location.hostname + "'])" ).addClass( "external" );
 		},
 
 		/**
