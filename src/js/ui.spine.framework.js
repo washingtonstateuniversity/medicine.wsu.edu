@@ -1,8 +1,3 @@
- /*!
- *
- * Depends:
- *		jquery.ui.v.js
- */
 /*jshint multistr: true */
 ( function( $ ) {
 	$.extend( $.ui.spine.prototype, {
@@ -160,12 +155,12 @@
 				self.setup_tabs( "contact", contactHtml );
 			}
 
-			self.setup_nav();
-
 			// Set the initial state of the Spine on page load. Mobile is defined as less than 990px.
 			if ( self.is_mobile_view() ) {
+				self.setup_mobile_navigation();
 				self.set_spine_state( "mobile" );
 			} else {
+				self.setup_standard_navigation();
 				$( "html" ).addClass( "spine-full" );
 			}
 
@@ -384,14 +379,87 @@
 		},
 
 		/**
-		 * Sets up navigation system
+		 * Sets up the navigation used on standard screen devices.
+		 *
+		 * @since 0.0.3
 		 */
-		setup_nav: function() {
-			var self = this;
+		setup_standard_navigation: function() {
 
 			// Apply the `parent` class to each parent list item of an unordered list in the navigation.
 			$( "#spine nav ul, #spine ul" ).parents( "li" ).addClass( "parent" );
 
+			/**
+			 * Couplets are anchor elements that are children of `.parent` list items.
+			 *
+			 * @type {any}
+			 */
+			var couplets = $( "#spine nav li.parent > a" );
+
+			/**
+			 * Walk through each of the anchor elements in the navigation to establish when "Overview"
+			 * items should be added and what the text should read.
+			 */
+			couplets.each( function() {
+				var tar, title, url;
+				tar = $( this );
+				url = tar.attr( "href" );
+
+				// "Overview" anchors are only added for parents with URLs.
+				if ( "#" === url ) {
+					return;
+				}
+
+				var classes = "overview";
+
+				title = ( tar.is( "[title]" )  ) ? tar.attr( "title" ) : "Overview";
+				title = ( tar.is( "[data-overview]" ) ) ? tar.data( "overview" ) : title;
+				title = title.length > 0 ? title : "Overview"; // This is just triple checking that a value made it here.
+
+				tar.parent( "li" ).children( "ul" ).prepend( "<li class='" + classes + "'></li>" );
+				tar.clone( true, true ).appendTo( tar.parent( "li" ).find( "ul .overview:first" ) );
+				tar.parent( "li" ).find( "ul .overview:first a" ).html( title );
+			} );
+
+			$( "#spine nav .active" ).parents( "li" ).addClass( "active" );
+
+			// Disclosure
+			couplets.on( "click", function( e ) {
+				e.preventDefault();
+				var $parent = $( e.target ).closest( "li" );
+				var padding = $parent.find( "> .sub-menu" ).outerHeight();
+
+				$( ".spine-sitenav > ul > li" ).each( function( t, x ) {
+					if ( $( x ).hasClass( "opened" ) ) {
+						$( x ).css( "padding-bottom", 0 );
+						$( x ).css( "z-index", 1 );
+						$( x ).removeClass( "opened" );
+					}
+				} );
+				$parent.toggleClass( "opened" );
+				$parent.css( { "z-index": 2 } );
+				$parent.css( { "padding-bottom": padding } );
+			} );
+
+			// Mark external URLs in the nav menu.
+			$( ".spine-navigation a[href^='http']:not([href*='://" + window.location.hostname + "'])" ).addClass( "external" );
+		},
+
+		/**
+		 * Sets up the mobile navigation system.
+		 *
+		 * @since 0.0.1 Forked from the WSU Spine
+		 * @since 0.0.3 Altered to only run on mobile devices.
+		 */
+		setup_mobile_navigation: function() {
+
+			// Apply the `parent` class to each parent list item of an unordered list in the navigation.
+			$( "#spine nav ul, #spine ul" ).parents( "li" ).addClass( "parent" );
+
+			/**
+			 * Couplets are anchor elements that are children of `.parent` list items.
+			 *
+			 * @type {any}
+			 */
 			var couplets = $( "#spine nav li.parent > a" );
 
 			// Assign active elements a class of dogeared unless those elements contain other active elements.
@@ -449,30 +517,30 @@
 
 			/**
 			 * Setup navigation events depending on what the screen size is when the document first
-			 * loads. If mobile, we use touch events for navigation. If not mobile, we rely on
-			 * standard click events.
+			 * loads. If mobile, we use touch events for navigation.
 			 *
 			 * Some additional handling is necessary on mobile to properly handle the sequence of
 			 * touchstart, touchmove, and touchend without confusion.
 			 */
-			if ( self.is_mobile_view() ) {
-				couplets.on( "mousedown touchstart", function( e ) {
-					$( e.target ).on( "mouseup touchend", $.ui.spine.prototype._toggle_spine_nav_list );
-					$( e.target ).on( "mousemove touchmove", function( e ) {
-						$( e.target ).off( "mouseup touchend", $.ui.spine.prototype._toggle_spine_nav_list );
-					} );
+			couplets.on( "mousedown touchstart", function( e ) {
+				$( e.target ).on( "mouseup touchend", $.ui.spine.prototype._toggle_spine_nav_list );
+				$( e.target ).on( "mousemove touchmove", function( e ) {
+					$( e.target ).off( "mouseup touchend", $.ui.spine.prototype._toggle_spine_nav_list );
 				} );
-			} else {
-
-				// Disclosure
-				couplets.on( "click", function( e ) {
-					e.preventDefault();
-					$( e.target ).closest( "li" ).toggleClass( "opened" );
-				} );
-			}
+			} );
 
 			// Mark external URLs in the nav menu.
 			$( ".spine-navigation a[href^='http']:not([href*='://" + window.location.hostname + "'])" ).addClass( "external" );
+		},
+
+		/**
+		 * Clears any navigation behavior when switching states between mobile and
+		 * standard screen sizes.
+		 *
+		 * @since 0.0.3
+		 */
+		clear_navigation: function() {
+
 		},
 
 		/**

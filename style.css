@@ -5,7 +5,7 @@
  Author:         WSU University Communications
  Author URI:     https://web.wsu.edu
  Template:       spine
- Version:        0.0.2
+ Version:        0.0.3
 */
 
 /* --- general typography and type classes --- */
@@ -261,7 +261,7 @@ blockquote cite{
 	#spine nav.spine-sitenav > ul > li.opened{
 		padding-bottom: 112px;
 	}
-	#spine nav > ul > li > a{
+	#spine nav > ul > li > a {
 		padding:0;
 	}
 	#spine nav.spine-sitenav > ul > li > ul{
