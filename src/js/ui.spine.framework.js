@@ -388,6 +388,8 @@
 			// Apply the `parent` class to each parent list item of an unordered list in the navigation.
 			$( "#spine nav ul, #spine ul" ).parents( "li" ).addClass( "parent" );
 
+			var top_level_parent_anchors = jQuery( ".spine-sitenav > ul > .parent > a" );
+
 			/**
 			 * Couplets are anchor elements that are children of `.parent` list items.
 			 *
@@ -422,22 +424,51 @@
 
 			$( "#spine nav .active" ).parents( "li" ).addClass( "active" );
 
-			// Disclosure
-			couplets.on( "click", function( e ) {
+			top_level_parent_anchors.on( "click", function( e ) {
 				e.preventDefault();
+
 				var $parent = $( e.target ).closest( "li" );
+
+				if ( $parent.hasClass( "opened" ) ) {
+					$parent.css( { "z-index": 1, "padding-bottom": 0 } );
+					setTimeout( function() {
+						$parent.removeClass( "opened" );
+						$parent.find( "> .sub-menu > li" ).css( "visibility", "hidden" );
+					}, 300 );
+
+					return;
+				}
+
 				var padding = $parent.find( "> .sub-menu" ).outerHeight();
+				var existing_menu = false;
 
 				$( ".spine-sitenav > ul > li" ).each( function( t, x ) {
 					if ( $( x ).hasClass( "opened" ) ) {
-						$( x ).css( "padding-bottom", 0 );
-						$( x ).css( "z-index", 1 );
-						$( x ).removeClass( "opened" );
+						existing_menu = true;
+						$( x ).css( { "z-index": 1, "padding-bottom": 0 } );
+						setTimeout( function() {
+							$( x ).removeClass( "opened" );
+							$( x ).find( "> .sub-menu > li" ).css( "visibility", "hidden" );
+							$parent.css( { "z-index": 2 } );
+							$parent.find( "> .sub-menu > li" ).css( "visibility", "visible" );
+							$parent.toggleClass( "opened" );
+							$parent.css( { "padding-bottom": padding } );
+						}, 300 );
 					}
 				} );
-				$parent.toggleClass( "opened" );
-				$parent.css( { "z-index": 2 } );
-				$parent.css( { "padding-bottom": padding } );
+
+				if ( false === existing_menu ) {
+					$parent.css( { "z-index": 2 } );
+					$parent.find( "> .sub-menu > li" ).css( "visibility", "visible" );
+					$parent.toggleClass( "opened" );
+					$parent.css( { "padding-bottom": padding } );
+				}
+			} );
+
+			// Disclosure
+			couplets.on( "click", function( e ) {
+				e.preventDefault();
+
 			} );
 
 			// Mark external URLs in the nav menu.
