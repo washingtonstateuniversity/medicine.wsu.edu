@@ -66,7 +66,7 @@ For an image that only bleeds right you will use `bleed-right` instead of `bleed
 
 ### Captions
 
-To display a caption on top of the image use the `caption` class on your element, e.g., `<p>`, `<div>`.
+To display a caption on top of the image use the `caption` class on the column.
 
 ### Colors for background of non-image feature
 
