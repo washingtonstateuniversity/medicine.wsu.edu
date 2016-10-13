@@ -301,6 +301,10 @@ blockquote cite{
 	#spine nav.spine-sitenav > ul > li > ul > li{
 		display:inline;
 	}
+	/* take off home icon from home link */
+	#spine .spine-sitenav>ul>li.active:first-child>a, #spine .spine-sitenav>ul>li:first-child>a:hover {
+		background: none;
+	}
 	/* bring opened sub nav to front */
 	#spine nav.spine-sitenav > ul > li.opened > ul{
 		z-index: 2;
@@ -439,13 +443,14 @@ blockquote cite{
 	}
 	#spine header {
 	  position:relative;
-	  left:0;
+	  left: 0;
+		height:92px;
 	}
 	#spine header {
-	  width:150px;
+	  width: 150px;
 	}
 	#spine .spine-navigation{
-	  padding-left:3em;;
+	  padding-left: 3em;
 	}
 }
 
