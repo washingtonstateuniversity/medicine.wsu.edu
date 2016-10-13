@@ -382,6 +382,8 @@
 		 * Walk through each of the anchor elements in the navigation to establish when "Overview"
 		 * items should be added and what the text should read.
 		 *
+		 * @since 0.0.6
+		 *
 		 * @param index
 		 * @param el
 		 */
@@ -409,6 +411,8 @@
 		/**
 		 * Handles click events on the top level anchor items when the
 		 * standard horizontal navigation is displayed.
+		 *
+		 * @since 0.0.6
 		 *
 		 * @param e
 		 */
@@ -459,6 +463,8 @@
 		/**
 		 * Handles click events on sub level anchor items when the
 		 * standard horizontal navigation is displayed.
+		 *
+		 * @since 0.0.6
 		 *
 		 * @param e
 		 */
