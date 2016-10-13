@@ -29,6 +29,17 @@ main .page > section {
 	margin-left: auto;
 	margin-right: auto;
 }
+@media (max-width: 1230px) {
+	#glue,
+	.main-header .hgroup,
+	.breadcrumbs,
+	.site-footer > *,
+	main .page > .section-wrapper > section,
+	main .page > section {
+		padding-left:2rem;
+		padding-right: 2rem;
+	}
+}
 
 /* --- Page header --- */
 header.main-header {
@@ -68,9 +79,8 @@ header.main-header {
 .breadcrumbs a {
 	color: rgba(0,0,0,.6);
 }
-.breadcrumbs-item,
 .breadcrumbs-divider {
-	padding-right: 1em;
+	padding: 0 1em;
 }
 @media (min-width: 989px) {
 /* default sizing and padding for columns */
@@ -199,4 +209,10 @@ header.main-header {
 }
 .site-footer .global-links li:first-child {
 	padding-left: 0;
+}
+@media (max-width: 989px){
+	#glue{
+		padding-left:0;
+		padding-right: 0;
+	}
 }
