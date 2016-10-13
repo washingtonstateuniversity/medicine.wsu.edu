@@ -238,11 +238,12 @@ blockquote cite{
 	.spine-full #glue:before{
 		display: none;
 	}
-	#spine header{
+	#binder #spine header{
 		position: absolute;
 		top: 1em;
 		left:2em;
-		width: 0;
+		height:92px;
+		background-color: transparent;
 	}
 	#wsu-signature{
 		width:150px;
@@ -356,15 +357,19 @@ blockquote cite{
 		display: block;
 		margin-left: 0;
 	}
+	#spine nav ul ul ul li a {
+		padding: .25em 3em .25em 0;
+	}
 	/* - overwrite Spine padding for last child - */
 	#spine nav li.parent.active li:last-child a,
 	#spine nav li.parent.opened li:last-child a,
 	#spine nav ul ul li a{
-		padding: .25em 0;
+		padding: .25em 3em .25em 0;
 	}
 	#spine .spine-sitenav > ul > li > ul  a{
 		color:rgba(255,255,255,.7);
 		font-weight: 300;
+		padding: .25em 3em .25em 0;
 	}
 	#spine .spine-sitenav > ul > li > ul >li > a{
 		color:#fff;
@@ -383,6 +388,13 @@ blockquote cite{
 	#spine nav li.parent>a:focus:after,
 	#spine nav li.parent>a:hover:after{
 		display: inline;
+	}
+	#binder #spine nav li.parent.active > a:after {
+		content: "\F501";
+	}
+	#binder #spine nav li.parent.opened.active > a:after {
+		content: "\F500";
+		font-family: Spine-Icons;
 	}
 
 	/* - don't show icon on second level nav (third level is already visible) - */
@@ -441,16 +453,20 @@ blockquote cite{
 	  display: -ms-flexbox;
 	  display: flex;
 	}
-	#spine header {
+	#binder #spine header {
 	  position:relative;
 	  left: 0;
 		height:92px;
 	}
-	#spine header {
+	#binder #spine header {
 	  width: 150px;
 	}
-	#spine .spine-navigation{
+	#binder #spine .spine-navigation{
 	  padding-left: 3em;
+		width: 100%;
+	}
+	#spine nav.spine-sitenav > ul > li > ul {
+		padding-left: 3em;
 	}
 }
 
@@ -484,6 +500,17 @@ main .page > section {
 	max-width: 1188px;
 	margin-left: auto;
 	margin-right: auto;
+}
+@media (max-width: 1230px) {
+	#glue,
+	.main-header .hgroup,
+	.breadcrumbs,
+	.site-footer > *,
+	main .page > .section-wrapper > section,
+	main .page > section {
+		padding-left:2rem;
+		padding-right: 2rem;
+	}
 }
 
 /* --- Page header --- */
@@ -524,9 +551,8 @@ header.main-header {
 .breadcrumbs a {
 	color: rgba(0,0,0,.6);
 }
-.breadcrumbs-item,
 .breadcrumbs-divider {
-	padding-right: 1em;
+	padding: 0 1em;
 }
 @media (min-width: 989px) {
 /* default sizing and padding for columns */
@@ -668,6 +694,12 @@ header.main-header {
 }
 .site-footer .global-links li:first-child {
 	padding-left: 0;
+}
+@media (max-width: 989px){
+	#glue{
+		padding-left:0;
+		padding-right: 0;
+	}
 }
 
 

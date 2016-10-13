@@ -24,11 +24,12 @@
 	.spine-full #glue:before{
 		display: none;
 	}
-	#spine header{
+	#binder #spine header{
 		position: absolute;
 		top: 1em;
 		left:2em;
-		width: 0;
+		height:92px;
+		background-color: transparent;
 	}
 	#wsu-signature{
 		width:150px;
@@ -135,15 +136,19 @@
 		display: block;
 		margin-left: 0;
 	}
+	#spine nav ul ul ul li a {
+		padding: .25em 3em .25em 0;
+	}
 	/* - overwrite Spine padding for last child - */
 	#spine nav li.parent.active li:last-child a,
 	#spine nav li.parent.opened li:last-child a,
 	#spine nav ul ul li a{
-		padding: .25em 0;
+		padding: .25em 3em .25em 0;
 	}
 	#spine .spine-sitenav > ul > li > ul  a{
 		color:rgba(255,255,255,.7);
 		font-weight: 300;
+		padding: .25em 3em .25em 0;
 	}
 	#spine .spine-sitenav > ul > li > ul >li > a{
 		color:#fff;
@@ -162,6 +167,13 @@
 	#spine nav li.parent>a:focus:after,
 	#spine nav li.parent>a:hover:after{
 		display: inline;
+	}
+	#binder #spine nav li.parent.active > a:after {
+		content: "\F501";
+	}
+	#binder #spine nav li.parent.opened.active > a:after {
+		content: "\F500";
+		font-family: Spine-Icons;
 	}
 
 	/* - don't show icon on second level nav (third level is already visible) - */
@@ -213,15 +225,19 @@
 	div#glue {
 	  display: flex;
 	}
-	#spine header {
+	#binder #spine header {
 	  position:relative;
 	  left: 0;
 		height:92px;
 	}
-	#spine header {
+	#binder #spine header {
 	  width: 150px;
 	}
-	#spine .spine-navigation{
+	#binder #spine .spine-navigation{
 	  padding-left: 3em;
+		width: 100%;
+	}
+	#spine nav.spine-sitenav > ul > li > ul {
+		padding-left: 3em;
 	}
 }
