@@ -391,6 +391,8 @@
 
 			var top_level_parent_anchors = $spine_nav.find( "> ul > .parent > a" );
 
+			var sub_level_parent_anchors = $spine_nav.find( "> ul > .parent > ul .parent > a" );
+
 			/**
 			 * Couplets are anchor elements that are children of `.parent` list items.
 			 *
@@ -467,8 +469,24 @@
 			} );
 
 			// Disclosure
-			couplets.on( "click", function( e ) {
+			sub_level_parent_anchors.on( "click", function( e ) {
+				var existing_padding = 0;
+
 				e.preventDefault();
+				var $parent = $( e.target ).closest( "li" );
+				var $top_parent = $parent.closest( ".spine-sitenav > ul > .parent" );
+
+				if ( $parent.hasClass( "opened" ) ) {
+					var remove_height = $parent.find( "> .sub-menu" ).height();
+					existing_padding = parseFloat( $top_parent.css( "padding-bottom" ) );
+					$top_parent.css( "padding-bottom", ( existing_padding - remove_height ) + "px" );
+					$parent.removeClass( "opened" );
+				} else {
+					$parent.addClass( "opened" );
+					var added_height = $parent.find( "> .sub-menu" ).height();
+					existing_padding = parseFloat( $top_parent.css( "padding-bottom" ) );
+					$top_parent.css( "padding-bottom", ( added_height + existing_padding ) + "px" );
+				}
 
 			} );
 
