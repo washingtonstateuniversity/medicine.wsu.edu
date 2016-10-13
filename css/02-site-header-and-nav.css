@@ -65,6 +65,11 @@
 	#spine nav > ul > li > a {
 		padding:0;
 	}
+
+	#spine .spine-sitenav > ul > .parent > .sub-menu > li {
+		visibility: hidden;
+	}
+
 	#spine nav.spine-sitenav > ul > li > ul{
 		position:absolute;
 		width:100%;

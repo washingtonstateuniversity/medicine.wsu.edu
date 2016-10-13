@@ -384,16 +384,21 @@
 		 * @since 0.0.3
 		 */
 		setup_standard_navigation: function() {
+			var $spine_nav = $( ".spine-sitenav" );
 
 			// Apply the `parent` class to each parent list item of an unordered list in the navigation.
-			$( "#spine nav ul, #spine ul" ).parents( "li" ).addClass( "parent" );
+			$spine_nav.find( "ul" ).parents( "li" ).addClass( "parent" );
+
+			var top_level_parent_anchors = $spine_nav.find( "> ul > .parent > a" );
+
+			var sub_level_parent_anchors = $spine_nav.find( "> ul > .parent > ul .parent > a" );
 
 			/**
 			 * Couplets are anchor elements that are children of `.parent` list items.
 			 *
 			 * @type {any}
 			 */
-			var couplets = $( "#spine nav li.parent > a" );
+			var couplets = $spine_nav.find( "li.parent > a" );
 
 			/**
 			 * Walk through each of the anchor elements in the navigation to establish when "Overview"
@@ -420,28 +425,73 @@
 				tar.parent( "li" ).find( "ul .overview:first a" ).html( title );
 			} );
 
-			$( "#spine nav .active" ).parents( "li" ).addClass( "active" );
+			$spine_nav.find( ".active" ).parents( "li" ).addClass( "active" );
 
-			// Disclosure
-			couplets.on( "click", function( e ) {
+			top_level_parent_anchors.on( "click", function( e ) {
 				e.preventDefault();
-				var $parent = $( e.target ).closest( "li" );
-				var padding = $parent.find( "> .sub-menu" ).outerHeight();
 
-				$( ".spine-sitenav > ul > li" ).each( function( t, x ) {
+				var $parent = $( e.target ).closest( "li" );
+
+				if ( $parent.hasClass( "opened" ) ) {
+					$parent.css( { "z-index": 1, "padding-bottom": 0 } );
+					setTimeout( function() {
+						$parent.removeClass( "opened" );
+						$parent.find( "> .sub-menu > li" ).css( "visibility", "hidden" );
+					}, 300 );
+
+					return;
+				}
+
+				var padding = $parent.find( "> .sub-menu" ).outerHeight();
+				var existing_menu = false;
+
+				$spine_nav.find( "> ul > li" ).each( function( t, x ) {
 					if ( $( x ).hasClass( "opened" ) ) {
-						$( x ).css( "padding-bottom", 0 );
-						$( x ).css( "z-index", 1 );
-						$( x ).removeClass( "opened" );
+						existing_menu = true;
+						$( x ).css( { "z-index": 1, "padding-bottom": 0 } );
+						setTimeout( function() {
+							$( x ).removeClass( "opened" );
+							$( x ).find( "> .sub-menu > li" ).css( "visibility", "hidden" );
+							$parent.css( { "z-index": 2 } );
+							$parent.find( "> .sub-menu > li" ).css( "visibility", "visible" );
+							$parent.toggleClass( "opened" );
+							$parent.css( { "padding-bottom": padding } );
+						}, 300 );
 					}
 				} );
-				$parent.toggleClass( "opened" );
-				$parent.css( { "z-index": 2 } );
-				$parent.css( { "padding-bottom": padding } );
+
+				if ( false === existing_menu ) {
+					$parent.css( { "z-index": 2 } );
+					$parent.find( "> .sub-menu > li" ).css( "visibility", "visible" );
+					$parent.toggleClass( "opened" );
+					$parent.css( { "padding-bottom": padding } );
+				}
+			} );
+
+			// Disclosure
+			sub_level_parent_anchors.on( "click", function( e ) {
+				var existing_padding = 0;
+
+				e.preventDefault();
+				var $parent = $( e.target ).closest( "li" );
+				var $top_parent = $parent.closest( ".spine-sitenav > ul > .parent" );
+
+				if ( $parent.hasClass( "opened" ) ) {
+					var remove_height = $parent.find( "> .sub-menu" ).height();
+					existing_padding = parseFloat( $top_parent.css( "padding-bottom" ) );
+					$top_parent.css( "padding-bottom", ( existing_padding - remove_height ) + "px" );
+					$parent.removeClass( "opened" );
+				} else {
+					$parent.addClass( "opened" );
+					var added_height = $parent.find( "> .sub-menu" ).height();
+					existing_padding = parseFloat( $top_parent.css( "padding-bottom" ) );
+					$top_parent.css( "padding-bottom", ( added_height + existing_padding ) + "px" );
+				}
+
 			} );
 
 			// Mark external URLs in the nav menu.
-			$( ".spine-navigation a[href^='http']:not([href*='://" + window.location.hostname + "'])" ).addClass( "external" );
+			$spine_nav.find( "a[href^='http']:not([href*='://" + window.location.hostname + "'])" ).addClass( "external" );
 		},
 
 		/**
