@@ -63,7 +63,6 @@ main a {
   position: relative;
   color: inherit;
   text-decoration: none;
-  -webkit-transition: all 0.3s ease;
   transition: all 0.3s ease;
 }
 main a:hover,
@@ -77,11 +76,9 @@ main a:before {
   height: 1px;
   bottom: -1px;
   left: 0;
-  background: -webkit-linear-gradient(left, #981e32 50%,rgba(0,0,0,.2) 50%);
   background: linear-gradient(to right, #981e32 50%,rgba(0,0,0,.2) 50%);
   background-size: 200%;
   background-position: 100% 0;
-  -webkit-transition: all 0.3s ease 0s;
   transition: all 0.3s ease 0s;
   overflow: hidden;
 }
@@ -275,7 +272,6 @@ blockquote cite{
 	#spine nav.spine-sitenav > ul > li{
 		position:static;
 		padding-bottom: 0;
-		-webkit-transition: all .3s ease;
 		transition: all .3s ease;
 	}
 	#spine nav.spine-sitenav > ul > li.opened{
@@ -292,7 +288,6 @@ blockquote cite{
 	#spine nav.spine-sitenav > ul > li > ul{
 		position:absolute;
 		width:100%;
-		display:-webkit-box;
 		display:-ms-flexbox;
 		display:flex;
 		background:#333;
@@ -334,14 +329,12 @@ blockquote cite{
 		z-index: -1;
 	}
 	#spine nav.spine-sitenav > ul > li > ul{
-		display:-webkit-box;
 		display:-ms-flexbox;
 		display:flex;
 	}
 	#spine nav > ul > li > ul > li{
-		-webkit-box-flex: 1;
-		    -ms-flex: 1;
-		        flex: 1;
+		-ms-flex: 1;
+		    flex: 1;
 	}
 	#spine nav > ul > li > ul > li > a{
 		color: #fff;
@@ -389,7 +382,6 @@ blockquote cite{
 	/* --- navigation for site header and site footer --- */
 	.footer-nav > ul,
 	#spine nav.spine-sitenav > ul {
-		display: -webkit-box;
 		display: -ms-flexbox;
 		display: flex;
 		-ms-flex-wrap: wrap;
@@ -405,9 +397,8 @@ blockquote cite{
 		padding-right: 3em;
 	}
 	.footer-nav > ul > li {
-		-webkit-box-flex: 1;
-		    -ms-flex: 1;
-		        flex: 1;
+		-ms-flex: 1;
+		    flex: 1;
 	}
 	.footer-nav > ul > li {
 		min-width: 180px;
@@ -433,7 +424,6 @@ blockquote cite{
 @media (max-width:1550px) and (min-width:989px) {
 
 	div#glue {
-	  display: -webkit-box;
 	  display: -ms-flexbox;
 	  display: flex;
 	}
@@ -526,19 +516,16 @@ header.main-header {
 @media (min-width: 989px) {
 /* default sizing and padding for columns */
 .row {
-	display: -webkit-box;
 	display: -ms-flexbox;
 	display: flex;
-	-webkit-box-pack: justify;
-	    -ms-flex-pack: justify;
-	        justify-content: space-between;
+	-ms-flex-pack: justify;
+	    justify-content: space-between;
 	-ms-flex-wrap: wrap;
 	    flex-wrap: wrap;
 }
 #jacket .row header {
-	-webkit-box-flex: 1;
-	    -ms-flex: 1 100%;
-	        flex: 1 100%;
+	-ms-flex: 1 100%;
+	    flex: 1 100%;
 }
 #jacket .margin-right header h2 {
 	width: 75%;
@@ -555,18 +542,16 @@ header.main-header {
 
 #jacket .side-left .two,
 #jacket .margin-right .one {
-	-webkit-box-flex: 3;
-	    -ms-flex: 3;
-	        flex: 3;
+	-ms-flex: 3;
+	    flex: 3;
 }
 #jacket .halves .column,
 #jacket .quarters .column,
 #jacket .margin-left .one,
 #jacket .margin-right .two,
 #jacket .thirds .column {
-	-webkit-box-flex: 1;
-	    -ms-flex: 1;
-	        flex: 1;
+	-ms-flex: 1;
+	    flex: 1;
 }
 }
 /* --- bleeds --- */
@@ -650,7 +635,6 @@ header.main-header {
 }
 /* global nav */
 .site-footer .global-links ul {
-	display: -webkit-box;
 	display: -ms-flexbox;
 	display: flex;
 	margin-top: .5em;
