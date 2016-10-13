@@ -52,6 +52,19 @@
 		},
 
 		/**
+		 * Contains elements common to both both the mobile and standard versions of the
+		 * Spine for reuse in several areas.
+		 *
+		 * @since 0.0.6
+		 */
+		nav_elements: {
+			main_nav: false,
+			top_level_parent_anchors: false,
+			sub_level_parent_anchors: false,
+			all_parent_anchors: false
+		},
+
+		/**
 		 * Setup a scroll container for use with iOS.
 		 */
 		setup_nav_scroll: function() {
@@ -119,9 +132,13 @@
 			main = self._get_globals( "main" ).refresh();
 
 			if ( self.is_mobile_view() && !self.has_mobile_state() ) {
+				self.clear_navigation();
 				self.set_spine_state( "mobile" );
+				self.setup_mobile_navigation();
 			} else if ( !self.is_mobile_view() && self.has_mobile_state() ) {
+				self.clear_navigation();
 				self.set_spine_state( "full" );
+				self.setup_standard_navigation();
 			}
 
 			if ( self.is_mobile_view() ) {
@@ -154,6 +171,29 @@
 				contactHtml += "</section>";
 				self.setup_tabs( "contact", contactHtml );
 			}
+
+			// Cache the Spine's main <nav> element for repeated use.
+			self.nav_elements.spine_nav = $( ".spine-sitenav" );
+
+			// Apply the `parent` class to each parent list item of an unordered list in the navigation.
+			self.nav_elements.spine_nav.find( "ul" ).parents( "li" ).addClass( "parent" );
+
+			// Cache all <a> elements from top level parent <li> elements.
+			self.nav_elements.top_level_parent_anchors = self.nav_elements.spine_nav.find( "> ul > .parent > a" );
+
+			// Cache all <a> elements from sub level parent <li> elements.
+			self.nav_elements.sub_level_parent_anchors = self.nav_elements.spine_nav.find( "> ul > .parent > ul .parent > a" );
+
+			// Cache all <a> elements from parent <li> elements at any level.
+			self.nav_elements.all_parent_anchors = self.nav_elements.spine_nav.find( "li.parent > a" );
+
+			self.nav_elements.all_parent_anchors.each( $.ui.spine.prototype.process_overview_links );
+
+			// Add an active class to parent <li> elements of any element already marked active.
+			self.nav_elements.spine_nav.find( ".active" ).parents( "li" ).addClass( "active" );
+
+			// Mark external URLs in the nav menu.
+			self.nav_elements.spine_nav.find( "a[href^='http']:not([href*='://" + window.location.hostname + "'])" ).addClass( "external" );
 
 			// Set the initial state of the Spine on page load. Mobile is defined as less than 990px.
 			if ( self.is_mobile_view() ) {
@@ -419,9 +459,6 @@
 		handle_top_level_anchor_click: function( e ) {
 			e.preventDefault();
 
-			// Cache the Spine's main <nav> element for repeated use.
-			var $spine_nav = $( ".spine-sitenav" );
-
 			var $parent = $( e.target ).closest( "li" );
 
 			if ( $parent.hasClass( "opened" ) ) {
@@ -437,7 +474,7 @@
 			var padding = $parent.find( "> .sub-menu" ).outerHeight();
 			var existing_menu = false;
 
-			$spine_nav.find( "> ul > li" ).each( function( t, x ) {
+			$.ui.spine.prototype.nav_elements.spine_nav.find( "> ul > li" ).each( function( t, x ) {
 				if ( $( x ).hasClass( "opened" ) ) {
 					existing_menu = true;
 					$( x ).css( { "z-index": 1, "padding-bottom": 0 } );
@@ -494,33 +531,8 @@
 		 * @since 0.0.3
 		 */
 		setup_standard_navigation: function() {
-
-			// Cache the Spine's main <nav> element for repeated use.
-			var $spine_nav = $( ".spine-sitenav" );
-
-			// Apply the `parent` class to each parent list item of an unordered list in the navigation.
-			$spine_nav.find( "ul" ).parents( "li" ).addClass( "parent" );
-
-			// Cache all <a> elements from top level parent <li> elements.
-			var top_level_parent_anchors = $spine_nav.find( "> ul > .parent > a" );
-
-			// Cache all <a> elements from sub level parent <li> elements.
-			var sub_level_parent_anchors = $spine_nav.find( "> ul > .parent > ul .parent > a" );
-
-			// Cache all <a> elements from parent <li> elements at any level.
-			var all_parent_anchors = $spine_nav.find( "li.parent > a" );
-
-			all_parent_anchors.each( $.ui.spine.prototype.process_overview_links );
-
-			// Add an active class to parent <li> elements of any element already marked active.
-			$spine_nav.find( ".active" ).parents( "li" ).addClass( "active" );
-
-			top_level_parent_anchors.on( "click", $.ui.spine.prototype.handle_top_level_anchor_click );
-
-			sub_level_parent_anchors.on( "click", $.ui.spine.prototype.handle_sub_level_anchor_click );
-
-			// Mark external URLs in the nav menu.
-			$spine_nav.find( "a[href^='http']:not([href*='://" + window.location.hostname + "'])" ).addClass( "external" );
+			this.nav_elements.top_level_parent_anchors.on( "click", $.ui.spine.prototype.handle_top_level_anchor_click );
+			this.nav_elements.sub_level_parent_anchors.on( "click", $.ui.spine.prototype.handle_sub_level_anchor_click );
 		},
 
 		/**
@@ -530,54 +542,6 @@
 		 * @since 0.0.3 Altered to only run on mobile devices.
 		 */
 		setup_mobile_navigation: function() {
-
-			// Apply the `parent` class to each parent list item of an unordered list in the navigation.
-			$( "#spine nav ul, #spine ul" ).parents( "li" ).addClass( "parent" );
-
-			/**
-			 * Couplets are anchor elements that are children of `.parent` list items.
-			 *
-			 * @type {any}
-			 */
-			var couplets = $( "#spine nav li.parent > a" );
-
-			// Assign active elements a class of dogeared unless those elements contain other active elements.
-			$( "#spine .active:not(:has(.active))" ).addClass( "dogeared" );
-
-			/**
-			 * Walk through each of the anchor elements in the navigation to establish when "Overview"
-			 * items should be added and what the text should read.
-			 */
-			couplets.each( function() {
-				var tar, title, url;
-				tar = $( this );
-				url = tar.attr( "href" );
-
-				// "Overview" anchors are only added for parents with URLs.
-				if ( "#" === url ) {
-					return;
-				}
-
-				var classes = "overview";
-
-				// If a generated overview's parent is marked as dogeared, do the same with the overview.
-				if ( tar.closest( ".parent" ).is( ".dogeared" ) ) {
-					classes += " dogeared";
-				}
-
-				title = ( tar.is( "[title]" )  ) ? tar.attr( "title" ) : "Overview";
-				title = ( tar.is( "[data-overview]" ) ) ? tar.data( "overview" ) : title;
-				title = title.length > 0 ? title : "Overview"; // This is just triple checking that a value made it here.
-
-				tar.parent( "li" ).children( "ul" ).prepend( "<li class='" + classes + "'></li>" );
-				tar.clone( true, true ).appendTo( tar.parent( "li" ).find( "ul .overview:first" ) );
-				tar.parent( "li" ).find( "ul .overview:first a" ).html( title );
-
-				// When the overview page is active, that area of the navigation should be opened.
-				if ( tar.parent( "li" ).hasClass( "active" ) ) {
-					tar.parents( "li" ).removeClass( "active" ).addClass( "opened dogeared" );
-				}
-			} );
 
 			/**
 			 * Account for historical markup in the WSU ecosystem and add the `active` and `dogeared` classes
@@ -601,15 +565,12 @@
 			 * Some additional handling is necessary on mobile to properly handle the sequence of
 			 * touchstart, touchmove, and touchend without confusion.
 			 */
-			couplets.on( "mousedown touchstart", function( e ) {
+			this.nav_elements.all_parent_anchors.on( "mousedown touchstart", function( e ) {
 				$( e.target ).on( "mouseup touchend", $.ui.spine.prototype._toggle_spine_nav_list );
 				$( e.target ).on( "mousemove touchmove", function( e ) {
 					$( e.target ).off( "mouseup touchend", $.ui.spine.prototype._toggle_spine_nav_list );
 				} );
 			} );
-
-			// Mark external URLs in the nav menu.
-			$( ".spine-navigation a[href^='http']:not([href*='://" + window.location.hostname + "'])" ).addClass( "external" );
 		},
 
 		/**
@@ -619,7 +580,9 @@
 		 * @since 0.0.3
 		 */
 		clear_navigation: function() {
-
+			this.nav_elements.top_level_parent_anchors.off( "click", $.ui.spine.prototype.handle_top_level_anchor_click );
+			this.nav_elements.sub_level_parent_anchors.off( "click", $.ui.spine.prototype.handle_sub_level_anchor_click );
+			this.nav_elements.all_parent_anchors.off();
 		},
 
 		/**
