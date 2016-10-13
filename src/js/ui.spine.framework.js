@@ -379,6 +379,110 @@
 		},
 
 		/**
+		 * Walk through each of the anchor elements in the navigation to establish when "Overview"
+		 * items should be added and what the text should read.
+		 *
+		 * @param index
+		 * @param el
+		 */
+		process_overview_links: function( index, el ) {
+			var classes, tar, title, url;
+			tar = $( el );
+			url = tar.attr( "href" );
+
+			// "Overview" anchors are only added for parents with URLs.
+			if ( "#" === url ) {
+				return;
+			}
+
+			classes = "overview";
+
+			title = ( tar.is( "[title]" )  ) ? tar.attr( "title" ) : "Overview";
+			title = ( tar.is( "[data-overview]" ) ) ? tar.data( "overview" ) : title;
+			title = title.length > 0 ? title : "Overview"; // This is just triple checking that a value made it here.
+
+			tar.parent( "li" ).children( "ul" ).prepend( "<li class='" + classes + "'></li>" );
+			tar.clone( true, true ).appendTo( tar.parent( "li" ).find( "ul .overview:first" ) );
+			tar.parent( "li" ).find( "ul .overview:first a" ).html( title );
+		},
+
+		/**
+		 * Handles click events on the top level anchor items when the
+		 * standard horizontal navigation is displayed.
+		 *
+		 * @param e
+		 */
+		handle_top_level_anchor_click: function( e ) {
+			e.preventDefault();
+
+			// Cache the Spine's main <nav> element for repeated use.
+			var $spine_nav = $( ".spine-sitenav" );
+
+			var $parent = $( e.target ).closest( "li" );
+
+			if ( $parent.hasClass( "opened" ) ) {
+				$parent.css( { "z-index": 1, "padding-bottom": 0 } );
+				setTimeout( function() {
+					$parent.removeClass( "opened" );
+					$parent.find( "> .sub-menu > li" ).css( "visibility", "hidden" );
+				}, 300 );
+
+				return;
+			}
+
+			var padding = $parent.find( "> .sub-menu" ).outerHeight();
+			var existing_menu = false;
+
+			$spine_nav.find( "> ul > li" ).each( function( t, x ) {
+				if ( $( x ).hasClass( "opened" ) ) {
+					existing_menu = true;
+					$( x ).css( { "z-index": 1, "padding-bottom": 0 } );
+					setTimeout( function() {
+						$( x ).removeClass( "opened" );
+						$( x ).find( "> .sub-menu > li" ).css( "visibility", "hidden" );
+						$parent.css( { "z-index": 2 } );
+						$parent.find( "> .sub-menu > li" ).css( "visibility", "visible" );
+						$parent.toggleClass( "opened" );
+						$parent.css( { "padding-bottom": padding } );
+					}, 300 );
+				}
+			} );
+
+			if ( false === existing_menu ) {
+				$parent.css( { "z-index": 2 } );
+				$parent.find( "> .sub-menu > li" ).css( "visibility", "visible" );
+				$parent.toggleClass( "opened" );
+				$parent.css( { "padding-bottom": padding } );
+			}
+		},
+
+		/**
+		 * Handles click events on sub level anchor items when the
+		 * standard horizontal navigation is displayed.
+		 *
+		 * @param e
+		 */
+		handle_sub_level_anchor_click: function( e ) {
+			var existing_padding = 0;
+
+			e.preventDefault();
+			var $parent = $( e.target ).closest( "li" );
+			var $top_parent = $parent.closest( ".spine-sitenav > ul > .parent" );
+
+			if ( $parent.hasClass( "opened" ) ) {
+				var remove_height = $parent.find( "> .sub-menu" ).height();
+				existing_padding = parseFloat( $top_parent.css( "padding-bottom" ) );
+				$top_parent.css( "padding-bottom", ( existing_padding - remove_height ) + "px" );
+				$parent.removeClass( "opened" );
+			} else {
+				$parent.addClass( "opened" );
+				var added_height = $parent.find( "> .sub-menu" ).height();
+				existing_padding = parseFloat( $top_parent.css( "padding-bottom" ) );
+				$top_parent.css( "padding-bottom", ( added_height + existing_padding ) + "px" );
+			}
+		},
+
+		/**
 		 * Sets up the navigation used on standard screen devices.
 		 *
 		 * @since 0.0.3
@@ -400,95 +504,14 @@
 			// Cache all <a> elements from parent <li> elements at any level.
 			var all_parent_anchors = $spine_nav.find( "li.parent > a" );
 
-			/**
-			 * Walk through each of the anchor elements in the navigation to establish when "Overview"
-			 * items should be added and what the text should read.
-			 */
-			all_parent_anchors.each( function() {
-				var classes, tar, title, url;
-				tar = $( this );
-				url = tar.attr( "href" );
-
-				// "Overview" anchors are only added for parents with URLs.
-				if ( "#" === url ) {
-					return;
-				}
-
-				classes = "overview";
-
-				title = ( tar.is( "[title]" )  ) ? tar.attr( "title" ) : "Overview";
-				title = ( tar.is( "[data-overview]" ) ) ? tar.data( "overview" ) : title;
-				title = title.length > 0 ? title : "Overview"; // This is just triple checking that a value made it here.
-
-				tar.parent( "li" ).children( "ul" ).prepend( "<li class='" + classes + "'></li>" );
-				tar.clone( true, true ).appendTo( tar.parent( "li" ).find( "ul .overview:first" ) );
-				tar.parent( "li" ).find( "ul .overview:first a" ).html( title );
-			} );
+			all_parent_anchors.each( $.ui.spine.prototype.process_overview_links );
 
 			// Add an active class to parent <li> elements of any element already marked active.
 			$spine_nav.find( ".active" ).parents( "li" ).addClass( "active" );
 
-			top_level_parent_anchors.on( "click", function( e ) {
-				e.preventDefault();
+			top_level_parent_anchors.on( "click", $.ui.spine.prototype.handle_top_level_anchor_click );
 
-				var $parent = $( e.target ).closest( "li" );
-
-				if ( $parent.hasClass( "opened" ) ) {
-					$parent.css( { "z-index": 1, "padding-bottom": 0 } );
-					setTimeout( function() {
-						$parent.removeClass( "opened" );
-						$parent.find( "> .sub-menu > li" ).css( "visibility", "hidden" );
-					}, 300 );
-
-					return;
-				}
-
-				var padding = $parent.find( "> .sub-menu" ).outerHeight();
-				var existing_menu = false;
-
-				$spine_nav.find( "> ul > li" ).each( function( t, x ) {
-					if ( $( x ).hasClass( "opened" ) ) {
-						existing_menu = true;
-						$( x ).css( { "z-index": 1, "padding-bottom": 0 } );
-						setTimeout( function() {
-							$( x ).removeClass( "opened" );
-							$( x ).find( "> .sub-menu > li" ).css( "visibility", "hidden" );
-							$parent.css( { "z-index": 2 } );
-							$parent.find( "> .sub-menu > li" ).css( "visibility", "visible" );
-							$parent.toggleClass( "opened" );
-							$parent.css( { "padding-bottom": padding } );
-						}, 300 );
-					}
-				} );
-
-				if ( false === existing_menu ) {
-					$parent.css( { "z-index": 2 } );
-					$parent.find( "> .sub-menu > li" ).css( "visibility", "visible" );
-					$parent.toggleClass( "opened" );
-					$parent.css( { "padding-bottom": padding } );
-				}
-			} );
-
-			sub_level_parent_anchors.on( "click", function( e ) {
-				var existing_padding = 0;
-
-				e.preventDefault();
-				var $parent = $( e.target ).closest( "li" );
-				var $top_parent = $parent.closest( ".spine-sitenav > ul > .parent" );
-
-				if ( $parent.hasClass( "opened" ) ) {
-					var remove_height = $parent.find( "> .sub-menu" ).height();
-					existing_padding = parseFloat( $top_parent.css( "padding-bottom" ) );
-					$top_parent.css( "padding-bottom", ( existing_padding - remove_height ) + "px" );
-					$parent.removeClass( "opened" );
-				} else {
-					$parent.addClass( "opened" );
-					var added_height = $parent.find( "> .sub-menu" ).height();
-					existing_padding = parseFloat( $top_parent.css( "padding-bottom" ) );
-					$top_parent.css( "padding-bottom", ( added_height + existing_padding ) + "px" );
-				}
-
-			} );
+			sub_level_parent_anchors.on( "click", $.ui.spine.prototype.handle_sub_level_anchor_click );
 
 			// Mark external URLs in the nav menu.
 			$spine_nav.find( "a[href^='http']:not([href*='://" + window.location.hostname + "'])" ).addClass( "external" );
