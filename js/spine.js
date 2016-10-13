@@ -933,28 +933,28 @@
 		 * @since 0.0.3
 		 */
 		setup_standard_navigation: function() {
+
+			// Cache the Spine's main <nav> element for repeated use.
 			var $spine_nav = $( ".spine-sitenav" );
 
 			// Apply the `parent` class to each parent list item of an unordered list in the navigation.
 			$spine_nav.find( "ul" ).parents( "li" ).addClass( "parent" );
 
+			// Cache all <a> elements from top level parent <li> elements.
 			var top_level_parent_anchors = $spine_nav.find( "> ul > .parent > a" );
 
+			// Cache all <a> elements from sub level parent <li> elements.
 			var sub_level_parent_anchors = $spine_nav.find( "> ul > .parent > ul .parent > a" );
 
-			/**
-			 * Couplets are anchor elements that are children of `.parent` list items.
-			 *
-			 * @type {any}
-			 */
-			var couplets = $spine_nav.find( "li.parent > a" );
+			// Cache all <a> elements from parent <li> elements at any level.
+			var all_parent_anchors = $spine_nav.find( "li.parent > a" );
 
 			/**
 			 * Walk through each of the anchor elements in the navigation to establish when "Overview"
 			 * items should be added and what the text should read.
 			 */
-			couplets.each( function() {
-				var tar, title, url;
+			all_parent_anchors.each( function() {
+				var classes, tar, title, url;
 				tar = $( this );
 				url = tar.attr( "href" );
 
@@ -963,7 +963,7 @@
 					return;
 				}
 
-				var classes = "overview";
+				classes = "overview";
 
 				title = ( tar.is( "[title]" )  ) ? tar.attr( "title" ) : "Overview";
 				title = ( tar.is( "[data-overview]" ) ) ? tar.data( "overview" ) : title;
@@ -974,6 +974,7 @@
 				tar.parent( "li" ).find( "ul .overview:first a" ).html( title );
 			} );
 
+			// Add an active class to parent <li> elements of any element already marked active.
 			$spine_nav.find( ".active" ).parents( "li" ).addClass( "active" );
 
 			top_level_parent_anchors.on( "click", function( e ) {
@@ -1017,7 +1018,6 @@
 				}
 			} );
 
-			// Disclosure
 			sub_level_parent_anchors.on( "click", function( e ) {
 				var existing_padding = 0;
 
