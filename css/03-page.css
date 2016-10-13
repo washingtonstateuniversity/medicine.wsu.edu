@@ -60,9 +60,17 @@ header.main-header {
 	margin: 0;
 	padding: 0;
 }
-
-.breadcrumbs{
+/* --- breadcrumbs --- */
+.breadcrumbs {
   font-size: .7em;
+}
+.breadcrumbs,
+.breadcrumbs a {
+	color: rgba(0,0,0,.6);
+}
+.breadcrumbs-item,
+.breadcrumbs-divider {
+	padding-right: 1em;
 }
 @media (min-width: 989px) {
 /* default sizing and padding for columns */

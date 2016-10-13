@@ -27,13 +27,13 @@ h3 {
 h4 {
     color:#981e32;
     font-size: 1em;
-    font-weight: 700;
+    font-weight: 800;
     text-transform: uppercase;
     margin-top: 1em;
 }
 h5 {
     font-size: 1em;
-    font-weight: 700;
+    font-weight: 800;
 }
 h6 {
     font-size: 1em;
@@ -77,6 +77,10 @@ main a:active:before {
   background-position: 0 0;
 }
 
+strong{
+  font-weight: 800;
+}
+
 blockquote,
 cite,
 main li,
@@ -92,7 +96,7 @@ main ul {
 main ul li:before {
     content:'\2022\a0\a0';
     color: #981e32;
-    font-weight: 700;
+    font-weight: 800;
 }
 main ul li {
     list-style:none;
