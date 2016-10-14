@@ -4,6 +4,10 @@ module.exports = function( grunt ) {
 	grunt.initConfig( {
 		pkg: grunt.file.readJSON( "package.json" ),
 
+		stylelint: {
+			src: [ "css/*.css" ]
+		},
+
 		concat: {
 			options: {
 				sourceMap: true
@@ -184,8 +188,9 @@ module.exports = function( grunt ) {
 	grunt.loadNpmTasks( "grunt-jscs" );
 	grunt.loadNpmTasks( "grunt-contrib-jshint" );
 	grunt.loadNpmTasks( "grunt-contrib-uglify" );
+	grunt.loadNpmTasks( "grunt-stylelint" );
 
 	// Default task(s).
-	grunt.registerTask( "default", [ "jscs", "jshint", "concat", "postcss", "csslint", "uglify", "clean" ] );
+	grunt.registerTask( "default", [ "jscs", "jshint", "stylelint", "concat", "postcss", "csslint", "uglify", "clean" ] );
 	grunt.registerTask( "serve", [ "connect", "watch" ] );
 };
