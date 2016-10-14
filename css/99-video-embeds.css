@@ -1,4 +1,5 @@
-/* video wrapper allows you to easily position the video within the content and set the width and max-width of the video */
+/* video wrapper allows you to easily position the video within the content
+   and set the width and max-width of the video */
 .video-wrap-control {
 	width: 400px;
 }
@@ -11,7 +12,8 @@
 	width: 30vw;
 }
 
-/* The inner uses padding bottom (a percentage of it's own width) to allow the video player have a height that is responsive to the width */
+/* The inner uses padding bottom (a percentage of it's own width) to allow
+   the video player have a height that is responsive to the width */
 .video-wrap-inner {
 	position: relative;
 	padding-bottom: 56.25%;
