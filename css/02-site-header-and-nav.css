@@ -1,176 +1,208 @@
 /* --- temporary overwrite to get the nav out of the way --- */
-
 .spine-mobile #spine {
 	display: block;
 }
 
 /* ------- */
 @media (min-width: 989px) {
+
 	#spine {
-		min-height: auto!important;
-		position: relative!important;
+		min-height: auto !important;
+		position: relative !important;
 		font-size: 12px;
 		width: 100%;
 		z-index: 0;
 	}
-	#glue{
+
+	#glue {
 		position: static;
-		width:100%;
+		width: 100%;
 		max-width: 1188px;
 		margin-left: auto;
 		margin-right: auto;
 	}
+
 	#spine #glue:before,
-	.spine-full #glue:before{
+	.spine-full #glue:before {
 		display: none;
 	}
-	#binder #spine header{
+
+	#binder #spine header {
 		position: absolute;
 		top: 1em;
-		left:2em;
-		height:92px;
+		left: 2em;
+		height: 92px;
 		background-color: transparent;
 	}
-	#wsu-signature{
-		width:150px;
-		height:92px;
+
+	#wsu-signature {
+		width: 150px;
+		height: 92px;
 		text-indent: 99163px;
 	}
+
 	#spine .spine-actions,
 	.spine-offsitenav,
-	#spine footer{
+	#spine footer {
 		display: none;
 	}
-	#spine .spine-sitenav{
+
+	#spine .spine-sitenav {
 		padding: 90px 0 0;
 		margin: 0;
 	}
-	#spine .spine-navigation{
+
+	#spine .spine-navigation {
 		padding: 0;
 		margin: 0;
 	}
+
 	#spine .spine-search-tab button,
 	#spine .spine-sitenav a {
 		color: #2a3033;
 	}
-	#spine .spine-sitenav>ul>li:first-child>a{
+
+	#spine .spine-sitenav > ul > li:first-child > a {
 		background: none;
 	}
-	#spine .spine-sitenav>ul>li:first-child>a:hover{
+
+	#spine .spine-sitenav > ul > li:first-child > a:hover {
 		background: none;
 	}
-	#spine nav.spine-sitenav > ul > li{
-		position:static;
+
+	#spine nav.spine-sitenav > ul > li {
+		position: static;
 		padding-bottom: 0;
 		transition: all .3s ease;
 	}
-	#spine nav.spine-sitenav > ul > li.opened{
+
+	#spine nav.spine-sitenav > ul > li.opened {
 		padding-bottom: 112px;
 	}
+
 	#spine nav > ul > li > a {
-		padding:0;
+		padding: 0;
 	}
 
 	#spine .spine-sitenav > ul > .parent > .sub-menu > li {
 		visibility: hidden;
 	}
 
-	#spine nav.spine-sitenav > ul > li > ul{
-		position:absolute;
-		width:100%;
-		display:flex;
-		background:#333;
+	#spine nav.spine-sitenav > ul > li > ul {
+		position: absolute;
+		width: 100%;
+		display: flex;
+		background: #333;
 		left: 0;
 	}
-	#spine nav.spine-sitenav > ul > li > ul > li{
-		display:inline;
+
+	#spine nav.spine-sitenav > ul > li > ul > li {
+		display: inline;
 	}
+
 	/* take off home icon from home link */
-	#spine .spine-sitenav>ul>li.active:first-child>a, #spine .spine-sitenav>ul>li:first-child>a:hover {
+	#spine .spine-sitenav > ul > li.active:first-child > a,
+	#spine .spine-sitenav > ul > li:first-child > a:hover {
 		background: none;
 	}
+
 	/* bring opened sub nav to front */
-	#spine nav.spine-sitenav > ul > li.opened > ul{
+	#spine nav.spine-sitenav > ul > li.opened > ul {
 		z-index: 2;
 	}
+
 	/* prevent sub menus from flashing in during close transition */
-	#spine nav.spine-sitenav > ul > li.last-opened > ul{
+	#spine nav.spine-sitenav > ul > li.last-opened > ul {
 		z-index: 1;
 	}
-	#spine nav li.parent.active>a,
-	#spine nav li.parent.opened>a{
+
+	#spine nav li.parent.active > a,
+	#spine nav li.parent.opened > a {
 		color: #981e32;
 		padding-bottom: 0;
 	}
-	#spine nav.spine-sitenav > ul > li > ul:before{
-		width:100%;
-		background:#333;
-		height:100%;
-		content:"";
-		position:absolute;
-		left:-50%;
-		top:0;
+
+	#spine nav.spine-sitenav > ul > li > ul:before {
+		width: 100%;
+		background: #333;
+		height: 100%;
+		content: "";
+		position: absolute;
+		left: -50%;
+		top: 0;
 	}
-	#spine nav.spine-sitenav > ul > li > ul:after{
-		width:100%;
-		background:#333;
-		height:100%;
-		content:"";
-		position:absolute;
-		left:50%;
-		top:0;
+
+	#spine nav.spine-sitenav > ul > li > ul:after {
+		width: 100%;
+		background: #333;
+		height: 100%;
+		content: "";
+		position: absolute;
+		left: 50%;
+		top: 0;
 		z-index: -1;
 	}
-	#spine nav.spine-sitenav > ul > li > ul{
-		display:flex;
+
+	#spine nav.spine-sitenav > ul > li > ul {
+		display: flex;
 	}
-	#spine nav > ul > li > ul > li{
+
+	#spine nav > ul > li > ul > li {
 		flex: 1;
 	}
-	#spine nav > ul > li > ul > li > a{
+
+	#spine nav > ul > li > ul > li > a {
 		color: #fff;
 		font-weight: 800;
 	}
+
 	#spine nav > ul > li > ul > li,
-	#spine nav > ul > li > ul > li > ul > li{
+	#spine nav > ul > li > ul > li > ul > li {
 		display: block;
 		margin-left: 0;
 	}
+
 	#spine nav ul ul ul li a {
 		padding: .25em 3em .25em 0;
 	}
+
 	/* - overwrite Spine padding for last child - */
 	#spine nav li.parent.active li:last-child a,
 	#spine nav li.parent.opened li:last-child a,
-	#spine nav ul ul li a{
+	#spine nav ul ul li a {
 		padding: .25em 3em .25em 0;
 	}
-	#spine .spine-sitenav > ul > li > ul  a{
-		color:rgba(255,255,255,.7);
+
+	#spine .spine-sitenav > ul > li > ul  a {
+		color: rgba(255, 255, 255, .7);
 		font-weight: 300;
 		padding: .25em 3em .25em 0;
 	}
-	#spine .spine-sitenav > ul > li > ul >li > a{
-		color:#fff;
+
+	#spine .spine-sitenav > ul > li > ul > li > a {
+		color: #fff;
 		font-weight: 800;
 	}
 
 	/* - show parent icon - */
-	#spine nav li.parent.opened>a:after,
-	#spine nav li.parent>a:after{
+	#spine nav li.parent.opened > a:after,
+	#spine nav li.parent > a:after {
 		display: inline;
 		position: inherit;
-		padding-left:.5em;
+		padding-left: .5em;
 	}
-	#spine nav li.parent.opened>a:focus:after,
-	#spine nav li.parent.opened>a:hover:after,
-	#spine nav li.parent>a:focus:after,
-	#spine nav li.parent>a:hover:after{
+
+	#spine nav li.parent.opened > a:focus:after,
+	#spine nav li.parent.opened > a:hover:after,
+	#spine nav li.parent > a:focus:after,
+	#spine nav li.parent > a:hover:after {
 		display: inline;
 	}
+
 	#binder #spine nav li.parent.active > a:after {
 		content: "\F501";
 	}
+
 	#binder #spine nav li.parent.opened.active > a:after {
 		content: "\F500";
 		font-family: Spine-Icons;
@@ -178,9 +210,10 @@
 
 	/* - don't show icon on second level nav (third level is already visible) - */
 	#spine nav.spine-sitenav > ul > li > ul > li.opened > a:after,
-	#spine nav.spine-sitenav > ul > li > ul > li.parent > a:after{
-		display:none;
+	#spine nav.spine-sitenav > ul > li > ul > li.parent > a:after {
+		display: none;
 	}
+
 	/* --- navigation for site header and site footer --- */
 	.footer-nav > ul,
 	#spine nav.spine-sitenav > ul {
@@ -188,55 +221,68 @@
 		flex-wrap: wrap;
 		padding: 0;
 	}
-	#spine .spine-sitenav>ul>li:first-child>a {
+
+	#spine .spine-sitenav > ul > li:first-child > a {
 		padding-left: 0;
 		padding-right: 2em;
 	}
-	#spine nav.spine-sitenav > ul > li{
+
+	#spine nav.spine-sitenav > ul > li {
 		border: none;
 		padding-right: 3em;
 	}
+
 	.footer-nav > ul > li {
 		flex: 1;
 	}
+
 	.footer-nav > ul > li {
 		min-width: 180px;
 	}
+
 	#spine nav.spine-sitenav > ul > li > a {
 		font-weight: 800;
 		margin-bottom: 1em;
 		text-transform: uppercase;
 	}
+
 	.footer-nav > ul > li > a {
 		color: #fff;
 		font-weight: 800;
 	}
+
 	.footer-nav > ul > li > ul,
 	#spine nav.spine-sitenav > ul > li > ul {
 		padding: 1em 0;
 	}
+
 	.footer-nav > ul > li > ul a {
-		color: rgba(255, 255, 255, 0.7);
+		color: rgba(255, 255, 255, .7);
 		font-size: .9em;
 	}
 }
-@media (max-width:1550px) and (min-width:989px) {
+
+@media (max-width: 1550px) and (min-width: 989px) {
 
 	div#glue {
-	  display: flex;
+		display: flex;
 	}
+
 	#binder #spine header {
-	  position:relative;
-	  left: 0;
-		height:92px;
+		position: relative;
+		left: 0;
+		height: 92px;
 	}
+
 	#binder #spine header {
-	  width: 150px;
+		width: 150px;
 	}
-	#binder #spine .spine-navigation{
-	  padding-left: 3em;
+
+	#binder #spine .spine-navigation {
+		padding-left: 3em;
 		width: 100%;
 	}
+
 	#spine nav.spine-sitenav > ul > li > ul {
 		padding-left: 3em;
 	}

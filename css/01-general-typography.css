@@ -1,200 +1,221 @@
 /* --- general typography and type classes --- */
-
 main {
-    font-size: 16px;
+	font-size: 16px;
 }
 
 h1 {
-    font-size: 3em;
-    font-weight: 300;
-    text-transform: uppercase;
-    margin: 2em 0 1.5em;
+	font-size: 3em;
+	font-weight: 300;
+	text-transform: uppercase;
+	margin: 2em 0 1.5em;
 }
 
 h2 {
-    font-size: 1.6em;
-    font-weight: 300;
-    line-height: 1.3;
-    margin: 1em 0 .5em;
+	font-size: 1.6em;
+	font-weight: 300;
+	line-height: 1.3;
+	margin: 1em 0 .5em;
 }
 
 h3 {
-    font-size: 1.2em;
-    font-weight: 300;
-    line-height: 1.2;
-    text-transform: uppercase;
+	font-size: 1.2em;
+	font-weight: 300;
+	line-height: 1.2;
+	text-transform: uppercase;
 }
+
 h4 {
-    color:#981e32;
-    font-size: 1em;
-    font-weight: 800;
-    text-transform: uppercase;
-    margin-top: 1em;
+	color: #981e32;
+	font-size: 1em;
+	font-weight: 800;
+	text-transform: uppercase;
+	margin-top: 1em;
 }
+
 h5 {
-    font-size: 1em;
-    font-weight: 800;
+	font-size: 1em;
+	font-weight: 800;
 }
+
 h6 {
-    font-size: 1em;
-    font-weight: 400;
+	font-size: 1em;
+	font-weight: 400;
 }
-/* headers lead off content, don't want top padding on H elements within headers */
+
+/* headers lead off content, don't want top padding on H elements
+   within headers */
 main header h2,
 main header h3,
 main header h4,
 main header h5 {
-  padding-top:0;
+	padding-top: 0;
 }
 
 /* links with animated underline */
 main a {
-  font-weight: 400;
-  position: relative;
-  color: inherit;
-  text-decoration: none;
-  transition: all 0.3s ease;
-}
-main a:hover,
-main a:active {
-  color: #981e32;
-}
-main a:before {
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 1px;
-  bottom: -1px;
-  left: 0;
-  background: linear-gradient(to right, #981e32 50%,rgba(0,0,0,.2) 50%);
-  background-size: 200%;
-  background-position: 100% 0;
-  transition: all 0.3s ease 0s;
-  overflow: hidden;
-}
-main a:hover:before,
-main a:active:before {
-  background-position: 0 0;
+	font-weight: 400;
+	position: relative;
+	color: inherit;
+	text-decoration: none;
+	transition: all .3s ease;
 }
 
-strong{
-  font-weight: 800;
+main a:hover,
+main a:active {
+	color: #981e32;
+}
+
+main a:before {
+	content: "";
+	position: absolute;
+	width: 100%;
+	height: 1px;
+	bottom: -1px;
+	left: 0;
+	background: linear-gradient(to right, #981e32 50%, rgba(0, 0, 0, .2) 50%);
+	background-size: 200%;
+	background-position: 100% 0;
+	transition: all .3s ease 0s;
+	overflow: hidden;
+}
+
+main a:hover:before,
+main a:active:before {
+	background-position: 0 0;
+}
+
+strong {
+	font-weight: 800;
 }
 
 blockquote,
 cite,
 main li,
 p {
-    font-size: .9em;
-    font-weight: 300;
-    line-height: 1.75;
+	font-size: .9em;
+	font-weight: 300;
+	line-height: 1.75;
 }
+
 main ul {
-    list-style: none;
+	list-style: none;
 }
 
 main ul li:before {
-    content:'\2022\a0\a0';
-    color: #981e32;
-    font-weight: 800;
-}
-main ul li {
-    list-style:none;
-    text-indent:-.5em; /* helps make it look more like it's a bullet. */
+	content: "\2022\a0\a0";
+	color: #981e32;
+	font-weight: 800;
 }
 
-/* a class to show a header in a unique way. A way to introduce a new section after a large visual */
+main ul li {
+	list-style: none;
+	text-indent: -.5em; /* helps make it look more like it's a bullet. */
+}
+
+/* a class to show a header in a unique way. A way to introduce
+   a new section after a large visual */
 .space-case {
-    font-size: 1em;
-    font-weight: 300;
-    text-transform: uppercase;
-    letter-spacing: 4px;
+	font-size: 1em;
+	font-weight: 300;
+	text-transform: uppercase;
+	letter-spacing: 4px;
 }
+
 .space-case.center {
-    text-align: center;
+	text-align: center;
 }
+
 .rule,
 .rule-thick,
 .space-case {
-    margin-bottom: 3em;
-    padding-bottom: 1.5em;
-    position: relative;
+	margin-bottom: 3em;
+	padding-bottom: 1.5em;
+	position: relative;
 }
+
 .rule-thick {
-    margin-bottom: 1.5em;
+	margin-bottom: 1.5em;
 }
+
 .rule-thick:after,
 .rule:after,
 .space-case:after {
-    content: "";
-    width: 4.5em;
-    height: 1px;
-    background: #981e32;
-    position: absolute;
-    bottom: 0;
-    left: 0;
+	content: "";
+	width: 4.5em;
+	height: 1px;
+	background: #981e32;
+	position: absolute;
+	bottom: 0;
+	left: 0;
 }
+
 .rule-thick:after {
-    height: 6px;
+	height: 6px;
 }
 
 /* centered content for space-case and rules */
 .rule-thick.center:after,
 .rule.center:after,
 .space-case.center:after {
-    margin-left: auto;
-    margin-right: auto;
-    left: 0;
-    right: 0;
+	margin-left: auto;
+	margin-right: auto;
+	left: 0;
+	right: 0;
 }
 
 /* slight size adjustments for margin-right */
 .margin-right .two {
-    font-size: .9rem;
+	font-size: .9rem;
 }
 
-/* blockquotes are being used in three different ways on the site - two of which are to break up content */
+/* blockquotes are being used in three different ways on
+   the site - two of which are to break up content */
 blockquote {
-    border-left: 1px solid #981e32;
-    font-family: 'Open Sans', 'Lucida Sans', 'Lucida Grande', 'Lucida Sans Unicode', sans-serif;
-    margin: 4em 0 5em 3.5em;
-    padding: .5em 0 .5em 1.5em;
+	border-left: 1px solid #981e32;
+	font-family: "Open Sans", "Lucida Sans", "Lucida Grande", "Lucida Sans Unicode", sans-serif;
+	margin: 4em 0 5em 3.5em;
+	padding: .5em 0 .5em 1.5em;
 }
-blockquote cite{
-  color:#777;
+
+blockquote cite {
+	color: #777;
 }
-.center.mid-feature blockquote{
-  margin: 0;
-  padding:2em 0;
-  font-size: 1.2em;
-  text-align: center;
-  border: none;
+
+.center.mid-feature blockquote {
+	margin: 0;
+	padding: 2em 0;
+	font-size: 1.2em;
+	text-align: center;
+	border: none;
 }
-.center blockquote:before{
-  content: "";
-  width: 15%;
-  height: 1px;
-  background: #981e32;
-  position: absolute;
-  top: 0;
-  margin-left: auto;
-  margin-right: auto;
-  left: 0;
-  right: 0;
+
+.center blockquote:before {
+	content: "";
+	width: 15%;
+	height: 1px;
+	background: #981e32;
+	position: absolute;
+	top: 0;
+	margin-left: auto;
+	margin-right: auto;
+	left: 0;
+	right: 0;
 }
-.center blockquote:after{
-  content: "";
-  width: 15%;
-  height: 1px;
-  background: #981e32;
-  position: absolute;
-  bottom: 0;
-  margin-left: auto;
-  margin-right: auto;
-  left: 0;
-  right: 0;
+
+.center blockquote:after {
+	content: "";
+	width: 15%;
+	height: 1px;
+	background: #981e32;
+	position: absolute;
+	bottom: 0;
+	margin-left: auto;
+	margin-right: auto;
+	left: 0;
+	right: 0;
 }
-.block-head{
-  font-size: .9em;
-  text-transform: uppercase;
+
+.block-head {
+	font-size: .9em;
+	text-transform: uppercase;
 }

@@ -2,21 +2,22 @@
 html {
 	background: #fff;
 }
+
 /* overwrite max width constraint */
 #jacket #binder {
 	max-width: 100%;
 }
-/* Overwrite because there is no longer a vertical nav to account for */
 
+/* Overwrite because there is no longer a vertical nav to account for */
 main {
 	background: #fff;
 	margin-left: 0;
 	position: relative;
 }
+
 main * {
 	box-sizing: border-box;
 }
-/* ------- */
 
 /* --- Max widths for content sections --- */
 .main-header .hgroup,
@@ -29,14 +30,16 @@ main .page > section {
 	margin-left: auto;
 	margin-right: auto;
 }
+
 @media (max-width: 1230px) {
+
 	#glue,
 	.main-header .hgroup,
 	.breadcrumbs,
 	.site-footer > *,
 	main .page > .section-wrapper > section,
 	main .page > section {
-		padding-left:2rem;
+		padding-left: 2rem;
 		padding-right: 2rem;
 	}
 }
@@ -49,12 +52,14 @@ header.main-header {
 	background-position: center center;
 	background-repeat: no-repeat;
 	background-size: cover;
-  margin-bottom: 1em;
+	margin-bottom: 1em;
 }
+
 .main-header .hgroup {
 	padding-top: 2.5em;
 	padding-bottom: 2.5em;
 }
+
 .main-header-name {
 	font-size: .9em;
 	font-weight: 300;
@@ -63,6 +68,7 @@ header.main-header {
 	margin-bottom: .25rem;
 	line-height: 1;
 }
+
 .main-header-description {
 	font-size: 2.2em;
 	font-weight: 300;
@@ -71,65 +77,79 @@ header.main-header {
 	margin: 0;
 	padding: 0;
 }
+
 /* --- breadcrumbs --- */
 .breadcrumbs {
-  font-size: .7em;
+	font-size: .7em;
 }
+
 .breadcrumbs,
 .breadcrumbs a {
-	color: rgba(0,0,0,.6);
+	color: rgba(0, 0, 0, .6);
 }
+
 .breadcrumbs-divider {
 	padding: 0 1em;
 }
+
 @media (min-width: 989px) {
-/* default sizing and padding for columns */
-.row {
-	display: flex;
-	justify-content: space-between;
-	flex-wrap: wrap;
-}
-#jacket .row header {
-	flex: 1 100%;
-}
-#jacket .margin-right header h2 {
-	width: 75%;
-}
-#jacket .row .column {
-	padding: 0 20px;
-}
-#jacket .row .column:first-of-type {
-	padding-left: 0;
-}
-#jacket .row .column:last-of-type {
-	padding-right: 0;
+
+	/* default sizing and padding for columns */
+	.row {
+		display: flex;
+		justify-content: space-between;
+		flex-wrap: wrap;
+	}
+
+	#jacket .row header {
+		flex: 1 100%;
+	}
+
+	#jacket .margin-right header h2 {
+		width: 75%;
+	}
+
+	#jacket .row .column {
+		padding: 0 20px;
+	}
+
+	#jacket .row .column:first-of-type {
+		padding-left: 0;
+	}
+
+	#jacket .row .column:last-of-type {
+		padding-right: 0;
+	}
+
+	#jacket .side-left .two,
+	#jacket .margin-right .one {
+		flex: 3;
+	}
+
+	#jacket .halves .column,
+	#jacket .quarters .column,
+	#jacket .margin-left .one,
+	#jacket .margin-right .two,
+	#jacket .thirds .column {
+		flex: 1;
+	}
 }
 
-#jacket .side-left .two,
-#jacket .margin-right .one {
-	flex: 3;
-}
-#jacket .halves .column,
-#jacket .quarters .column,
-#jacket .margin-left .one,
-#jacket .margin-right .two,
-#jacket .thirds .column {
-	flex: 1;
-}
-}
 /* --- bleeds --- */
 #jacket #binder .bleed-full {
 	max-width: 100%;
 }
 
 #jacket #binder .bleed-right {
-	max-width: none!important;
+	max-width: none !important;
 	width: calc(1188px + ((100vw - 1188px) / 2)) !important;
 	margin-right: 0 !important;
 }
+
 @media (max-width: 1188px) {
+
 	#jacket #binder .bleed-right {
-		width: 100%!important;
+		width: 100% !important;
 	}
 }
 
@@ -138,6 +158,7 @@ header.main-header {
 	margin: 4rem 0;
 	padding: 4rem 0;
 }
+
 .mid-feature blockquote {
 	margin-top: 0;
 	margin-bottom: 0;
@@ -154,19 +175,21 @@ header.main-header {
 	padding: 4rem 0;
 	position: relative;
 }
+
 .img-mid-feature .caption {
 	color: #fff;
 	position: absolute;
 	bottom: 2rem;
 	right: 2rem;
 	text-align: right;
-	width: calc(100% - 8rem)!important;
+	width: calc(100% - 8rem) !important;
 	max-width: 500px;
 }
+
 /* --- site footer --- */
 .site-footer {
 	background-color: #333;
-	color: rgba(255,255,255,.4);
+	color: rgba(255, 255, 255, .4);
 	margin: 4em 0 0;
 	padding: 6em 0;
 }
@@ -179,40 +202,50 @@ header.main-header {
 	margin: 6em auto .5em;
 	padding-bottom: .5em;
 }
+
 .site-footer .global-links a,
 .site-footer address a {
 	color: inherit;
 }
+
 .site-footer .global-links a:hover,
 .site-footer address a:hover {
 	text-decoration: underline;
 }
+
 .address-item {
 	padding: 0 .5em;
 }
+
 .address-item:first-child {
 	padding-left: 0;
 }
+
 .dept-name {
 	text-transform: uppercase;
 }
+
 /* global nav */
 .site-footer .global-links ul {
 	display: flex;
 	margin-top: .5em;
 	padding: 0;
 }
+
 .site-footer .global-links li {
 	font-size: .8em;
 	padding: 0 .75em;
 	text-transform: uppercase;
 }
+
 .site-footer .global-links li:first-child {
 	padding-left: 0;
 }
-@media (max-width: 989px){
-	#glue{
-		padding-left:0;
+
+@media (max-width: 989px) {
+
+	#glue {
+		padding-left: 0;
 		padding-right: 0;
 	}
 }

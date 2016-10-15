@@ -1,7 +1,7 @@
 /*
  Theme Name:     Elson S. Floyd College of Medicine
  Theme URI:      https://medicine.wsu.edu
- Description:    A child theme for Washington State University's Spine Parent Theme
+ Description:    A College of Medicine theme built on the WSU Spine.
  Author:         WSU University Communications
  Author URI:     https://web.wsu.edu
  Template:       spine
@@ -9,389 +9,442 @@
 */
 
 /* --- general typography and type classes --- */
-
 main {
-    font-size: 16px;
+	font-size: 16px;
 }
 
 h1 {
-    font-size: 3em;
-    font-weight: 300;
-    text-transform: uppercase;
-    margin: 2em 0 1.5em;
+	font-size: 3em;
+	font-weight: 300;
+	text-transform: uppercase;
+	margin: 2em 0 1.5em;
 }
 
 h2 {
-    font-size: 1.6em;
-    font-weight: 300;
-    line-height: 1.3;
-    margin: 1em 0 .5em;
+	font-size: 1.6em;
+	font-weight: 300;
+	line-height: 1.3;
+	margin: 1em 0 .5em;
 }
 
 h3 {
-    font-size: 1.2em;
-    font-weight: 300;
-    line-height: 1.2;
-    text-transform: uppercase;
+	font-size: 1.2em;
+	font-weight: 300;
+	line-height: 1.2;
+	text-transform: uppercase;
 }
+
 h4 {
-    color:#981e32;
-    font-size: 1em;
-    font-weight: 800;
-    text-transform: uppercase;
-    margin-top: 1em;
+	color: #981e32;
+	font-size: 1em;
+	font-weight: 800;
+	text-transform: uppercase;
+	margin-top: 1em;
 }
+
 h5 {
-    font-size: 1em;
-    font-weight: 800;
+	font-size: 1em;
+	font-weight: 800;
 }
+
 h6 {
-    font-size: 1em;
-    font-weight: 400;
+	font-size: 1em;
+	font-weight: 400;
 }
-/* headers lead off content, don't want top padding on H elements within headers */
+
+/* headers lead off content, don't want top padding on H elements
+   within headers */
 main header h2,
 main header h3,
 main header h4,
 main header h5 {
-  padding-top:0;
+	padding-top: 0;
 }
 
 /* links with animated underline */
 main a {
-  font-weight: 400;
-  position: relative;
-  color: inherit;
-  text-decoration: none;
-  -webkit-transition: all 0.3s ease;
-  transition: all 0.3s ease;
-}
-main a:hover,
-main a:active {
-  color: #981e32;
-}
-main a:before {
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 1px;
-  bottom: -1px;
-  left: 0;
-  background: -webkit-linear-gradient(left, #981e32 50%,rgba(0,0,0,.2) 50%);
-  background: linear-gradient(to right, #981e32 50%,rgba(0,0,0,.2) 50%);
-  background-size: 200%;
-  background-position: 100% 0;
-  -webkit-transition: all 0.3s ease 0s;
-  transition: all 0.3s ease 0s;
-  overflow: hidden;
-}
-main a:hover:before,
-main a:active:before {
-  background-position: 0 0;
+	font-weight: 400;
+	position: relative;
+	color: inherit;
+	text-decoration: none;
+	-webkit-transition: all .3s ease;
+	transition: all .3s ease;
 }
 
-strong{
-  font-weight: 800;
+main a:hover,
+main a:active {
+	color: #981e32;
+}
+
+main a:before {
+	content: "";
+	position: absolute;
+	width: 100%;
+	height: 1px;
+	bottom: -1px;
+	left: 0;
+	background: -webkit-linear-gradient(left, #981e32 50%, rgba(0, 0, 0, .2) 50%);
+	background: linear-gradient(to right, #981e32 50%, rgba(0, 0, 0, .2) 50%);
+	background-size: 200%;
+	background-position: 100% 0;
+	-webkit-transition: all .3s ease 0s;
+	transition: all .3s ease 0s;
+	overflow: hidden;
+}
+
+main a:hover:before,
+main a:active:before {
+	background-position: 0 0;
+}
+
+strong {
+	font-weight: 800;
 }
 
 blockquote,
 cite,
 main li,
 p {
-    font-size: .9em;
-    font-weight: 300;
-    line-height: 1.75;
+	font-size: .9em;
+	font-weight: 300;
+	line-height: 1.75;
 }
+
 main ul {
-    list-style: none;
+	list-style: none;
 }
 
 main ul li:before {
-    content:'\2022\a0\a0';
-    color: #981e32;
-    font-weight: 800;
-}
-main ul li {
-    list-style:none;
-    text-indent:-.5em; /* helps make it look more like it's a bullet. */
+	content: "\2022\a0\a0";
+	color: #981e32;
+	font-weight: 800;
 }
 
-/* a class to show a header in a unique way. A way to introduce a new section after a large visual */
+main ul li {
+	list-style: none;
+	text-indent: -.5em; /* helps make it look more like it's a bullet. */
+}
+
+/* a class to show a header in a unique way. A way to introduce
+   a new section after a large visual */
 .space-case {
-    font-size: 1em;
-    font-weight: 300;
-    text-transform: uppercase;
-    letter-spacing: 4px;
+	font-size: 1em;
+	font-weight: 300;
+	text-transform: uppercase;
+	letter-spacing: 4px;
 }
+
 .space-case.center {
-    text-align: center;
+	text-align: center;
 }
+
 .rule,
 .rule-thick,
 .space-case {
-    margin-bottom: 3em;
-    padding-bottom: 1.5em;
-    position: relative;
+	margin-bottom: 3em;
+	padding-bottom: 1.5em;
+	position: relative;
 }
+
 .rule-thick {
-    margin-bottom: 1.5em;
+	margin-bottom: 1.5em;
 }
+
 .rule-thick:after,
 .rule:after,
 .space-case:after {
-    content: "";
-    width: 4.5em;
-    height: 1px;
-    background: #981e32;
-    position: absolute;
-    bottom: 0;
-    left: 0;
+	content: "";
+	width: 4.5em;
+	height: 1px;
+	background: #981e32;
+	position: absolute;
+	bottom: 0;
+	left: 0;
 }
+
 .rule-thick:after {
-    height: 6px;
+	height: 6px;
 }
 
 /* centered content for space-case and rules */
 .rule-thick.center:after,
 .rule.center:after,
 .space-case.center:after {
-    margin-left: auto;
-    margin-right: auto;
-    left: 0;
-    right: 0;
+	margin-left: auto;
+	margin-right: auto;
+	left: 0;
+	right: 0;
 }
 
 /* slight size adjustments for margin-right */
 .margin-right .two {
-    font-size: .9rem;
+	font-size: .9rem;
 }
 
-/* blockquotes are being used in three different ways on the site - two of which are to break up content */
+/* blockquotes are being used in three different ways on
+   the site - two of which are to break up content */
 blockquote {
-    border-left: 1px solid #981e32;
-    font-family: 'Open Sans', 'Lucida Sans', 'Lucida Grande', 'Lucida Sans Unicode', sans-serif;
-    margin: 4em 0 5em 3.5em;
-    padding: .5em 0 .5em 1.5em;
+	border-left: 1px solid #981e32;
+	font-family: "Open Sans", "Lucida Sans", "Lucida Grande", "Lucida Sans Unicode", sans-serif;
+	margin: 4em 0 5em 3.5em;
+	padding: .5em 0 .5em 1.5em;
 }
-blockquote cite{
-  color:#777;
+
+blockquote cite {
+	color: #777;
 }
-.center.mid-feature blockquote{
-  margin: 0;
-  padding:2em 0;
-  font-size: 1.2em;
-  text-align: center;
-  border: none;
+
+.center.mid-feature blockquote {
+	margin: 0;
+	padding: 2em 0;
+	font-size: 1.2em;
+	text-align: center;
+	border: none;
 }
-.center blockquote:before{
-  content: "";
-  width: 15%;
-  height: 1px;
-  background: #981e32;
-  position: absolute;
-  top: 0;
-  margin-left: auto;
-  margin-right: auto;
-  left: 0;
-  right: 0;
+
+.center blockquote:before {
+	content: "";
+	width: 15%;
+	height: 1px;
+	background: #981e32;
+	position: absolute;
+	top: 0;
+	margin-left: auto;
+	margin-right: auto;
+	left: 0;
+	right: 0;
 }
-.center blockquote:after{
-  content: "";
-  width: 15%;
-  height: 1px;
-  background: #981e32;
-  position: absolute;
-  bottom: 0;
-  margin-left: auto;
-  margin-right: auto;
-  left: 0;
-  right: 0;
+
+.center blockquote:after {
+	content: "";
+	width: 15%;
+	height: 1px;
+	background: #981e32;
+	position: absolute;
+	bottom: 0;
+	margin-left: auto;
+	margin-right: auto;
+	left: 0;
+	right: 0;
 }
-.block-head{
-  font-size: .9em;
-  text-transform: uppercase;
+
+.block-head {
+	font-size: .9em;
+	text-transform: uppercase;
 }
 
 /* --- temporary overwrite to get the nav out of the way --- */
-
 .spine-mobile #spine {
 	display: block;
 }
 
 /* ------- */
 @media (min-width: 989px) {
+
 	#spine {
-		min-height: auto!important;
-		position: relative!important;
+		min-height: auto !important;
+		position: relative !important;
 		font-size: 12px;
 		width: 100%;
 		z-index: 0;
 	}
-	#glue{
+
+	#glue {
 		position: static;
-		width:100%;
+		width: 100%;
 		max-width: 1188px;
 		margin-left: auto;
 		margin-right: auto;
 	}
+
 	#spine #glue:before,
-	.spine-full #glue:before{
+	.spine-full #glue:before {
 		display: none;
 	}
-	#binder #spine header{
+
+	#binder #spine header {
 		position: absolute;
 		top: 1em;
-		left:2em;
-		height:92px;
+		left: 2em;
+		height: 92px;
 		background-color: transparent;
 	}
-	#wsu-signature{
-		width:150px;
-		height:92px;
+
+	#wsu-signature {
+		width: 150px;
+		height: 92px;
 		text-indent: 99163px;
 	}
+
 	#spine .spine-actions,
 	.spine-offsitenav,
-	#spine footer{
+	#spine footer {
 		display: none;
 	}
-	#spine .spine-sitenav{
+
+	#spine .spine-sitenav {
 		padding: 90px 0 0;
 		margin: 0;
 	}
-	#spine .spine-navigation{
+
+	#spine .spine-navigation {
 		padding: 0;
 		margin: 0;
 	}
+
 	#spine .spine-search-tab button,
 	#spine .spine-sitenav a {
 		color: #2a3033;
 	}
-	#spine .spine-sitenav>ul>li:first-child>a{
+
+	#spine .spine-sitenav > ul > li:first-child > a {
 		background: none;
 	}
-	#spine .spine-sitenav>ul>li:first-child>a:hover{
+
+	#spine .spine-sitenav > ul > li:first-child > a:hover {
 		background: none;
 	}
-	#spine nav.spine-sitenav > ul > li{
-		position:static;
+
+	#spine nav.spine-sitenav > ul > li {
+		position: static;
 		padding-bottom: 0;
 		-webkit-transition: all .3s ease;
 		transition: all .3s ease;
 	}
-	#spine nav.spine-sitenav > ul > li.opened{
+
+	#spine nav.spine-sitenav > ul > li.opened {
 		padding-bottom: 112px;
 	}
+
 	#spine nav > ul > li > a {
-		padding:0;
+		padding: 0;
 	}
 
 	#spine .spine-sitenav > ul > .parent > .sub-menu > li {
 		visibility: hidden;
 	}
 
-	#spine nav.spine-sitenav > ul > li > ul{
-		position:absolute;
-		width:100%;
-		display:-webkit-box;
-		display:-ms-flexbox;
-		display:flex;
-		background:#333;
+	#spine nav.spine-sitenav > ul > li > ul {
+		position: absolute;
+		width: 100%;
+		display: -webkit-box;
+		display: -ms-flexbox;
+		display: flex;
+		background: #333;
 		left: 0;
 	}
-	#spine nav.spine-sitenav > ul > li > ul > li{
-		display:inline;
+
+	#spine nav.spine-sitenav > ul > li > ul > li {
+		display: inline;
 	}
+
 	/* take off home icon from home link */
-	#spine .spine-sitenav>ul>li.active:first-child>a, #spine .spine-sitenav>ul>li:first-child>a:hover {
+	#spine .spine-sitenav > ul > li.active:first-child > a,
+	#spine .spine-sitenav > ul > li:first-child > a:hover {
 		background: none;
 	}
+
 	/* bring opened sub nav to front */
-	#spine nav.spine-sitenav > ul > li.opened > ul{
+	#spine nav.spine-sitenav > ul > li.opened > ul {
 		z-index: 2;
 	}
+
 	/* prevent sub menus from flashing in during close transition */
-	#spine nav.spine-sitenav > ul > li.last-opened > ul{
+	#spine nav.spine-sitenav > ul > li.last-opened > ul {
 		z-index: 1;
 	}
-	#spine nav li.parent.active>a,
-	#spine nav li.parent.opened>a{
+
+	#spine nav li.parent.active > a,
+	#spine nav li.parent.opened > a {
 		color: #981e32;
 		padding-bottom: 0;
 	}
-	#spine nav.spine-sitenav > ul > li > ul:before{
-		width:100%;
-		background:#333;
-		height:100%;
-		content:"";
-		position:absolute;
-		left:-50%;
-		top:0;
+
+	#spine nav.spine-sitenav > ul > li > ul:before {
+		width: 100%;
+		background: #333;
+		height: 100%;
+		content: "";
+		position: absolute;
+		left: -50%;
+		top: 0;
 	}
-	#spine nav.spine-sitenav > ul > li > ul:after{
-		width:100%;
-		background:#333;
-		height:100%;
-		content:"";
-		position:absolute;
-		left:50%;
-		top:0;
+
+	#spine nav.spine-sitenav > ul > li > ul:after {
+		width: 100%;
+		background: #333;
+		height: 100%;
+		content: "";
+		position: absolute;
+		left: 50%;
+		top: 0;
 		z-index: -1;
 	}
-	#spine nav.spine-sitenav > ul > li > ul{
-		display:-webkit-box;
-		display:-ms-flexbox;
-		display:flex;
+
+	#spine nav.spine-sitenav > ul > li > ul {
+		display: -webkit-box;
+		display: -ms-flexbox;
+		display: flex;
 	}
-	#spine nav > ul > li > ul > li{
+
+	#spine nav > ul > li > ul > li {
 		-webkit-box-flex: 1;
 		    -ms-flex: 1;
 		        flex: 1;
 	}
-	#spine nav > ul > li > ul > li > a{
+
+	#spine nav > ul > li > ul > li > a {
 		color: #fff;
 		font-weight: 800;
 	}
+
 	#spine nav > ul > li > ul > li,
-	#spine nav > ul > li > ul > li > ul > li{
+	#spine nav > ul > li > ul > li > ul > li {
 		display: block;
 		margin-left: 0;
 	}
+
 	#spine nav ul ul ul li a {
 		padding: .25em 3em .25em 0;
 	}
+
 	/* - overwrite Spine padding for last child - */
 	#spine nav li.parent.active li:last-child a,
 	#spine nav li.parent.opened li:last-child a,
-	#spine nav ul ul li a{
+	#spine nav ul ul li a {
 		padding: .25em 3em .25em 0;
 	}
-	#spine .spine-sitenav > ul > li > ul  a{
-		color:rgba(255,255,255,.7);
+
+	#spine .spine-sitenav > ul > li > ul  a {
+		color: rgba(255, 255, 255, .7);
 		font-weight: 300;
 		padding: .25em 3em .25em 0;
 	}
-	#spine .spine-sitenav > ul > li > ul >li > a{
-		color:#fff;
+
+	#spine .spine-sitenav > ul > li > ul > li > a {
+		color: #fff;
 		font-weight: 800;
 	}
 
 	/* - show parent icon - */
-	#spine nav li.parent.opened>a:after,
-	#spine nav li.parent>a:after{
+	#spine nav li.parent.opened > a:after,
+	#spine nav li.parent > a:after {
 		display: inline;
 		position: inherit;
-		padding-left:.5em;
+		padding-left: .5em;
 	}
-	#spine nav li.parent.opened>a:focus:after,
-	#spine nav li.parent.opened>a:hover:after,
-	#spine nav li.parent>a:focus:after,
-	#spine nav li.parent>a:hover:after{
+
+	#spine nav li.parent.opened > a:focus:after,
+	#spine nav li.parent.opened > a:hover:after,
+	#spine nav li.parent > a:focus:after,
+	#spine nav li.parent > a:hover:after {
 		display: inline;
 	}
+
 	#binder #spine nav li.parent.active > a:after {
 		content: "\F501";
 	}
+
 	#binder #spine nav li.parent.opened.active > a:after {
 		content: "\F500";
 		font-family: Spine-Icons;
@@ -399,9 +452,10 @@ blockquote cite{
 
 	/* - don't show icon on second level nav (third level is already visible) - */
 	#spine nav.spine-sitenav > ul > li > ul > li.opened > a:after,
-	#spine nav.spine-sitenav > ul > li > ul > li.parent > a:after{
-		display:none;
+	#spine nav.spine-sitenav > ul > li > ul > li.parent > a:after {
+		display: none;
 	}
+
 	/* --- navigation for site header and site footer --- */
 	.footer-nav > ul,
 	#spine nav.spine-sitenav > ul {
@@ -412,59 +466,72 @@ blockquote cite{
 		    flex-wrap: wrap;
 		padding: 0;
 	}
-	#spine .spine-sitenav>ul>li:first-child>a {
+
+	#spine .spine-sitenav > ul > li:first-child > a {
 		padding-left: 0;
 		padding-right: 2em;
 	}
-	#spine nav.spine-sitenav > ul > li{
+
+	#spine nav.spine-sitenav > ul > li {
 		border: none;
 		padding-right: 3em;
 	}
+
 	.footer-nav > ul > li {
 		-webkit-box-flex: 1;
 		    -ms-flex: 1;
 		        flex: 1;
 	}
+
 	.footer-nav > ul > li {
 		min-width: 180px;
 	}
+
 	#spine nav.spine-sitenav > ul > li > a {
 		font-weight: 800;
 		margin-bottom: 1em;
 		text-transform: uppercase;
 	}
+
 	.footer-nav > ul > li > a {
 		color: #fff;
 		font-weight: 800;
 	}
+
 	.footer-nav > ul > li > ul,
 	#spine nav.spine-sitenav > ul > li > ul {
 		padding: 1em 0;
 	}
+
 	.footer-nav > ul > li > ul a {
-		color: rgba(255, 255, 255, 0.7);
+		color: rgba(255, 255, 255, .7);
 		font-size: .9em;
 	}
 }
-@media (max-width:1550px) and (min-width:989px) {
+
+@media (max-width: 1550px) and (min-width: 989px) {
 
 	div#glue {
-	  display: -webkit-box;
-	  display: -ms-flexbox;
-	  display: flex;
+		display: -webkit-box;
+		display: -ms-flexbox;
+		display: flex;
 	}
+
 	#binder #spine header {
-	  position:relative;
-	  left: 0;
-		height:92px;
+		position: relative;
+		left: 0;
+		height: 92px;
 	}
+
 	#binder #spine header {
-	  width: 150px;
+		width: 150px;
 	}
-	#binder #spine .spine-navigation{
-	  padding-left: 3em;
+
+	#binder #spine .spine-navigation {
+		padding-left: 3em;
 		width: 100%;
 	}
+
 	#spine nav.spine-sitenav > ul > li > ul {
 		padding-left: 3em;
 	}
@@ -474,21 +541,22 @@ blockquote cite{
 html {
 	background: #fff;
 }
+
 /* overwrite max width constraint */
 #jacket #binder {
 	max-width: 100%;
 }
-/* Overwrite because there is no longer a vertical nav to account for */
 
+/* Overwrite because there is no longer a vertical nav to account for */
 main {
 	background: #fff;
 	margin-left: 0;
 	position: relative;
 }
+
 main * {
 	box-sizing: border-box;
 }
-/* ------- */
 
 /* --- Max widths for content sections --- */
 .main-header .hgroup,
@@ -501,14 +569,16 @@ main .page > section {
 	margin-left: auto;
 	margin-right: auto;
 }
+
 @media (max-width: 1230px) {
+
 	#glue,
 	.main-header .hgroup,
 	.breadcrumbs,
 	.site-footer > *,
 	main .page > .section-wrapper > section,
 	main .page > section {
-		padding-left:2rem;
+		padding-left: 2rem;
 		padding-right: 2rem;
 	}
 }
@@ -521,12 +591,14 @@ header.main-header {
 	background-position: center center;
 	background-repeat: no-repeat;
 	background-size: cover;
-  margin-bottom: 1em;
+	margin-bottom: 1em;
 }
+
 .main-header .hgroup {
 	padding-top: 2.5em;
 	padding-bottom: 2.5em;
 }
+
 .main-header-name {
 	font-size: .9em;
 	font-weight: 300;
@@ -535,6 +607,7 @@ header.main-header {
 	margin-bottom: .25rem;
 	line-height: 1;
 }
+
 .main-header-description {
 	font-size: 2.2em;
 	font-weight: 300;
@@ -543,76 +616,90 @@ header.main-header {
 	margin: 0;
 	padding: 0;
 }
+
 /* --- breadcrumbs --- */
 .breadcrumbs {
-  font-size: .7em;
+	font-size: .7em;
 }
+
 .breadcrumbs,
 .breadcrumbs a {
-	color: rgba(0,0,0,.6);
+	color: rgba(0, 0, 0, .6);
 }
+
 .breadcrumbs-divider {
 	padding: 0 1em;
 }
+
 @media (min-width: 989px) {
-/* default sizing and padding for columns */
-.row {
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	-webkit-box-pack: justify;
-	    -ms-flex-pack: justify;
-	        justify-content: space-between;
-	-ms-flex-wrap: wrap;
-	    flex-wrap: wrap;
-}
-#jacket .row header {
-	-webkit-box-flex: 1;
-	    -ms-flex: 1 100%;
-	        flex: 1 100%;
-}
-#jacket .margin-right header h2 {
-	width: 75%;
-}
-#jacket .row .column {
-	padding: 0 20px;
-}
-#jacket .row .column:first-of-type {
-	padding-left: 0;
-}
-#jacket .row .column:last-of-type {
-	padding-right: 0;
+
+	/* default sizing and padding for columns */
+	.row {
+		display: -webkit-box;
+		display: -ms-flexbox;
+		display: flex;
+		-webkit-box-pack: justify;
+		    -ms-flex-pack: justify;
+		        justify-content: space-between;
+		-ms-flex-wrap: wrap;
+		    flex-wrap: wrap;
+	}
+
+	#jacket .row header {
+		-webkit-box-flex: 1;
+		    -ms-flex: 1 100%;
+		        flex: 1 100%;
+	}
+
+	#jacket .margin-right header h2 {
+		width: 75%;
+	}
+
+	#jacket .row .column {
+		padding: 0 20px;
+	}
+
+	#jacket .row .column:first-of-type {
+		padding-left: 0;
+	}
+
+	#jacket .row .column:last-of-type {
+		padding-right: 0;
+	}
+
+	#jacket .side-left .two,
+	#jacket .margin-right .one {
+		-webkit-box-flex: 3;
+		    -ms-flex: 3;
+		        flex: 3;
+	}
+
+	#jacket .halves .column,
+	#jacket .quarters .column,
+	#jacket .margin-left .one,
+	#jacket .margin-right .two,
+	#jacket .thirds .column {
+		-webkit-box-flex: 1;
+		    -ms-flex: 1;
+		        flex: 1;
+	}
 }
 
-#jacket .side-left .two,
-#jacket .margin-right .one {
-	-webkit-box-flex: 3;
-	    -ms-flex: 3;
-	        flex: 3;
-}
-#jacket .halves .column,
-#jacket .quarters .column,
-#jacket .margin-left .one,
-#jacket .margin-right .two,
-#jacket .thirds .column {
-	-webkit-box-flex: 1;
-	    -ms-flex: 1;
-	        flex: 1;
-}
-}
 /* --- bleeds --- */
 #jacket #binder .bleed-full {
 	max-width: 100%;
 }
 
 #jacket #binder .bleed-right {
-	max-width: none!important;
+	max-width: none !important;
 	width: calc(1188px + ((100vw - 1188px) / 2)) !important;
 	margin-right: 0 !important;
 }
+
 @media (max-width: 1188px) {
+
 	#jacket #binder .bleed-right {
-		width: 100%!important;
+		width: 100% !important;
 	}
 }
 
@@ -621,6 +708,7 @@ header.main-header {
 	margin: 4rem 0;
 	padding: 4rem 0;
 }
+
 .mid-feature blockquote {
 	margin-top: 0;
 	margin-bottom: 0;
@@ -637,19 +725,21 @@ header.main-header {
 	padding: 4rem 0;
 	position: relative;
 }
+
 .img-mid-feature .caption {
 	color: #fff;
 	position: absolute;
 	bottom: 2rem;
 	right: 2rem;
 	text-align: right;
-	width: calc(100% - 8rem)!important;
+	width: calc(100% - 8rem) !important;
 	max-width: 500px;
 }
+
 /* --- site footer --- */
 .site-footer {
 	background-color: #333;
-	color: rgba(255,255,255,.4);
+	color: rgba(255, 255, 255, .4);
 	margin: 4em 0 0;
 	padding: 6em 0;
 }
@@ -662,23 +752,29 @@ header.main-header {
 	margin: 6em auto .5em;
 	padding-bottom: .5em;
 }
+
 .site-footer .global-links a,
 .site-footer address a {
 	color: inherit;
 }
+
 .site-footer .global-links a:hover,
 .site-footer address a:hover {
 	text-decoration: underline;
 }
+
 .address-item {
 	padding: 0 .5em;
 }
+
 .address-item:first-child {
 	padding-left: 0;
 }
+
 .dept-name {
 	text-transform: uppercase;
 }
+
 /* global nav */
 .site-footer .global-links ul {
 	display: -webkit-box;
@@ -687,28 +783,32 @@ header.main-header {
 	margin-top: .5em;
 	padding: 0;
 }
+
 .site-footer .global-links li {
 	font-size: .8em;
 	padding: 0 .75em;
 	text-transform: uppercase;
 }
+
 .site-footer .global-links li:first-child {
 	padding-left: 0;
 }
-@media (max-width: 989px){
-	#glue{
-		padding-left:0;
+
+@media (max-width: 989px) {
+
+	#glue {
+		padding-left: 0;
 		padding-right: 0;
 	}
 }
 
 
-
-.test-img-mid-feature{
-  background-image: url("https://hd.unsplash.com/photo-1471074454408-f7db62d99254");
+.test-img-mid-feature {
+	background-image: url(https://hd.unsplash.com/photo-1471074454408-f7db62d99254);
 }
 
-/* video wrapper allows you to easily position the video within the content and set the width and max-width of the video */
+/* video wrapper allows you to easily position the video within the content
+   and set the width and max-width of the video */
 .video-wrap-control {
 	width: 400px;
 }
@@ -721,7 +821,8 @@ header.main-header {
 	width: 30vw;
 }
 
-/* The inner uses padding bottom (a percentage of it's own width) to allow the video player have a height that is responsive to the width */
+/* The inner uses padding bottom (a percentage of it's own width) to allow
+   the video player have a height that is responsive to the width */
 .video-wrap-inner {
 	position: relative;
 	padding-bottom: 56.25%;
@@ -739,10 +840,12 @@ header.main-header {
 }
 
 main {
-    color: #2d2d2d;
+	color: #2d2d2d;
 }
-.main-header{
-  /* margin  used for helping with creating type stylesheet */
-  margin-bottom: 3rem;
+
+.main-header {
+
+	/* margin used for helping with creating type stylesheet */
+	margin-bottom: 3rem;
 }
 /*# sourceMappingURL=style.css.map */
