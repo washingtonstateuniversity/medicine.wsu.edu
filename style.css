@@ -424,15 +424,21 @@ blockquote cite {
 		padding: .25em 3em .25em 0;
 	}
 
-	#spine .spine-sitenav > ul > li > ul  a {
+	#spine .spine-sitenav > ul > li > ul  a,
+	.parent-anchor {
 		color: rgba(255, 255, 255, .7);
 		font-weight: 300;
 		padding: .25em 3em .25em 0;
 	}
 
-	#spine .spine-sitenav > ul > li > ul > li > a {
+	#spine .spine-sitenav > ul > li > ul > li > a,
+	.parent-anchor {
 		color: #fff;
 		font-weight: 800;
+	}
+
+	.parent-anchor {
+		display: block;
 	}
 
 	/* - show parent icon - */
