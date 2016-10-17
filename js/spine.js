@@ -1095,6 +1095,7 @@
 		 * @since 0.0.3
 		 */
 		setup_standard_navigation: function() {
+			$( ".non-anchor > a " ).contents().unwrap().wrap( "<span class='parent-anchor'></span>" );
 			this.nav_elements.top_level_parent_anchors.on( "click", $.ui.spine.prototype.handle_top_level_anchor_click );
 			this.nav_elements.sub_level_parent_anchors.on( "click", $.ui.spine.prototype.handle_sub_level_anchor_click );
 		},

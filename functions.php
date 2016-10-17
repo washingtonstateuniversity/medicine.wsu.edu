@@ -125,3 +125,26 @@ function medicine_spine_wp_enqueue_scripts() {
 	// Enqueue scripting for the entire parent theme.
 	wp_enqueue_script( 'wsu-spine-theme-js', get_template_directory_uri() . '/js/spine-theme.js', array( 'jquery' ), spine_get_script_version(), true );
 }
+
+add_filter( 'nav_menu_css_class', 'medicine_nav_menu_css_class', 20, 3 );
+/**
+ * Assign a class of `.non-anchor` to any menu items that are custom links
+ * with an href of #.
+ *
+ * @param $classes
+ * @param $item
+ * @param $args
+ *
+ * @return array
+ */
+function medicine_nav_menu_css_class( $classes, $item, $args ) {
+	if ( 'site' !== $args->menu ) {
+		return $classes;
+	}
+
+	if ( 'custom' === $item->object && 'custom' === $item->type && '#' === $item->url ) {
+		$classes[] = 'non-anchor';
+	}
+
+	return $classes;
+}
