@@ -1,3 +1,10 @@
+/* --- Remove the padding on glue when the user is logged in --- */
+@media (min-width: 990px){
+	.admin-bar #spine #glue {
+    margin-top: 0;
+	}
+}
+
 /* --- temporary overwrite to get the nav out of the way --- */
 .spine-mobile #spine {
 	display: block;
