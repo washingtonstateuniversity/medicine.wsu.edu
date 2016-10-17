@@ -610,7 +610,8 @@
 			main_nav: false,
 			top_level_parent_anchors: false,
 			sub_level_parent_anchors: false,
-			all_parent_anchors: false
+			all_parent_anchors: false,
+			top_level_opened: false
 		},
 
 		/**
@@ -1013,6 +1014,7 @@
 			if ( $parent.hasClass( "opened" ) ) {
 				$parent.css( { "z-index": 1, "padding-bottom": 0 } );
 				setTimeout( function() {
+					$.ui.spine.prototype.nav_elements.top_level_opened = false;
 					$parent.removeClass( "opened" );
 					$parent.find( "> .sub-menu > li" ).css( "visibility", "hidden" );
 				}, 300 );
@@ -1028,6 +1030,7 @@
 					existing_menu = true;
 					$( x ).css( { "z-index": 1, "padding-bottom": 0 } );
 					setTimeout( function() {
+						$.ui.spine.prototype.nav_elements.top_level_opened = $parent;
 						$( x ).removeClass( "opened" );
 						$( x ).find( "> .sub-menu > li" ).css( "visibility", "hidden" );
 						$parent.css( { "z-index": 2 } );
@@ -1039,6 +1042,7 @@
 			} );
 
 			if ( false === existing_menu ) {
+				$.ui.spine.prototype.nav_elements.top_level_opened = $parent;
 				$parent.css( { "z-index": 2 } );
 				$parent.find( "> .sub-menu > li" ).css( "visibility", "visible" );
 				$parent.toggleClass( "opened" );
@@ -1057,20 +1061,25 @@
 		handle_sub_level_anchor_click: function( e ) {
 			var existing_padding = 0;
 
+			var new_height = 0;
+
 			e.preventDefault();
 			var $parent = $( e.target ).closest( "li" );
 			var $top_parent = $parent.closest( ".spine-sitenav > ul > .parent" );
 
 			if ( $parent.hasClass( "opened" ) ) {
-				var remove_height = $parent.find( "> .sub-menu" ).height();
+				var remove_height = $parent.find( "> .sub-menu" ).outerHeight();
 				existing_padding = parseFloat( $top_parent.css( "padding-bottom" ) );
 				$top_parent.css( "padding-bottom", ( existing_padding - remove_height ) + "px" );
-				$parent.removeClass( "opened" );
+				setTimeout( function() {
+					$parent.removeClass( "opened" );
+					new_height = $.ui.spine.prototype.nav_elements.top_level_opened.find( "> .sub-menu" ).outerHeight();
+					$top_parent.css( "padding-bottom", ( new_height ) + "px" );
+				}, 100 );
 			} else {
 				$parent.addClass( "opened" );
-				var added_height = $parent.find( "> .sub-menu" ).height();
-				existing_padding = parseFloat( $top_parent.css( "padding-bottom" ) );
-				$top_parent.css( "padding-bottom", ( added_height + existing_padding ) + "px" );
+				new_height = $.ui.spine.prototype.nav_elements.top_level_opened.find( "> .sub-menu" ).outerHeight();
+				$top_parent.css( "padding-bottom", ( new_height ) + "px" );
 			}
 		},
 
