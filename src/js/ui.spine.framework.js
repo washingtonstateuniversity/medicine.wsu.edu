@@ -502,26 +502,32 @@
 		},
 
 		/**
-		 * Handles click events on sub level anchor items when the
-		 * standard horizontal navigation is displayed.
+		 * Handles click events on sub level anchor items when the standard
+		 * horizontal navigation is displayed.
 		 *
 		 * @since 0.0.6
 		 *
 		 * @param e
 		 */
 		handle_sub_level_anchor_click: function( e ) {
-			var existing_padding = 0;
-
-			var new_height = 0;
-
 			e.preventDefault();
+
+			var existing_padding = 0;
+			var new_height = 0;
+			var remove_height = 0;
 			var $parent = $( e.target ).closest( "li" );
 			var $top_parent = $parent.closest( ".spine-sitenav > ul > .parent" );
 
 			if ( $parent.hasClass( "opened" ) ) {
-				var remove_height = $parent.find( "> .sub-menu" ).outerHeight();
+
+				// First, remove the height of the smaller sub menu. This will
+				// start a transition smoothly that we can continue once we know
+				// the entire value.
+				remove_height = $parent.find( "> .sub-menu" ).outerHeight();
 				existing_padding = parseFloat( $top_parent.css( "padding-bottom" ) );
 				$top_parent.css( "padding-bottom", ( existing_padding - remove_height ) + "px" );
+
+				// After waiting for the initial transition to start, calculate the real height.
 				setTimeout( function() {
 					$parent.removeClass( "opened" );
 					new_height = $.ui.spine.prototype.nav_elements.top_level_opened.find( "> .sub-menu" ).outerHeight();
