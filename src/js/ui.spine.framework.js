@@ -61,7 +61,8 @@
 			main_nav: false,
 			top_level_parent_anchors: false,
 			sub_level_parent_anchors: false,
-			all_parent_anchors: false
+			all_parent_anchors: false,
+			top_level_opened: false
 		},
 
 		/**
@@ -464,6 +465,7 @@
 			if ( $parent.hasClass( "opened" ) ) {
 				$parent.css( { "z-index": 1, "padding-bottom": 0 } );
 				setTimeout( function() {
+					$.ui.spine.prototype.nav_elements.top_level_opened = false;
 					$parent.removeClass( "opened" );
 					$parent.find( "> .sub-menu > li" ).css( "visibility", "hidden" );
 				}, 300 );
@@ -479,6 +481,7 @@
 					existing_menu = true;
 					$( x ).css( { "z-index": 1, "padding-bottom": 0 } );
 					setTimeout( function() {
+						$.ui.spine.prototype.nav_elements.top_level_opened = $parent;
 						$( x ).removeClass( "opened" );
 						$( x ).find( "> .sub-menu > li" ).css( "visibility", "hidden" );
 						$parent.css( { "z-index": 2 } );
@@ -490,6 +493,7 @@
 			} );
 
 			if ( false === existing_menu ) {
+				$.ui.spine.prototype.nav_elements.top_level_opened = $parent;
 				$parent.css( { "z-index": 2 } );
 				$parent.find( "> .sub-menu > li" ).css( "visibility", "visible" );
 				$parent.toggleClass( "opened" );
@@ -498,30 +502,41 @@
 		},
 
 		/**
-		 * Handles click events on sub level anchor items when the
-		 * standard horizontal navigation is displayed.
+		 * Handles click events on sub level anchor items when the standard
+		 * horizontal navigation is displayed.
 		 *
 		 * @since 0.0.6
 		 *
 		 * @param e
 		 */
 		handle_sub_level_anchor_click: function( e ) {
-			var existing_padding = 0;
-
 			e.preventDefault();
+
+			var existing_padding = 0;
+			var new_height = 0;
+			var remove_height = 0;
 			var $parent = $( e.target ).closest( "li" );
 			var $top_parent = $parent.closest( ".spine-sitenav > ul > .parent" );
 
 			if ( $parent.hasClass( "opened" ) ) {
-				var remove_height = $parent.find( "> .sub-menu" ).height();
+
+				// First, remove the height of the smaller sub menu. This will
+				// start a transition smoothly that we can continue once we know
+				// the entire value.
+				remove_height = $parent.find( "> .sub-menu" ).outerHeight();
 				existing_padding = parseFloat( $top_parent.css( "padding-bottom" ) );
 				$top_parent.css( "padding-bottom", ( existing_padding - remove_height ) + "px" );
-				$parent.removeClass( "opened" );
+
+				// After waiting for the initial transition to start, calculate the real height.
+				setTimeout( function() {
+					$parent.removeClass( "opened" );
+					new_height = $.ui.spine.prototype.nav_elements.top_level_opened.find( "> .sub-menu" ).outerHeight();
+					$top_parent.css( "padding-bottom", ( new_height ) + "px" );
+				}, 100 );
 			} else {
 				$parent.addClass( "opened" );
-				var added_height = $parent.find( "> .sub-menu" ).height();
-				existing_padding = parseFloat( $top_parent.css( "padding-bottom" ) );
-				$top_parent.css( "padding-bottom", ( added_height + existing_padding ) + "px" );
+				new_height = $.ui.spine.prototype.nav_elements.top_level_opened.find( "> .sub-menu" ).outerHeight();
+				$top_parent.css( "padding-bottom", ( new_height ) + "px" );
 			}
 		},
 
