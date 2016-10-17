@@ -128,7 +128,6 @@
 	#spine nav li.parent.active > a,
 	#spine nav li.parent.opened > a {
 		color: #981e32;
-		padding-bottom: 0;
 	}
 
 	#spine nav.spine-sitenav > ul > li > ul:before {
