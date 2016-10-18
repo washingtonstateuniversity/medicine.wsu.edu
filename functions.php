@@ -148,3 +148,11 @@ function medicine_nav_menu_css_class( $classes, $item, $args ) {
 
 	return $classes;
 }
+
+add_action( 'after_setup_theme', 'medicine_nav_menu_register' );
+/**
+ * Register additional menus used by the theme.
+ */
+function medicine_nav_menu_register() {
+	register_nav_menu( 'site-footer-menu', 'Footer Menu' );
+}
