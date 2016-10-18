@@ -53,7 +53,7 @@ h6 {
 }
 
 /* headers lead off content, don't want top padding on H elements
-   within headers */
+	 within headers */
 main header h2,
 main header h3,
 main header h4,
@@ -63,38 +63,52 @@ main header h5 {
 
 /* links with animated underline */
 main a {
+	display: inline-block;
+	color: #b7203d;
 	font-weight: 400;
 	position: relative;
-	color: inherit;
+	padding-bottom: 1px;
 	text-decoration: none;
-	-webkit-transition: all .3s ease;
-	transition: all .3s ease;
-}
-
-main a:hover,
-main a:active {
-	color: #981e32;
+	border-bottom: 1px solid rgba(64, 64, 64, .1);
 }
 
 main a:before {
 	content: "";
+	display: block;
 	position: absolute;
-	width: 100%;
-	height: 1px;
-	bottom: -1px;
 	left: 0;
-	background: -webkit-linear-gradient(left, #981e32 50%, rgba(0, 0, 0, .2) 50%);
-	background: linear-gradient(to right, #981e32 50%, rgba(0, 0, 0, .2) 50%);
-	background-size: 200%;
-	background-position: 100% 0;
-	-webkit-transition: all .3s ease 0s;
-	transition: all .3s ease 0s;
-	overflow: hidden;
+	bottom: -1px;
+	height: 1px;
+	width: 0;
+	-webkit-transition: width 0s ease, background .3s ease;
+	transition: width 0s ease, background .3s ease;
 }
 
-main a:hover:before,
-main a:active:before {
-	background-position: 0 0;
+main a:after {
+	content: "";
+	display: block;
+	position: absolute;
+	right: 0;
+	bottom: -1px;
+	height: 1px;
+	width: 0;
+	background: #b7203d;
+	-webkit-transition: width .3s ease;
+	transition: width .3s ease;
+}
+
+main a:hover:before {
+	width: 100%;
+	background: #b7203d;
+	-webkit-transition: width .3s ease;
+	transition: width .3s ease;
+}
+
+main a:hover:after {
+	width: 100%;
+	background: transparent;
+	-webkit-transition: all 0s ease;
+	transition: all 0s ease;
 }
 
 strong {
@@ -134,7 +148,7 @@ main ul li:before {
 }
 
 /* a class to show a header in a unique way. A way to introduce
-   a new section after a large visual */
+	 a new section after a large visual */
 .space-case {
 	font-size: 1em;
 	font-weight: 300;
@@ -190,7 +204,7 @@ main ul li:before {
 }
 
 /* blockquotes are being used in three different ways on
-   the site - two of which are to break up content */
+	 the site - two of which are to break up content */
 blockquote {
 	border-left: 1px solid #981e32;
 	font-family: "Open Sans", "Lucida Sans", "Lucida Grande", "Lucida Sans Unicode", sans-serif;
@@ -822,6 +836,129 @@ header.main-header {
 		padding-left: 0;
 		padding-right: 0;
 	}
+}
+
+/* ----- Input ----- */
+.formwrap {
+	display: block;
+	overflow: hidden;
+	margin: 10px 40px;
+	padding: 0;
+}
+
+input {
+	color: rgba(94, 106, 113, 1);
+	-webkit-transition: all .3s ease-in-out;
+	transition: all .3s ease-in-out;
+}
+
+input:focus {
+	color: rgba(255, 255, 255, 1);
+}
+
+input,
+input:focus {
+	width: 100%;
+	height: 50px;
+	margin: 0;
+	padding: 0;
+	font: 400 12px/12px "Open Sans", Helvetica, Arial, san-serif;
+	text-align: left;
+	text-indent: 10px;
+	text-transform: none;
+	-webkit-appearance: none;
+	   -moz-appearance: none;
+	        appearance: none;
+	box-shadow: none;
+	border: none;
+	border-radius: 2px;
+	outline: none;
+}
+
+input {
+	background-color: rgba(255, 255, 255, 0);
+	border-bottom: 1px solid rgba(64, 64, 64, .1);
+	border-radius: 0;
+}
+
+input:hover {
+	border-bottom: 1px solid #b7203d;
+	-webkit-transition: all .3s ease-in-out;
+	transition: all .3s ease-in-out;
+}
+
+input:focus {
+	color: rgba(64, 64, 64, 1);
+	background-color: rgba(255, 255, 255, 0);
+	border-bottom: 1px solid rgba(64, 64, 64, 1);
+	border-radius: 0;
+}
+
+/* ----- Form Button ----- */
+button {
+	min-width: 120px;
+	height: 40px;
+	background-color: #b7203d;
+	color: #fff;
+	border: 0;
+	margin: 20px 0;
+	font: 400 12px/12px "Open Sans", Helvetica, Arial, san-serif;
+	text-transform: uppercase;
+	letter-spacing: 4px;
+	-webkit-transition: all .3s ease-in-out;
+	transition: all .3s ease-in-out;
+	border-radius: 2px;
+	cursor: pointer;
+}
+
+button:hover,
+button:focus {
+	outline: 0;
+	background-color: #a31d36;
+	color: #fff;
+	-webkit-transition: all .3s ease-in-out;
+	transition: all .3s ease-in-out;
+}
+
+/* ----- Checkbox ----- */
+input[type="checkbox"] {
+	background: #fff;
+	border: 1px solid rgba(64, 64, 64, .2);
+	border-radius: 0;
+	cursor: pointer;
+	height: 14px;
+	width: 14px;
+	margin: 0 0 0 10px;
+	vertical-align: middle;
+	padding: 0;
+	-webkit-appearance: none;
+	   -moz-appearance: none;
+	        appearance: none;
+	-webkit-transition: .15s;
+	transition: .15s;
+	box-shadow: none;
+}
+
+input[type="checkbox"]:hover {
+	box-shadow: none;
+	border: 1px solid #b7203d;
+	-webkit-transition: all .3s ease-in-out;
+	transition: all .3s ease-in-out;
+}
+
+input[type="checkbox"]:checked {
+	background: #a31d36;
+	border-color: #a31d36;
+	box-shadow: none;
+}
+
+/* ----- Label ----- */
+label {
+	color: rgba(94, 106, 113, 1);
+	cursor: pointer;
+	margin: 0 10px 0 2px;
+	padding: 0;
+	font: 400 12px/12px "Open Sans", Helvetica, Arial, san-serif;
 }
 
 
