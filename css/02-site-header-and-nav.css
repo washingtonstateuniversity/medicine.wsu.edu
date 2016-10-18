@@ -97,7 +97,7 @@
 	#spine nav > ul > li > a,
 	#spine nav li.parent.active > a,
 	#spine nav li.parent.opened > a {
-		padding: 0;
+		padding-bottom: 0;
 	}
 
 	#spine .spine-sitenav > ul > .parent > .sub-menu > li {
