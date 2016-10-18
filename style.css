@@ -663,7 +663,8 @@ header.main-header {
 
 /* - taller header, more splash with image - */
 .has-featured-image header.main-header {
-	height: 500px;
+	height: 38vw;
+	max-height: 500px;
 	display: -webkit-box;
 	display: -ms-flexbox;
 	display: flex;
@@ -676,6 +677,17 @@ header.main-header {
 	        align-items: flex-end;
 }
 
+header.main-header:after {
+	content: "";
+	position: absolute;
+	margin: 2em;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	border: 1px solid #fff;
+}
+
 .has-featured-image .main-header .hgroup {
 	display: -webkit-box;
 	display: -ms-flexbox;
@@ -686,6 +698,8 @@ header.main-header {
 	-webkit-box-flex: 1;
 	    -ms-flex: 1;
 	        flex: 1;
+	padding-top: 3.5em;
+	padding-bottom: 3.5em;
 }
 
 /* --- breadcrumbs --- */
