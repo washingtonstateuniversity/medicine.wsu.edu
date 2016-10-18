@@ -188,7 +188,7 @@
 		padding: .25em 3em .25em 0;
 	}
 
-	#spine .spine-sitenav > ul > li > ul	a,
+	#spine .spine-sitenav > ul > li > ul a,
 	.parent-anchor {
 		color: rgba(255, 255, 255, .7);
 		font-weight: 300;
