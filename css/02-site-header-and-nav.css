@@ -1,3 +1,8 @@
+/* --- overwrite an old Spine remnant - will be changed in next release --- */
+#spine nav li.parent.active > a:hover {
+	cursor: pointer;
+}
+
 /* --- Remove the padding on glue when the user is logged in --- */
 @media (min-width: 990px) {
 
