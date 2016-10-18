@@ -43,7 +43,7 @@ h6 {
 }
 
 /* headers lead off content, don't want top padding on H elements
-   within headers */
+	 within headers */
 main header h2,
 main header h3,
 main header h4,
@@ -53,35 +53,47 @@ main header h5 {
 
 /* links with animated underline */
 main a {
-	font-weight: 400;
+	display: inline-block;
+	color: #b7203d;
 	position: relative;
-	color: inherit;
+	padding-bottom: 1px;
 	text-decoration: none;
-	transition: all .3s ease;
-}
-
-main a:hover,
-main a:active {
-	color: #981e32;
+	border-bottom: 1px solid rgba(64, 64, 64, .1);
 }
 
 main a:before {
 	content: "";
+	display: block;
 	position: absolute;
-	width: 100%;
-	height: 1px;
-	bottom: -1px;
 	left: 0;
-	background: linear-gradient(to right, #981e32 50%, rgba(0, 0, 0, .2) 50%);
-	background-size: 200%;
-	background-position: 100% 0;
-	transition: all .3s ease 0s;
-	overflow: hidden;
+	bottom: -1px;
+	height: 1px;
+	width: 0;
+	transition: width 0s ease, background .3s ease;
 }
 
-main a:hover:before,
-main a:active:before {
-	background-position: 0 0;
+main a:after {
+	content: "";
+	display: block;
+	position: absolute;
+	right: 0;
+	bottom: -1px;
+	height: 1px;
+	width: 0;
+	background: #b7203d;
+	transition: width .3s ease;
+}
+
+main a:hover:before {
+	width: 100%;
+	background: #b7203d;
+	transition: width .3s ease;
+}
+
+main a:hover:after {
+	width: 100%;
+	background: transparent;
+	transition: all 0s ease;
 }
 
 strong {
@@ -121,7 +133,7 @@ main ul li:before {
 }
 
 /* a class to show a header in a unique way. A way to introduce
-   a new section after a large visual */
+	 a new section after a large visual */
 .space-case {
 	font-size: 1em;
 	font-weight: 300;
@@ -177,7 +189,7 @@ main ul li:before {
 }
 
 /* blockquotes are being used in three different ways on
-   the site - two of which are to break up content */
+	 the site - two of which are to break up content */
 blockquote {
 	border-left: 1px solid #981e32;
 	font-family: "Open Sans", "Lucida Sans", "Lucida Grande", "Lucida Sans Unicode", sans-serif;
