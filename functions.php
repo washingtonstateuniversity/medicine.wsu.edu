@@ -149,6 +149,18 @@ function medicine_nav_menu_css_class( $classes, $item, $args ) {
 	return $classes;
 }
 
+add_filter( 'nav_menu_item_id', 'medicine_nav_menu_id', 20 );
+/**
+ * Strips menu item IDs as navigation is built.
+ *
+ * @param string $id
+ *
+ * @return bool
+ */
+function medicine_nav_menu_id( $id ) {
+	return false;
+}
+
 add_action( 'after_setup_theme', 'medicine_nav_menu_register' );
 /**
  * Register additional menus used by the theme.
