@@ -138,13 +138,14 @@ main ul li {
 }
 
 main ul li:before {
-	content: "\2022";
-	color: #981e32;
-	font-weight: 700;
+	content: "";
 	position: absolute;
-	left: -.8em;
-	font-size: 1.5em;
-	line-height: 1.2;
+	left: -1.25em;
+	top: .7em;
+	background: #981e32;
+	height: 6px;
+	width: 6px;
+	border-radius: 6px;
 }
 
 /* a class to show a header in a unique way. A way to introduce
@@ -355,7 +356,7 @@ blockquote cite {
 	#spine nav > ul > li > a,
 	#spine nav li.parent.active > a,
 	#spine nav li.parent.opened > a {
-		padding: 0;
+		padding-bottom: 0;
 	}
 
 	#spine .spine-sitenav > ul > .parent > .sub-menu > li {
