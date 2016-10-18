@@ -65,6 +65,7 @@ main header h5 {
 main a {
 	display: inline-block;
 	color: #b7203d;
+	font-weight: 400;
 	position: relative;
 	padding-bottom: 1px;
 	text-decoration: none;
