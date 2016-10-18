@@ -78,6 +78,20 @@ header.main-header {
 	padding: 0;
 }
 
+/* - taller header, more splash with image - */
+.has-featured-image header.main-header {
+	height: 500px;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
+}
+
+.has-featured-image .main-header .hgroup {
+	display: flex;
+	align-items: flex-end;
+	flex: 1;
+}
+
 /* --- breadcrumbs --- */
 .breadcrumbs {
 	font-size: .7em;
@@ -153,7 +167,7 @@ header.main-header {
 	}
 }
 
-/* --- special callouts  --- */
+/* --- special callouts	--- */
 .mid-feature {
 	margin: 4rem 0;
 	padding: 4rem 0;
