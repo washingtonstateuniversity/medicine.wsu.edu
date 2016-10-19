@@ -1046,6 +1046,16 @@ label {
 	font: 400 12px/12px "Open Sans", Helvetica, Arial, san-serif;
 }
 
+/* ----- Gravity Forms overrides ----- */
+.gform_fields {
+	margin: 0;
+	padding: 0;
+}
+
+.gform_fields li:before {
+	content: initial;
+}
+
 
 .test-img-mid-feature {
 	background-image: url(https://hd.unsplash.com/photo-1471074454408-f7db62d99254);
