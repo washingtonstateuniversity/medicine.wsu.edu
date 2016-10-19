@@ -127,11 +127,10 @@ main ul li:before {
 	content: "";
 	position: absolute;
 	left: -1.25em;
-	top: .7em;
+	top: 13px;
 	background: #981e32;
-	height: 6px;
-	width: 6px;
-	border-radius: 6px;
+	height: 1px;
+	width: 8px;
 }
 
 /* a class to show a header in a unique way. A way to introduce

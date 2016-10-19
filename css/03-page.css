@@ -87,7 +87,7 @@ header.main-header {
 	align-items: flex-end;
 }
 
-header.main-header:after {
+.has-featured-image header.main-header:after {
 	content: "";
 	position: absolute;
 	margin: 2em;
@@ -133,8 +133,16 @@ header.main-header:after {
 		flex: 1 100%;
 	}
 
-	#jacket .margin-right header h2 {
-		width: 75%;
+	#jacket .row.halves header {
+		padding-right: 50%;
+	}
+
+	#jacket .row.side-right header {
+		padding-right: 34%;
+	}
+
+	#jacket .row.margin-right header {
+		padding-right: 25%;
 	}
 
 	#jacket .row .column {
@@ -193,6 +201,11 @@ header.main-header:after {
 	font-size: 1em;
 }
 
+.mid-feature header {
+	padding-left: 0 !important;
+	padding-right: 0 !important;
+}
+
 /* background images */
 .img-mid-feature {
 	background-position: center center;
@@ -217,7 +230,7 @@ header.main-header:after {
 /* --- site footer --- */
 .site-footer {
 	background-color: #333;
-	color: rgba(255, 255, 255, .4);
+	color: rgba(255, 255, 255, .6);
 	margin: 4em 0 0;
 	padding: 6em 0;
 }
