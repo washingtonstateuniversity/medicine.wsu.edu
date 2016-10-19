@@ -1,5 +1,10 @@
 <?php
 
+add_filter( 'spine_child_theme_version', 'medicine_theme_version' );
+function medicine_theme_version() {
+	return '0.0.13';
+}
+
 add_action( 'init', 'medicine_remove_spine_wp_enqueue_scripts' );
 function medicine_remove_spine_wp_enqueue_scripts() {
 	remove_action( 'wp_enqueue_scripts', 'spine_wp_enqueue_scripts', 20 );
@@ -91,7 +96,7 @@ function medicine_spine_wp_enqueue_scripts() {
 	wp_enqueue_script( 'wsu-jquery-ui-full', 'https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js', array( 'jquery' ) );
 
 	// Much relies on the main Javascript provided by the WSU Spine.
-	wp_enqueue_script( 'wsu-spine', get_stylesheet_directory_uri() . '/js/spine.min.js', array( 'wsu-jquery-ui-full' ), spine_get_script_version(), false );
+	wp_enqueue_script( 'wsu-spine', get_stylesheet_directory_uri() . '/js/spine.min.js', array( 'wsu-jquery-ui-full' ), spine_get_child_version(), false );
 
 	// Override default options in the WSU Spine.
 	$twitter_text = ( is_front_page() ) ? get_option( 'blogname' ) : trim( wp_title( '', false ) );
