@@ -20,9 +20,9 @@ $medicine_footer_menu_args = array(
 	</address>
 	<nav class="global-links">
 		<ul>
-			<li><a href="https://wsu.edu">Washington State Univerity</a></li>
+			<li><a href="https://wsu.edu">Washington State University</a></li>
 			<li><a href="https://my.wsu.edu">myWSU</a></li>
-			<li><a href="https://accesscenter.wsu.edu/">Accessability</a></li>
+			<li><a href="https://accesscenter.wsu.edu/">Accessibility</a></li>
 			<li><a href="https://policies.wsu.edu/">Policies</a></li>
 			<li><a href="https://ucomm.wsu.edu/wsu-copyright-policy/">&copy;</a></li>
 		</ul>
