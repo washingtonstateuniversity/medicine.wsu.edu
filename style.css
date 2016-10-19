@@ -1056,6 +1056,17 @@ label {
 	content: initial;
 }
 
+.hide-label label {
+	clip: rect(1px, 1px, 1px, 1px);
+	height: 1px;
+	margin: 0;
+	overflow: hidden;
+	padding: 0;
+	position: absolute;
+	width: 1px;
+	word-wrap: normal;
+}
+
 
 .test-img-mid-feature {
 	background-image: url(https://hd.unsplash.com/photo-1471074454408-f7db62d99254);

@@ -139,3 +139,14 @@ label {
 .gform_fields li:before {
 	content: initial;
 }
+
+.hide-label label {
+	clip: rect(1px, 1px, 1px, 1px);
+	height: 1px;
+	margin: 0;
+	overflow: hidden;
+	padding: 0;
+	position: absolute;
+	width: 1px;
+	word-wrap: normal;
+}
