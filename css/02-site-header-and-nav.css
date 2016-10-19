@@ -21,7 +21,7 @@
 @media (min-width: 989px) {
 
 	#spine {
-		min-height: auto !important;
+		min-height: initial !important;
 		position: relative !important;
 		font-size: 12px;
 		width: 100%;
