@@ -278,7 +278,7 @@ blockquote cite {
 @media (min-width: 989px) {
 
 	#spine {
-		min-height: auto !important;
+		min-height: initial !important;
 		position: relative !important;
 		font-size: 12px;
 		width: 100%;
@@ -791,6 +791,7 @@ header.main-header {
 	max-width: none !important;
 	width: calc(1188px + ((100vw - 1188px) / 2)) !important;
 	margin-right: 0 !important;
+	margin-left: auto;
 }
 
 @media (max-width: 1188px) {
