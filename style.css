@@ -5,7 +5,7 @@
  Author:         WSU University Communications
  Author URI:     https://web.wsu.edu
  Template:       spine
- Version:        0.0.13
+ Version:        0.0.14
 */
 
 /* --- general typography and type classes --- */
@@ -465,6 +465,11 @@ blockquote cite {
 		font-weight: 800;
 	}
 
+	/* - bring back padding for parent li of fourth level nav - */
+	#spine nav ul > li > ul > li > ul > li.parent.opened > a {
+		padding-bottom: 3px;
+	}
+
 	.parent-anchor {
 		display: block;
 	}
@@ -675,17 +680,6 @@ header.main-header {
 	-webkit-box-align: end;
 	    -ms-flex-align: end;
 	        align-items: flex-end;
-}
-
-.has-featured-image header.main-header:after {
-	content: "";
-	position: absolute;
-	margin: 2em;
-	top: 0;
-	right: 0;
-	bottom: 0;
-	left: 0;
-	border: 1px solid #fff;
 }
 
 .has-featured-image .main-header .hgroup {
