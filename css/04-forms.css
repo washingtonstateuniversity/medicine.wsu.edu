@@ -1,31 +1,30 @@
 /* ----- Input ----- */
-.formwrap {
+main .formwrap {
 	display: block;
 	overflow: hidden;
 	margin: 10px 40px;
 	padding: 0;
 }
 
-input {
+main input {
 	color: rgba(94, 106, 113, 1);
 	transition: border-bottom .3s ease-in-out;
-
 }
 
-input:focus {
+main input:focus {
 	color: rgba(255, 255, 255, 1);
 }
 
-input[type="text"],
-input[type="password"],
-input[type="email"],
-select,
-textarea,
-input[type="text"]:focus,
-input[type="password"]:focus,
-input[type="email"]:focus,
-select:focus,
-textarea:focus {
+main input[type="text"],
+main input[type="password"],
+main input[type="email"],
+main select,
+main textarea,
+main input[type="text"]:focus,
+main input[type="password"]:focus,
+main input[type="email"]:focus,
+main select:focus,
+main textarea:focus {
 	width: 100%;
 	height: 50px;
 	margin: 0;
@@ -41,77 +40,77 @@ textarea:focus {
 	outline: none;
 }
 
-input[type="text"],
-input[type="password"],
-input[type="email"],
-select,
-textarea {
+main input[type="text"],
+main input[type="password"],
+main input[type="email"],
+main select,
+main textarea {
 	background-color: rgba(255, 255, 255, 0);
 	border-bottom: 1px solid rgba(64, 64, 64, .1);
 }
 
-input[type="text"]:hover,
-input[type="password"]:hover,
-input[type="email"]:hover,
-select:hover,
-textarea:hover {
+main input[type="text"]:hover,
+main input[type="password"]:hover,
+main input[type="email"]:hover,
+main select:hover,
+main textarea:hover {
 	border-bottom: 1px solid #b7203d;
 }
 
-input[type="text"]:focus,
-input[type="password"]:focus,
-input[type="email"]:focus,
-select:focus,
-textarea:focus {
+main input[type="text"]:focus,
+main input[type="password"]:focus,
+main input[type="email"]:focus,
+main select:focus,
+main textarea:focus {
 	color: rgba(64, 64, 64, 1);
 	background-color: rgba(255, 255, 255, 0);
 	border-bottom: 1px solid rgba(64, 64, 64, 1);
 }
 
-input::-webkit-input-placeholder,
-textarea::-webkit-input-placeholder {
+main input::-webkit-input-placeholder,
+main textarea::-webkit-input-placeholder {
 	font: 400 12px/12px "Open Sans", Helvetica, Arial, san-serif;
 }
 
-input::-moz-placeholder,
-textarea::-moz-placeholder {
+main input::-moz-placeholder,
+main textarea::-moz-placeholder {
 	font: 400 12px/12px "Open Sans", Helvetica, Arial, san-serif;
 	opacity: 1;
 }
 
-input:focus:-ms-input-placeholder,
-textarea:focus:-ms-input-placeholder {
+main input:focus:-ms-input-placeholder,
+main textarea:focus:-ms-input-placeholder {
 	font: 400 12px/12px "Open Sans", Helvetica, Arial, san-serif;
 }
 
-input:focus:-moz-placeholder,
-textarea:focus:-moz-placeholder {
+main input:focus:-moz-placeholder,
+main textarea:focus:-moz-placeholder {
 	font: 400 12px/12px "Open Sans", Helvetica, Arial, san-serif;
 }
 
-input:focus::-webkit-input-placeholder,
-textarea:focus::-webkit-input-placeholder {
+main input:focus::-webkit-input-placeholder,
+main textarea:focus::-webkit-input-placeholder {
 	color: #fff;
 }
 
-input:focus::-moz-placeholder,
-textarea:focus::-moz-placeholder {
+main input:focus::-moz-placeholder,
+main textarea:focus::-moz-placeholder {
 	color: #fff;
 }
 
-input:focus:-ms-input-placeholder,
-textarea:focus:-ms-input-placeholder {
+main input:focus:-ms-input-placeholder,
+main textarea:focus:-ms-input-placeholder {
 	color: #fff;
 }
 
-input:focus:-moz-placeholder,
-textarea:focus:-moz-placeholder {
+main input:focus:-moz-placeholder,
+main textarea:focus:-moz-placeholder {
 	color: #fff;
 }
 
 /* ----- Form Button/Submit ----- */
 main button,
-input[type="submit"] {
+main input[type="submit"] {
 	appearance: none;
 	min-width: 120px;
 	height: 40px;
@@ -129,8 +128,8 @@ input[type="submit"] {
 
 main button:hover,
 main button:focus,
-input[type="submit"]:hover,
-input[type="submit"]:focus {
+main input[type="submit"]:hover,
+main input[type="submit"]:focus {
 	outline: 0;
 	background-color: #a31d36;
 	color: #fff;
@@ -138,8 +137,8 @@ input[type="submit"]:focus {
 }
 
 /* ----- Checkbox and Radio Buttons ----- */
-input[type="checkbox"],
-input[type="radio"] {
+main input[type="checkbox"],
+main input[type="radio"] {
 	background: #fff;
 	border: 1px solid rgba(64, 64, 64, .2);
 	border-radius: 0;
@@ -155,31 +154,31 @@ input[type="radio"] {
 	box-shadow: none;
 }
 
-input[type="radio"] {
+main input[type="radio"] {
 	border-radius: 7px;
 }
 
-input[type="checkbox"]:hover,
-input[type="radio"]:hover {
+main input[type="checkbox"]:hover,
+main input[type="radio"]:hover {
 	box-shadow: none;
 	border: 1px solid #b7203d;
 	transition: all .3s ease-in-out;
 }
 
-input[type="checkbox"]:checked,
-input[type="radio"]:checked {
+main input[type="checkbox"]:checked,
+main input[type="radio"]:checked {
 	background: #a31d36;
 	border-color: #a31d36;
 	box-shadow: none;
 }
 
-input[type="checkbox"] + label,
-input[type="radio"] + label {
+main input[type="checkbox"] + label,
+main input[type="radio"] + label {
 	margin-left: 8px;
 }
 
 /* ----- Label ----- */
-label {
+main label {
 	color: rgba(94, 106, 113, 1);
 	cursor: pointer;
 	margin: 0 10px 0 2px;
