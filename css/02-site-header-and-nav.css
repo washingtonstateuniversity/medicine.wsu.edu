@@ -18,7 +18,38 @@
 }
 
 /* ------- */
+@media (min-width: 1188px) {
+
+	#binder #spine header {
+		left: 32px;
+	}
+
+}
+
 @media (min-width: 989px) {
+
+	.global-bar-wrap {
+		background: rgba(0, 0, 0, .05);
+		border-bottom: 1px solid rgba(0, 0, 0, .1);
+	}
+
+	.global-bar {
+		max-width: 1186px;
+		margin: 0 auto;
+		text-align: right;
+		padding: .5em 0;
+	}
+
+	#jacket .global-bar a.global-home {
+		color: #981e32;
+		text-transform: uppercase;
+		font-size: 11px;
+		letter-spacing: .5px;
+	}
+
+	#jacket .global-bar a.global-home:hover {
+		color: #b7203d;
+	}
 
 	#spine {
 		min-height: initial !important;
@@ -43,15 +74,15 @@
 
 	#binder #spine header {
 		position: absolute;
-		top: 1em;
-		left: 2em;
-		height: 92px;
+		top: 2.5em;
 		background-color: transparent;
 	}
 
 	#wsu-signature {
-		width: 150px;
-		height: 92px;
+		background-image: url(./images/ESFCOM-Logo.svg);
+		background-size: 260px auto;
+		width: 260px;
+		height: 68px;
 		text-indent: 99163px;
 	}
 
@@ -62,7 +93,7 @@
 	}
 
 	#spine .spine-sitenav {
-		padding: 90px 0 0;
+		padding: 120px 0 0;
 		margin: 0;
 	}
 
@@ -114,6 +145,7 @@
 
 	#spine nav.spine-sitenav > ul > li > ul > li {
 		display: inline;
+		max-width: 250px;
 	}
 
 	/* take off home icon from home link */
@@ -285,31 +317,5 @@
 	.footer-nav > ul > li > ul a {
 		color: rgba(255, 255, 255, .7);
 		font-size: .9em;
-	}
-}
-
-@media (max-width: 1550px) and (min-width: 989px) {
-
-	div#glue {
-		display: flex;
-	}
-
-	#binder #spine header {
-		position: relative;
-		left: 0;
-		height: 92px;
-	}
-
-	#binder #spine header {
-		width: 150px;
-	}
-
-	#binder #spine .spine-navigation {
-		padding-left: 3em;
-		width: 100%;
-	}
-
-	#spine nav.spine-sitenav > ul > li > ul {
-		padding-left: 3em;
 	}
 }
