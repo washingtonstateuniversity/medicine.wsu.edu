@@ -10,6 +10,16 @@ function medicine_remove_spine_wp_enqueue_scripts() {
 	remove_action( 'wp_enqueue_scripts', 'spine_wp_enqueue_scripts', 20 );
 }
 
+add_filter( 'spine_get_campus_home_url', 'medicine_spine_campus_home_url' );
+function medicine_spine_campus_home_url() {
+	return 'https://medicine.wsu.edu';
+}
+
+add_filter( 'spine_get_campus_data', 'medicine_spine_campus_data' );
+function medicine_spine_campus_data() {
+	return 'Elson S. Floyd College of Medicine';
+}
+
 add_action( 'wp_enqueue_scripts', 'medicine_spine_wp_enqueue_scripts', 20 );
 /**
  * Enqueue scripts and styles required for front end pageviews.
