@@ -915,8 +915,8 @@ header.main-header {
 
 input {
 	color: rgba(94, 106, 113, 1);
-	-webkit-transition: all .3s ease-in-out;
-	transition: all .3s ease-in-out;
+	-webkit-transition: border-bottom .3s ease-in-out;
+	transition: border-bottom .3s ease-in-out;
 
 }
 
@@ -947,7 +947,7 @@ textarea:focus {
 	        appearance: none;
 	box-shadow: none;
 	border: none;
-	border-radius: 2px;
+	border-radius: 0;
 	outline: none;
 }
 
@@ -978,8 +978,53 @@ textarea:focus {
 	border-bottom: 1px solid rgba(64, 64, 64, 1);
 }
 
-/* ----- Form Button ----- */
-main button {
+input::-webkit-input-placeholder,
+textarea::-webkit-input-placeholder {
+	font: 400 12px/12px "Open Sans", Helvetica, Arial, san-serif;
+}
+
+input::-moz-placeholder,
+textarea::-moz-placeholder {
+	font: 400 12px/12px "Open Sans", Helvetica, Arial, san-serif;
+	opacity: 1;
+}
+
+input:focus:-ms-input-placeholder,
+textarea:focus:-ms-input-placeholder {
+	font: 400 12px/12px "Open Sans", Helvetica, Arial, san-serif;
+}
+
+input:focus:-moz-placeholder,
+textarea:focus:-moz-placeholder {
+	font: 400 12px/12px "Open Sans", Helvetica, Arial, san-serif;
+}
+
+input:focus::-webkit-input-placeholder,
+textarea:focus::-webkit-input-placeholder {
+	color: #fff;
+}
+
+input:focus::-moz-placeholder,
+textarea:focus::-moz-placeholder {
+	color: #fff;
+}
+
+input:focus:-ms-input-placeholder,
+textarea:focus:-ms-input-placeholder {
+	color: #fff;
+}
+
+input:focus:-moz-placeholder,
+textarea:focus:-moz-placeholder {
+	color: #fff;
+}
+
+/* ----- Form Button/Submit ----- */
+main button,
+input[type="submit"] {
+	-webkit-appearance: none;
+	   -moz-appearance: none;
+	        appearance: none;
 	min-width: 120px;
 	height: 40px;
 	background-color: #b7203d;
@@ -991,12 +1036,14 @@ main button {
 	letter-spacing: 4px;
 	-webkit-transition: all .3s ease-in-out;
 	transition: all .3s ease-in-out;
-	border-radius: 2px;
+	border-radius: 0;
 	cursor: pointer;
 }
 
 main button:hover,
-main button:focus {
+main button:focus,
+input[type="submit"]:hover,
+input[type="submit"]:focus {
 	outline: 0;
 	background-color: #a31d36;
 	color: #fff;
@@ -1004,8 +1051,9 @@ main button:focus {
 	transition: all .3s ease-in-out;
 }
 
-/* ----- Checkbox ----- */
-input[type="checkbox"] {
+/* ----- Checkbox and Radio Buttons ----- */
+input[type="checkbox"],
+input[type="radio"] {
 	background: #fff;
 	border: 1px solid rgba(64, 64, 64, .2);
 	border-radius: 0;
@@ -1024,17 +1072,28 @@ input[type="checkbox"] {
 	box-shadow: none;
 }
 
-input[type="checkbox"]:hover {
+input[type="radio"] {
+	border-radius: 7px;
+}
+
+input[type="checkbox"]:hover,
+input[type="radio"]:hover {
 	box-shadow: none;
 	border: 1px solid #b7203d;
 	-webkit-transition: all .3s ease-in-out;
 	transition: all .3s ease-in-out;
 }
 
-input[type="checkbox"]:checked {
+input[type="checkbox"]:checked,
+input[type="radio"]:checked {
 	background: #a31d36;
 	border-color: #a31d36;
 	box-shadow: none;
+}
+
+input[type="checkbox"] + label,
+input[type="radio"] + label {
+	margin-left: 8px;
 }
 
 /* ----- Label ----- */
@@ -1046,7 +1105,13 @@ label {
 	font: 400 12px/12px "Open Sans", Helvetica, Arial, san-serif;
 }
 
-/* ----- Gravity Forms overrides ----- */
+/* ----- Gravity Forms ----- */
+.gform_wrapper {
+	font-size: .9em;
+	font-weight: 300;
+	line-height: 1.75;
+}
+
 .gform_fields {
 	margin: 0;
 	padding: 0;
@@ -1065,6 +1130,90 @@ label {
 	position: absolute;
 	width: 1px;
 	word-wrap: normal;
+}
+
+.gfield_description,
+.ginput_counter {
+	color: rgba(64, 64, 64, .6);
+}
+
+.ginput_container_select {
+	position: relative;
+	z-index: 1;
+}
+
+.ginput_container_select:after {
+	border: solid transparent;
+	border-top-color: rgba(64, 64, 64, .6);
+	border-width: 6px 4px;
+	box-sizing: border-box;
+	content: "";
+	position: absolute;
+	right: 8px;
+	top: 22px;
+	-webkit-transition: border-top-color .3s ease-in-out;
+	transition: border-top-color .3s ease-in-out;
+	z-index: -1;
+}
+
+.ginput_container_select:hover:after {
+	border-top-color: #b7203d;
+}
+
+.gfield_date_day,
+.gfield_date_month,
+.gfield_date_year,
+.gfield_time_hour,
+.gfield_time_minute,
+.gfield_time_ampm,
+.ginput_left,
+.ginput_right,
+.ginput_container_name span {
+	width: 75px;
+	display: inline-block;
+	vertical-align: top;
+	padding-right: 14px;
+}
+
+.gfield_time_hour {
+	position: relative;
+}
+
+.gfield_time_hour i {
+	font-style: normal;
+	position: absolute;
+	right: 3px;
+	top: 12px;
+}
+
+.gf_name_has_1 span {
+	width: 100%;
+}
+
+.gf_name_has_2 span,
+.ginput_left,
+.ginput_right {
+	width: 50%;
+}
+
+.gf_name_has_3 span {
+	width: 33.3%;
+}
+
+.gf_name_has_4 span {
+	width: 25%;
+}
+
+.gf_name_has_5 span {
+	width: 19.95%;
+}
+
+.ginput_full {
+	display: block;
+}
+
+.ui-datepicker {
+	background-color: #fff;
 }
 
 
