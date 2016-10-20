@@ -147,6 +147,14 @@ function medicine_nav_menu_css_class( $classes, $item, $args ) {
 		return $classes;
 	}
 
+	if ( 'page' === $item->object && 'post_type' === $item->type ) {
+		$slug = get_page_template_slug( $item->object_id );
+
+		if ( 'templates/section-label.php' === $slug ) {
+			$classes[] = 'non-anchor';
+		}
+	}
+
 	if ( 'custom' === $item->object && 'custom' === $item->type && '#' === $item->url ) {
 		$classes[] = 'non-anchor';
 	}
