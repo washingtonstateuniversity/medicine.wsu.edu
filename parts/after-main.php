@@ -16,7 +16,7 @@ $medicine_footer_menu_args = array(
 		<?php wp_nav_menu( $medicine_footer_menu_args ); ?>
 	</nav>
 	<div class="wsu-signature">
-		<a href="https://wsu.edu"><img src="<?php echo esc_url( get_stylesheet_directory_uri() ); ?>/images/WSU-Logo-WHT.svg" alt=""></a>
+		<a href="https://wsu.edu"><img src="<?php echo esc_url( get_stylesheet_directory_uri() ); ?>/images/wsu-logo-wht.svg" alt=""></a>
 	</div>
 	<address class="footer-contact-info">
 		<span class="dept-name address-item">Elson S. Floyd College of Medicine</span> | <span class="street-address address-item">Washington State University, PO Box 1495, Spokane, WA 99210-1495</span> | <a class="email-address address-item" href="mailto:medicine@wsu.edu">medicine@wsu.edu</a> | <a class="telephone-number address-item" href="tel:5093387944">509-338-7944</a>
