@@ -173,3 +173,25 @@ add_action( 'after_setup_theme', 'medicine_nav_menu_register' );
 function medicine_nav_menu_register() {
 	register_nav_menu( 'site-footer-menu', 'Footer Menu' );
 }
+
+add_filter( 'bcn_breadcrumb_url', 'medicine_modify_breadcrumb_url', 10, 3 );
+/**
+ * Removes the URL from pages that are assigned the section label template.
+ *
+ * @param string $url
+ * @param array  $type
+ * @param int    $id
+ *
+ * @return string|null null if a section label template, untouched URL string if not.
+ */
+function medicine_modify_breadcrumb_url( $url, $type, $id ) {
+	if ( 1 < count( $type ) && 'post-page' === $type[1] ) {
+		$slug = get_page_template_slug( $id );
+
+		if ( 'templates/section-label.php' === $slug ) {
+			return null;
+		}
+	}
+
+	return $url;
+}
