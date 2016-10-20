@@ -131,6 +131,32 @@ function medicine_spine_wp_enqueue_scripts() {
 	wp_enqueue_script( 'wsu-spine-theme-js', get_template_directory_uri() . '/js/spine-theme.js', array( 'jquery' ), spine_get_script_version(), true );
 }
 
+add_filter( 'nav_menu_link_attributes', 'medicine_nav_menu_link_attributes', 20, 3 );
+/**
+ * Alters the anchor HREF on section label pages to output as # when building
+ * a site navigation.
+ *
+ * @param array   $atts
+ * @param object  $item
+ * @param array   $args
+ *
+ * @return mixed
+ */
+function medicine_nav_menu_link_attributes( $atts, $item, $args ) {
+	if ( 'site' !== $args->menu ) {
+		return $atts;
+	}
+
+	if ( 'page' === $item->object && 'post_type' === $item->type ) {
+		$slug = get_page_template_slug( $item->object_id );
+
+		if ( 'templates/section-label.php' === $slug ) {
+			$atts['href'] = '#';
+		}
+	}
+
+	return $atts;
+}
 add_filter( 'nav_menu_css_class', 'medicine_nav_menu_css_class', 20, 3 );
 /**
  * Assign a class of `.non-anchor` to any menu items that are custom links
