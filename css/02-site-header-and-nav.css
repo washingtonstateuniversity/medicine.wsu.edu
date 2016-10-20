@@ -201,6 +201,11 @@
 		font-weight: 800;
 	}
 
+	/* - bring back padding for parent li of fourth level nav - */
+	#spine nav ul > li > ul > li > ul > li.parent.opened > a {
+		padding-bottom: 3px;
+	}
+
 	.parent-anchor {
 		display: block;
 	}
