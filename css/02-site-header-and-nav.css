@@ -33,6 +33,38 @@
 		border-bottom: 1px solid rgba(0, 0, 0, .1);
 	}
 
+	.global-bar {
+		display: none;
+	}
+
+	.spine-mobile-open #spine #scroll,
+	#binder.fluid #spine #glue {
+		width: 100vw;
+	}
+
+	.spine-mobile #glue {
+		left: -100vw;
+	}
+
+	.spine-mobile-open #glue {
+		left: 0;
+	}
+
+	.spine-animating.spine-move-right #glue {
+		transform: translate(100vw);
+	}
+
+	.spine-animating.spine-move-left #glue {
+		transform: translate(-100vw);
+	}
+
+	.spine-mobile #spine footer {
+		width: calc(100vw - 54px);
+	}
+
+	.spine-mobile #wsu-signature {
+		background-image: url(./images/esfcom-logo-horiz.svg);
+	}
 }
 
 @media (min-width: 990px) {
