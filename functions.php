@@ -2,7 +2,7 @@
 
 add_filter( 'spine_child_theme_version', 'medicine_theme_version' );
 function medicine_theme_version() {
-	return '0.0.15';
+	return '0.0.16';
 }
 
 add_action( 'init', 'medicine_remove_spine_wp_enqueue_scripts' );
