@@ -58,6 +58,9 @@
 		transform: translate(-100vw);
 	}
 
+	.spine-mobile #spine footer {
+		width: calc(100vw - 54px);
+	}
 }
 
 @media (min-width: 990px) {
