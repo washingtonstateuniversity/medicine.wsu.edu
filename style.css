@@ -275,7 +275,7 @@ blockquote cite {
 }
 
 /* ------- */
-@media (min-width: 1188px) {
+@media (min-width: 1186px) {
 
 	#binder #spine header {
 		left: 32px;
@@ -283,7 +283,16 @@ blockquote cite {
 
 }
 
-@media (min-width: 989px) {
+@media (max-width: 989px) {
+
+	#binder #spine.darker header {
+		background: #fff;
+		border-bottom: 1px solid rgba(0, 0, 0, .1);
+	}
+
+}
+
+@media (min-width: 990px) {
 
 	.global-bar-wrap {
 		background: rgba(0, 0, 0, .05);
@@ -329,7 +338,7 @@ blockquote cite {
 		display: none;
 	}
 
-	#binder #spine header {
+	#jacket #binder #spine header {
 		position: absolute;
 		top: 2.5em;
 		background-color: transparent;
@@ -359,16 +368,16 @@ blockquote cite {
 		margin: 0;
 	}
 
-	#spine .spine-search-tab button,
-	#spine .spine-sitenav a {
+	#jacket #spine .spine-search-tab button,
+	#jacket #spine .spine-sitenav a {
 		color: #2a3033;
 	}
 
-	#spine .spine-sitenav > ul > li:first-child > a {
+	#jacket #spine .spine-sitenav > ul > li:first-child > a {
 		background: none;
 	}
 
-	#spine .spine-sitenav > ul > li:first-child > a:hover {
+	#jacket #spine .spine-sitenav > ul > li:first-child > a:hover {
 		background: none;
 	}
 
@@ -424,8 +433,8 @@ blockquote cite {
 		z-index: 1;
 	}
 
-	#spine nav li.parent.active > a,
-	#spine nav li.parent.opened > a {
+	#jacket #spine nav li.parent.active > a,
+	#jacket #spine nav li.parent.opened > a {
 		color: #981e32;
 	}
 
@@ -462,7 +471,7 @@ blockquote cite {
 		        flex: 1;
 	}
 
-	#spine nav > ul > li > ul > li > a {
+	#jacket #spine nav > ul > li > ul > li > a {
 		color: #fff;
 		font-weight: 800;
 	}
@@ -484,14 +493,14 @@ blockquote cite {
 		padding: .25em 3em .25em 0;
 	}
 
-	#spine .spine-sitenav > ul > li > ul a,
+	#jacket #spine .spine-sitenav > ul > li > ul a,
 	.parent-anchor {
 		color: rgba(255, 255, 255, .7);
 		font-weight: 300;
 		padding: .25em 3em .25em 0;
 	}
 
-	#spine .spine-sitenav > ul > li > ul > li > a,
+	#jacket #spine .spine-sitenav > ul > li > ul > li > a,
 	.parent-anchor {
 		color: #fff;
 		font-weight: 800;
@@ -634,6 +643,11 @@ main .page > section {
 		padding-left: 2rem;
 		padding-right: 2rem;
 	}
+
+	#jacket .global-bar a.global-home {
+		padding-right: 2rem;
+	}
+
 }
 
 /* --- Page header --- */
@@ -720,8 +734,29 @@ header.main-header {
 
 @media (min-width: 694px) {
 
-	#jacket .row .column {
-		padding: 0 20px;
+	#jacket .row.side-right .column.one,
+	#jacket .row.margin-right .column.one,
+	#jacket .row.halves .column.one {
+		padding-right: 20px;
+	}
+
+	#jacket .row.side-right .column.two,
+	#jacket .row.margin-right .column.two,
+	#jacket .row.halves .column.two {
+		padding-left: 20px;
+	}
+
+	#jacket .row.thirds .column.one {
+		padding-right: 30px;
+	}
+
+	#jacket .row.thirds .column.two {
+		padding-right: 15px;
+		padding-left: 15px;
+	}
+
+	#jacket .row.thirds .column.three {
+		padding-left: 30px;
 	}
 
 }
