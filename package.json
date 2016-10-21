@@ -1,6 +1,6 @@
 {
   "name": "medicine.wsu.edu",
-  "version": "0.0.17",
+  "version": "0.0.18",
   "repository": {
     "type": "git",
     "url": "https://github.com/washingtonstateuniversity/medicine.wsu.edu"
