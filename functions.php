@@ -139,6 +139,9 @@ function medicine_spine_wp_enqueue_scripts() {
 
 	// Enqueue scripting for the entire parent theme.
 	wp_enqueue_script( 'wsu-spine-theme-js', get_template_directory_uri() . '/js/spine-theme.js', array( 'jquery' ), spine_get_script_version(), true );
+
+	// Dequeue TablePress stylesheet.
+	wp_dequeue_style( 'tablepress-default' );
 }
 
 add_filter( 'nav_menu_link_attributes', 'medicine_nav_menu_link_attributes', 20, 3 );

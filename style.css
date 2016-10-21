@@ -1264,6 +1264,67 @@ main label {
 	background-color: #fff;
 }
 
+/* ----- lines ----- */
+table {
+	font-size: .9em;
+	font-weight: 300;
+}
+
+.tablepress thead {
+	text-transform: uppercase;
+}
+
+.tablepress tbody td {
+	overflow: hidden;
+	position: relative;
+}
+
+.tablepress tbody td {
+	overflow: hidden;
+	position: relative;
+}
+
+.tablepress tbody td:before {
+	background: rgba(64, 64, 64, .1);
+	content: "";
+	height: 1px;
+	left: 0;
+	position: absolute;
+	top: 1.1em;
+	width: 100%;
+}
+
+.tablepress tbody td:last-child:before {
+	content: initial;
+}
+
+.tablepress.center-last-cell td:last-child {
+	text-align: center;
+}
+
+.tablepress.center-last-cell td:last-child:before {
+	content: "";
+	width: 50%;
+}
+
+/* This could do for now */
+.tablepress tbody td {
+	z-index: 1;
+}
+
+.tablepress tbody td:before {
+	z-index: -1;
+}
+
+.tablepress td:first-line {
+	background: #fff;
+}
+
+.lightest-back .tablepress td:first-line {
+	background: #eff0f1;
+}
+
+
 
 .test-img-mid-feature {
 	background-image: url(https://hd.unsplash.com/photo-1471074454408-f7db62d99254);
