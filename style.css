@@ -998,7 +998,8 @@ main .formwrap {
 	padding: 0;
 }
 
-main input {
+main input,
+main textarea {
 	color: rgba(94, 106, 113, 1);
 	-webkit-transition: border-bottom .3s ease-in-out;
 	transition: border-bottom .3s ease-in-out;
@@ -1021,10 +1022,9 @@ main textarea:focus {
 	width: 100%;
 	height: 50px;
 	margin: 0;
-	padding: 0;
+	padding: 0 0 0 10px;
 	font: 400 12px/12px "Open Sans", Helvetica, Arial, san-serif;
 	text-align: left;
-	text-indent: 10px;
 	text-transform: none;
 	-webkit-appearance: none;
 	   -moz-appearance: none;
@@ -1062,24 +1062,41 @@ main textarea:focus {
 	border-bottom: 1px solid rgba(64, 64, 64, 1);
 }
 
+main textarea,
+main textarea:focus {
+	line-height: 1.5;
+	min-height: 0;
+	overflow: auto;
+	padding-top: 1.5em;
+	resize: none;
+}
+
 main input::-webkit-input-placeholder,
 main textarea::-webkit-input-placeholder {
+	color: #717171;
 	font: 400 12px/12px "Open Sans", Helvetica, Arial, san-serif;
 }
 
 main input::-moz-placeholder,
 main textarea::-moz-placeholder {
+	color: #717171;
 	font: 400 12px/12px "Open Sans", Helvetica, Arial, san-serif;
 	opacity: 1;
 }
 
+main input::-moz-placeholder {
+	line-height: 50px;
+}
+
 main input:focus:-ms-input-placeholder,
 main textarea:focus:-ms-input-placeholder {
+	color: #717171;
 	font: 400 12px/12px "Open Sans", Helvetica, Arial, san-serif;
 }
 
 main input:focus:-moz-placeholder,
 main textarea:focus:-moz-placeholder {
+	color: #717171;
 	font: 400 12px/12px "Open Sans", Helvetica, Arial, san-serif;
 }
 
@@ -1138,55 +1155,78 @@ main input[type="submit"]:focus {
 /* ----- Checkbox and Radio Buttons ----- */
 main input[type="checkbox"],
 main input[type="radio"] {
-	background: #fff;
+	display: none;
+}
+
+main input[type="checkbox"] + label,
+main input[type="radio"] + label {
+	padding-left: 22px;
+	position: relative;
+}
+
+main input[type="checkbox"] + label:before,
+main input[type="radio"] + label:before {
 	border: 1px solid rgba(64, 64, 64, .2);
 	border-radius: 0;
+	box-sizing: border-box;
+	content: "";
 	cursor: pointer;
 	display: inline-block;
 	height: 14px;
-	width: 14px;
-	margin: 0 0 0 10px;
-	vertical-align: middle;
-	padding: 0;
-	-webkit-appearance: none;
-	   -moz-appearance: none;
-	        appearance: none;
+	left: 0;
+	margin-top: -7px;
+	position: absolute;
+	top: 50%;
 	-webkit-transition: .15s;
 	transition: .15s;
-	box-shadow: none;
+	width: 14px;
 }
 
-main input[type="radio"] {
-	border-radius: 7px;
+main input[type="radio"] + label:before {
+	border-radius: 100%;
 }
 
-main input[type="checkbox"]:hover,
-main input[type="radio"]:hover {
-	box-shadow: none;
+main input[type="checkbox"] + label:hover:before {
 	border: 1px solid #b7203d;
 	-webkit-transition: all .3s ease-in-out;
 	transition: all .3s ease-in-out;
 }
 
-main input[type="checkbox"]:checked,
-main input[type="radio"]:checked {
+main input[type="checkbox"]:checked + label:before {
 	background: #a31d36;
 	border-color: #a31d36;
-	box-shadow: none;
 }
 
-main input[type="checkbox"] + label,
-main input[type="radio"] + label {
-	margin-left: 8px;
+main input[type="radio"] + label:after {
+	background-color: #fff;
+	border-radius: 100%;
+	content: "";
+	height: 6px;
+	left: 4px;
+	margin-top: -3px;
+	position: absolute;
+	top: 50%;
+	-webkit-transition: all .3s ease-in-out;
+	transition: all .3s ease-in-out;
+	width: 6px;
+}
+
+main input[type="radio"] + label:hover:after,
+main input[type="radio"]:checked + label:after {
+	background-color: #b7203d;
+}
+
+main input[type="radio"]:checked + label:after {
+	background-color: #a31d36;
 }
 
 /* ----- Label ----- */
 main label {
 	color: rgba(94, 106, 113, 1);
 	cursor: pointer;
-	margin: 0 10px 0 2px;
+	margin: 0 10px;
 	padding: 0;
-	font: 400 12px/12px "Open Sans", Helvetica, Arial, san-serif;
+	font: 400 12px/24px "Open Sans", Helvetica, Arial, san-serif;
 }
 
 /* ----- Gravity Forms ----- */
@@ -1205,6 +1245,10 @@ main label {
 	content: initial;
 }
 
+.gfield.padded-top {
+	padding-top: 20px;
+}
+
 .hide-label label {
 	clip: rect(1px, 1px, 1px, 1px);
 	height: 1px;
@@ -1214,6 +1258,10 @@ main label {
 	position: absolute;
 	width: 1px;
 	word-wrap: normal;
+}
+
+.hide-label .ginput_container_textarea {
+	padding-top: 10px;
 }
 
 .gfield_description,
