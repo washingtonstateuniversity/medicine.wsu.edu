@@ -61,6 +61,10 @@
 	.spine-mobile #spine footer {
 		width: calc(100vw - 54px);
 	}
+
+	.spine-mobile #wsu-signature {
+		background-image: url(./images/esfcom-logo-horiz.svg);
+	}
 }
 
 @media (min-width: 990px) {
