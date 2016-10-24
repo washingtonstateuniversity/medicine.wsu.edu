@@ -242,3 +242,13 @@ function medicine_modify_breadcrumb_url( $url, $type, $id ) {
 
 	return $url;
 }
+
+add_filter( 'spine_default_section_classes', 'medicine_filter_section_classes', 10 );
+/**
+ * Filters the default classes attached to a section.
+ *
+ * @return string
+ */
+function medicine_filter_section_classes() {
+	return 'pad-top';
+}
