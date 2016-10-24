@@ -522,7 +522,8 @@ blockquote cite {
 		        flex: 1;
 	}
 
-	#jacket #spine nav > ul > li > ul > li > a {
+	#jacket #spine nav > ul > li > ul > li > a,
+	#jacket #spine .spine-sitenav > ul > li > ul > li.parent.active > a {
 		color: #fff;
 		font-weight: 700;
 	}
@@ -534,13 +535,15 @@ blockquote cite {
 	}
 
 	#spine nav > ul > li > ul > li > ul li {
+		padding: .35em 0;
+		position: relative;
 		-webkit-transition: all .5s ease;
 		transition: all .5s ease;
-		position: relative;
 	}
 
 	#spine nav > ul > li > ul > li > ul li:hover,
-	#spine nav > ul > li > ul > li > ul li.active {
+	#spine nav > ul > li > ul > li > ul li.active,
+	#jacket #spine .spine-sitenav > ul > li > ul > li.parent.active > ul > li.overview {
 		padding-left: 10px;
 	}
 
@@ -551,7 +554,8 @@ blockquote cite {
 
 	#spine nav > ul > li > ul > li > ul li:before,
 	#spine nav > ul > li > ul > li > ul li.active:before,
-	#jacket #spine .spine-sitenav > ul > li > ul > li.active:before {
+	#jacket #spine .spine-sitenav > ul > li > ul > li.active:before,
+	#jacket #spine .spine-sitenav > ul > li > ul > li.parent.active > ul > li.overview > a:before {
 		content: "";
 		position: absolute;
 		top: 12px;
@@ -564,8 +568,13 @@ blockquote cite {
 		transition: all .5s ease;
 	}
 
+	#jacket #spine .spine-sitenav > ul > li > ul > li.active:before {
+		top: 7px;
+	}
+
 	#spine nav > ul > li > ul > li > ul li:hover:before,
-	#spine nav > ul > li > ul > li > ul li.active:before {
+	#spine nav > ul > li > ul > li > ul li.active:before,
+	#jacket #spine .spine-sitenav > ul > li > ul > li.parent.active > ul > li.overview > a:before {
 		opacity: 1;
 	}
 
@@ -579,28 +588,18 @@ blockquote cite {
 	#jacket #spine nav > ul > li > ul > li > ul > li.active.parent > a {
 		color: #fff !important;
 		font-weight: 700;
+		padding-bottom: .35em;
 	}
 
 	#spine nav > ul > li > ul > li > ul li.opened:hover:before {
 		display: none;
 	}
 
-	#spine nav ul ul ul li a {
-		padding: .25em 3em .25em 0;
-	}
-
-	/* - overwrite Spine padding for last child - */
-	#spine nav li.parent.active li:last-child a,
-	#spine nav li.parent.opened li:last-child a,
-	#spine nav ul ul li a {
-		padding: .25em 3em .25em 0;
-	}
-
 	#jacket #spine .spine-sitenav > ul > li > ul a,
 	.parent-anchor {
 		color: rgba(255, 255, 255, .7);
 		font-weight: 300;
-		padding: .35em 3em .35em 0;
+		padding: 0;
 		-webkit-transition: color .3s ease;
 		transition: color .3s ease;
 	}
@@ -613,6 +612,7 @@ blockquote cite {
 	.parent-anchor {
 		color: #fff;
 		font-weight: 700;
+		padding-bottom: .35em;
 	}
 
 	/* - bring back padding for parent li of fourth level nav - */
