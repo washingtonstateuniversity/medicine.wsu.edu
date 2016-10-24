@@ -255,6 +255,11 @@ blockquote cite {
 	text-transform: uppercase;
 }
 
+/* --- have Spine nav use Open Sans --- */
+#spine {
+	font-family: "Open Sans", "Lucida Sans", "Lucida Grande", "Lucida Sans Unicode", sans-serif;
+}
+
 /* --- overwrite an old Spine remnant - will be changed in next release --- */
 #spine nav li.parent.active > a:hover {
 	cursor: pointer;
@@ -409,6 +414,11 @@ blockquote cite {
 		color: #2a3033;
 	}
 
+	/* - home link not needed on desktop view - logo serves as home link - */
+	nav#spine-sitenav > ul > li:first-child {
+		display: none;
+	}
+
 	#jacket #spine .spine-sitenav > ul > li:first-child > a {
 		background: none;
 	}
@@ -472,6 +482,11 @@ blockquote cite {
 	#jacket #spine nav li.parent.active > a,
 	#jacket #spine nav li.parent.opened > a {
 		color: #981e32;
+		font-weight: 700;
+	}
+
+	#jacket #spine nav li.parent.active > a {
+		font-weight: 800;
 	}
 
 	#spine nav.spine-sitenav > ul > li > ul:before {
@@ -509,7 +524,7 @@ blockquote cite {
 
 	#jacket #spine nav > ul > li > ul > li > a {
 		color: #fff;
-		font-weight: 800;
+		font-weight: 700;
 	}
 
 	#spine nav > ul > li > ul > li,
@@ -524,7 +539,8 @@ blockquote cite {
 		position: relative;
 	}
 
-	#spine nav > ul > li > ul > li > ul li:hover {
+	#spine nav > ul > li > ul > li > ul li:hover,
+	#spine nav > ul > li > ul > li > ul li.active {
 		padding-left: 10px;
 	}
 
@@ -534,7 +550,8 @@ blockquote cite {
 	}
 
 	#spine nav > ul > li > ul > li > ul li:before,
-	#spine nav > ul > li > ul > li > ul li.active:before {
+	#spine nav > ul > li > ul > li > ul li.active:before,
+	#jacket #spine .spine-sitenav > ul > li > ul > li.active:before {
 		content: "";
 		position: absolute;
 		top: 12px;
@@ -547,11 +564,13 @@ blockquote cite {
 		transition: all .5s ease;
 	}
 
-	#spine nav > ul > li > ul > li > ul li:hover:before {
+	#spine nav > ul > li > ul > li > ul li:hover:before,
+	#spine nav > ul > li > ul > li > ul li.active:before {
 		opacity: 1;
 	}
 
-	#spine nav > ul > li > ul > li > ul > li > ul li.active:before {
+	#spine nav > ul > li > ul > li > ul > li > ul li.active:before,
+	#jacket #spine .spine-sitenav > ul > li > ul > li.active:before {
 		opacity: 1;
 		left: -10px;
 	}
@@ -593,7 +612,7 @@ blockquote cite {
 	#jacket #spine .spine-sitenav > ul > li > ul > li > a,
 	.parent-anchor {
 		color: #fff;
-		font-weight: 800;
+		font-weight: 700;
 	}
 
 	/* - bring back padding for parent li of fourth level nav - */
@@ -667,14 +686,14 @@ blockquote cite {
 	}
 
 	#spine nav.spine-sitenav > ul > li > a {
-		font-weight: 800;
+		font-weight: 700;
 		margin-bottom: 1em;
 		text-transform: uppercase;
 	}
 
 	.footer-nav > ul > li > a {
 		color: #fff;
-		font-weight: 800;
+		font-weight: 700;
 	}
 
 	.footer-nav > ul > li > ul,
