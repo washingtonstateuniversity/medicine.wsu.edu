@@ -247,7 +247,8 @@ main label {
 	padding-top: 20px;
 }
 
-.hide-label label {
+.hide-label label,
+.hide-sub-labels span label {
 	clip: rect(1px, 1px, 1px, 1px);
 	height: 1px;
 	margin: 0;
@@ -287,6 +288,16 @@ main label {
 
 .ginput_container_select:hover:after {
 	border-top-color: #b7203d;
+}
+
+main label.gfield_label_before_complex {
+	display: block;
+	margin-top: 10px;
+}
+
+.ginput_complex {
+	font-size: 0;
+	padding-left: 20px;
 }
 
 .gfield_date_day,
