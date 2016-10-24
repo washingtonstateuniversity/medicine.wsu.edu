@@ -518,6 +518,54 @@ blockquote cite {
 		margin-left: 0;
 	}
 
+	#spine nav > ul > li > ul > li > ul li {
+		-webkit-transition: all .5s ease;
+		transition: all .5s ease;
+		position: relative;
+	}
+
+	#spine nav > ul > li > ul > li > ul li:hover {
+		padding-left: 10px;
+	}
+
+	#spine nav > ul > li > ul > li > ul li.opened:hover,
+	#spine nav > ul > li > ul > li > ul li.opened > ul > li.active:hover {
+		padding-left: 0;
+	}
+
+	#spine nav > ul > li > ul > li > ul li:before,
+	#spine nav > ul > li > ul > li > ul li.active:before {
+		content: "";
+		position: absolute;
+		top: 12px;
+		left: 0;
+		height: 2px;
+		width: 6px;
+		background: #981e32;
+		opacity: 0;
+		-webkit-transition: all .5s ease;
+		transition: all .5s ease;
+	}
+
+	#spine nav > ul > li > ul > li > ul li:hover:before {
+		opacity: 1;
+	}
+
+	#spine nav > ul > li > ul > li > ul > li > ul li.active:before {
+		opacity: 1;
+		left: -10px;
+	}
+
+	#jacket #spine nav > ul > li > ul > li > ul > li.opened.parent > a,
+	#jacket #spine nav > ul > li > ul > li > ul > li.active.parent > a {
+		color: #fff !important;
+		font-weight: 700;
+	}
+
+	#spine nav > ul > li > ul > li > ul li.opened:hover:before {
+		display: none;
+	}
+
 	#spine nav ul ul ul li a {
 		padding: .25em 3em .25em 0;
 	}
@@ -533,7 +581,13 @@ blockquote cite {
 	.parent-anchor {
 		color: rgba(255, 255, 255, .7);
 		font-weight: 300;
-		padding: .25em 3em .25em 0;
+		padding: .35em 3em .35em 0;
+		-webkit-transition: color .3s ease;
+		transition: color .3s ease;
+	}
+
+	#jacket #spine .spine-sitenav > ul > li > ul a:hover {
+		color: rgba(255, 255, 255, .85);
 	}
 
 	#jacket #spine .spine-sitenav > ul > li > ul > li > a,
@@ -694,7 +748,7 @@ header.main-header {
 	background-position: center center;
 	background-repeat: no-repeat;
 	background-size: cover;
-	margin-bottom: 1em;
+	margin-bottom: 0;
 }
 
 .main-header .hgroup {
