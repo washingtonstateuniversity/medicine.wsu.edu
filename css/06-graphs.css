@@ -1,0 +1,39 @@
+.bargraph {
+	padding: 0 0 1em;
+}
+
+.bargraph:after {
+	content: "";
+	display: table;
+	clear: both;
+}
+
+.bargraph li {
+	background: rgba(0, 0, 0, .035);
+	clear: left;
+	float: left;
+	margin: 0 0 .3em;
+	overflow: hidden;
+	padding: 0;
+	position: relative;
+}
+
+.bargraph li:before {
+	content: initial;
+}
+
+.bargraph span {
+	display: inline-block;
+	padding: .5em 1em;
+}
+
+.bargraph li .label {
+	background: #fff;
+	position: relative;
+	z-index: 1;
+}
+
+.bargraph .value {
+	position: absolute;
+	right: 0;
+}
