@@ -30,6 +30,10 @@ module.exports = function( grunt ) {
 			video_js: {
 				src: [ "src/js/video.js" ],
 				dest: "js/video.js"
+			},
+			graph_js: {
+				src: [ "src/js/graph.js" ],
+				dest: "js/graph.js"
 			}
 		},
 
@@ -143,6 +147,10 @@ module.exports = function( grunt ) {
 			video_js: {
 				src: "js/video.js",
 				dest: "js/video.min.js"
+			},
+			graph_js: {
+				src: "js/graph.js",
+				dest: "js/graph.min.js"
 			}
 		},
 
