@@ -30,6 +30,10 @@ module.exports = function( grunt ) {
 			video_js: {
 				src: [ "src/js/video.js" ],
 				dest: "js/video.js"
+			},
+			animated_list_js: {
+				src: [ "src/js/animated-list.js" ],
+				dest: "js/animated-list.js"
 			}
 		},
 
@@ -143,6 +147,10 @@ module.exports = function( grunt ) {
 			video_js: {
 				src: "js/video.js",
 				dest: "js/video.min.js"
+			},
+			animated_list_js: {
+				src: "js/animated-list.js",
+				dest: "js/animated-list.min.js"
 			}
 		},
 
