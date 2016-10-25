@@ -542,8 +542,7 @@ blockquote cite {
 	}
 
 	#spine nav > ul > li > ul > li > ul li:hover,
-	#spine nav > ul > li > ul > li > ul li.active,
-	#jacket #spine .spine-sitenav > ul > li > ul > li.parent.active > ul > li.overview {
+	#spine nav > ul > li > ul > li > ul li.active {
 		padding-left: 10px;
 	}
 
@@ -554,8 +553,7 @@ blockquote cite {
 
 	#spine nav > ul > li > ul > li > ul li:before,
 	#spine nav > ul > li > ul > li > ul li.active:before,
-	#jacket #spine .spine-sitenav > ul > li > ul > li.active:before,
-	#jacket #spine .spine-sitenav > ul > li > ul > li.parent.active > ul > li.overview > a:before {
+	#jacket #spine .spine-sitenav > ul > li > ul > li.active:before {
 		content: "";
 		position: absolute;
 		top: 12px;
@@ -573,8 +571,7 @@ blockquote cite {
 	}
 
 	#spine nav > ul > li > ul > li > ul li:hover:before,
-	#spine nav > ul > li > ul > li > ul li.active:before,
-	#jacket #spine .spine-sitenav > ul > li > ul > li.parent.active > ul > li.overview > a:before {
+	#spine nav > ul > li > ul > li > ul li.active:before {
 		opacity: 1;
 	}
 
