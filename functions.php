@@ -273,3 +273,16 @@ add_filter( 'spine_default_section_classes', 'medicine_filter_section_classes', 
 function medicine_filter_section_classes() {
 	return 'pad-top';
 }
+
+add_filter( 'query_vars', 'medicine_search_query_vars_filter' );
+/**
+ * Adds `q` as our search query variable.
+ *
+ * @param $vars
+ *
+ * @return array
+ */
+function medicine_search_query_vars_filter( $vars ) {
+	$vars[] = 'q';
+	return $vars;
+}
