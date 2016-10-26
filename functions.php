@@ -286,3 +286,12 @@ function medicine_search_query_vars_filter( $vars ) {
 	$vars[] = 'q';
 	return $vars;
 }
+
+function medicine_process_search_request( $var ) {
+	$request_url = 'https://elastic.wsu.edu/wsu-web/_search?q=%2bhostname:admission.wsu.edu%20' . urlencode( $var );
+	$request = wp_remote_get( $request_url );
+	$request = wp_remote_retrieve_body( $request );
+	$request = json_decode( $request );
+
+	return $request;
+}
