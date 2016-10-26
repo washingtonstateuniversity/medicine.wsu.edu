@@ -731,7 +731,10 @@ main *,
 .breadcrumbs,
 .site-footer > *,
 main .page > .section-wrapper > section,
-main .page > section {
+main .page > section,
+.blog main > section,
+.single-post main > section,
+.archive main > section {
 	width: 100%;
 	max-width: 1188px;
 	margin-left: auto;
