@@ -1511,6 +1511,9 @@ table {
 	overflow: hidden;
 	padding: 0;
 	position: relative;
+	width: 5%;
+	-webkit-transition: width 2s cubic-bezier(.02, .01, .47, 1);
+	transition: width 2s cubic-bezier(.02, .01, .47, 1);
 }
 
 .bargraph li:before {

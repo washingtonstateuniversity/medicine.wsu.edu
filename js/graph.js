@@ -21,7 +21,7 @@
 	 */
 	var animate_graph = function() {
 		var $graph = $( ".bargraph" ),
-			total = parseInt( $graph.data( "total" ).replace( /,/g, "" ), 10 ),
+			total = $graph.data( "total" ),
 			prefix = $graph.data( "prefix" );
 
 		$( document ).on( "scroll", function() {
@@ -31,25 +31,43 @@
 
 			$graph.addClass( "animated" ).find( "li" ).each( function( i ) {
 				var $bar = $( this ),
-					value = parseInt( $bar.find( ".value" ).html().split( prefix ).pop().replace( /,/g, "" ), 10 ),
-					percentage = value / total * 100;
+					$value = $bar.find( ".value" ),
+					amount = $value.data( "amount" ),
+					percentage = amount / total * 100;
 
+				// Fire each animation at short intervals.
 				setTimeout( function() {
-					$bar.animate( {
-						width: percentage + "%"
-					}, 2000 ).find( ".value" ).prop( "Counter", 0 ).animate( {
-						Counter: value
-						}, {
-							duration: 2000,
-							easing: "swing",
-							step: function( now ) {
-							$( this ).text( prefix + Math.ceil( now ).toLocaleString( "en" ) );
+
+					// Animate the bar's width to it's final percentage.
+					$bar.css( "width", percentage + "%" );
+
+					// Animate the element's value from x to y:
+					$( { currentAmount: 0 } ).animate( { currentAmount: amount }, {
+						duration: 1500,
+						easing: "swing",
+						step: function() {
+							$value.text( prefix + commaSeparateNumber( Math.round( this.currentAmount ) ) );
 						}
 					} );
-				}, i * 100 );
+				}, i * 150 );
 			} );
 		} );
 	};
+
+	/**
+	 * Returns a comma separated number.
+	 *
+	 * Sourced from http://stackoverflow.com/questions/16227858/jquery-increment-number-using-animate-with-comma
+	 *
+	 * @param val
+	 * @returns {*}
+	 */
+	function commaSeparateNumber( val ) {
+		while ( /(\d+)(\d{3})/.test( val.toString() ) ) {
+			val = val.toString().replace( /(\d)(?=(\d\d\d)+(?!\d))/g, "$1," );
+		}
+		return val;
+	}
 
 	/**
 	 * Fire any actions that we need to happen once the document is ready.
