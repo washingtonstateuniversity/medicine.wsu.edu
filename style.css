@@ -358,6 +358,44 @@ blockquote cite {
 		color: #b7203d;
 	}
 
+	.site-search {
+		position: absolute;
+		width: 100%;
+		z-index: 3;
+	}
+
+	.site-search ul {
+		display: -webkit-box;
+		display: -ms-flexbox;
+		display: flex;
+		font-size: .9em;
+		-webkit-box-pack: end;
+		    -ms-flex-pack: end;
+		        justify-content: flex-end;
+		list-style: none;
+		padding: 0;
+		margin-top: 2.5em;
+	}
+
+	.site-search li.search {
+		padding-left: 1em;
+	}
+
+	.site-search a {
+		color: rgba(0, 0, 0, .6);
+		-webkit-transition: color .3s ease;
+		transition: color .3s ease;
+	}
+
+	.site-search a:hover {
+		color: #981e32;
+	}
+
+	.site-search form {
+		margin: 0;
+		padding: 0;
+	}
+
 	#spine {
 		min-height: initial !important;
 		position: relative !important;
@@ -366,6 +404,7 @@ blockquote cite {
 		z-index: 0;
 	}
 
+	.site-search ul,
 	#glue {
 		position: static;
 		width: 100%;
@@ -391,6 +430,7 @@ blockquote cite {
 		width: 260px;
 		height: 68px;
 		text-indent: 99163px;
+		z-index: 5;
 	}
 
 	#spine .spine-actions,
