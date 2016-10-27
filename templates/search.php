@@ -1,8 +1,6 @@
 <?php /* Template Name: Search */
 
-$search_data = medicine_process_search_request( get_query_var( 'q' ) );
-
-$search_results = $search_data->hits->hits;
+$search_results = medicine_process_search_request( get_query_var( 'q' ) );
 
 get_header();
 

@@ -292,15 +292,31 @@ function medicine_search_query_vars_filter( $vars ) {
  *
  * @param string $var
  *
- * @return object
+ * @return array
  */
 function medicine_process_search_request( $var ) {
 	$request_url = 'https://elastic.wsu.edu/wsu-web/_search?q=%2bhostname:admission.wsu.edu%20' . urlencode( $var );
-	$request = wp_remote_get( $request_url );
-	$request = wp_remote_retrieve_body( $request );
-	$request = json_decode( $request );
 
-	return $request;
+	$response = wp_remote_get( $request_url );
+
+	if ( is_wp_error( $response ) ) {
+		return array();
+	}
+
+	if ( 200 !== wp_remote_retrieve_response_code( $response ) ) {
+		return array();
+	}
+
+	$response = wp_remote_retrieve_body( $response );
+	$response = json_decode( $response );
+
+	if ( isset( $response->hits ) && isset( $response->hits->total ) && 0 === $response->hits->total ) {
+		return array(); // no results found.
+	}
+
+	$search_results = $response->hits->hits;
+
+	return $search_results;
 }
 
 /**
