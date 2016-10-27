@@ -6,7 +6,7 @@ get_header();
 
 ?>
 
-	<main id="wsuwp-main" class="spine-sideright-template">
+	<main class="spine-blank-template">
 
 		<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 
