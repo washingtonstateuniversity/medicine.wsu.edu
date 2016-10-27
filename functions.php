@@ -379,7 +379,7 @@ function medicine_get_main_header() {
 		} else {
 			$main_header['description'] = get_the_title();
 		}
-	} elseif( is_singular( 'post' ) ) {
+	} elseif ( is_singular( 'post' ) ) {
 		$main_header['description'] = 'News';
 	} elseif ( is_singular( 'tribe_events' ) ) {
 		$main_header['description'] = 'Events';
@@ -391,7 +391,7 @@ function medicine_get_main_header() {
 		} elseif ( is_day() ) {
 			$month_object = DateTime::createFromFormat( '!m', get_query_var( 'monthnum' ) );
 			$month_name = $month_object->format( 'F' );
-			$main_header['description'] = 'Archive: '. $month_name . ' ' . get_query_var( 'day' ) . ', ' . get_query_var( 'year' );
+			$main_header['description'] = 'Archive: ' . $month_name . ' ' . get_query_var( 'day' ) . ', ' . get_query_var( 'year' );
 		} elseif ( is_month() ) {
 			$month_object = DateTime::createFromFormat( '!m', get_query_var( 'monthnum' ) );
 			$month_name = $month_object->format( 'F' );
@@ -405,7 +405,7 @@ function medicine_get_main_header() {
 		} else {
 			$main_header['description'] = 'Archives';
 		}
-	} elseif( is_404() ) {
+	} elseif ( is_404() ) {
 		$main_header['description'] = 'Page not found';
 	}
 
