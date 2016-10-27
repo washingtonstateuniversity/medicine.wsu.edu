@@ -28,11 +28,15 @@ class WSU_Home_YouTube_Embed {
 		ob_start();
 		?>
 		<!-- 1. The <iframe> (and video player) will replace this <div> tag. -->
-		<div class="inline-youtube-video"
-			 id="youtube-video-<?php echo esc_attr( $atts['video_id'] ); ?>"
-		     data-video-id="<?php echo esc_attr( $atts['video_id'] ); ?>"
-			 data-video-width="<?php echo absint( $atts['width'] ); ?>"
-			 data-video-height="<?php echo absint( $atts['height'] ); ?>"></div>
+		<div class="video-wrap-control">
+			<div class="video-wrap-inner">
+				<div class="inline-youtube-video"
+			        id="youtube-video-<?php echo esc_attr( $atts['video_id'] ); ?>"
+		            data-video-id="<?php echo esc_attr( $atts['video_id'] ); ?>"
+			        data-video-width="<?php echo absint( $atts['width'] ); ?>"
+			        data-video-height="<?php echo absint( $atts['height'] ); ?>"></div>
+			</div>
+		</div>
 		<?php
 		$content = ob_get_contents();
 		ob_end_clean();
