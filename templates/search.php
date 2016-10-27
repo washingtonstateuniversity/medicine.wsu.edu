@@ -19,7 +19,7 @@ get_header();
 
 				<div class="column one">
 					<?php
-					foreach( $search_results as $search_result ) {
+					foreach ( $search_results as $search_result ) {
 						?>
 						<article>
 							<h2><a href="<?php echo esc_url( $search_result->_source->url ); ?>"><?php echo esc_html( $search_result->_source->title ); ?></a></h2>
@@ -27,11 +27,11 @@ get_header();
 							<div class="visible-content">
 								<?php
 								$visible_content = wpautop( $search_result->_source->content );
-								$visible_content = strip_tags( $visible_content, '<p><h2><h3><h4><h5>' );
-								$visible_content = substr( $visible_content, 0, 240 );
+								$visible_content = strip_tags( $visible_content, '<p><strong><em>' );
+								$visible_content = substr( $visible_content, 0, 260 );
 								$visible_content = force_balance_tags( $visible_content . '....' );
-
-								echo $visible_content;
+								$visible_content = wpautop( $visible_content, false );
+								echo wp_kses_post( $visible_content );
 								?>
 							</div>
 						</article><?php
