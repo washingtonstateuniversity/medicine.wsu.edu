@@ -22,6 +22,10 @@ get_header();
 
 				<div class="column one">
 					<?php
+
+					if ( empty( $search_results ) ) {
+						?><h2>No search results found.</h2><?php
+					}
 					foreach ( $search_results as $search_result ) {
 						?>
 						<article>
