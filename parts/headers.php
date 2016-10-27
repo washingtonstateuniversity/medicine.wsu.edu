@@ -14,6 +14,8 @@ if ( spine_has_featured_image() ) {
 	$medicine_header_style = '';
 }
 
+$main_header_elements = medicine_get_main_header();
+
 /**
  * @codingStandardsIgnoreStart
  *
@@ -23,7 +25,7 @@ if ( spine_has_featured_image() ) {
 ?>
 <header class="main-header <?php echo $featured_image_position; ?>" <?php echo $medicine_header_style; ?>>
 	<div class="hgroup">
-		<h1 class="main-header-description"><?php the_title(); ?></h1>
+		<h1 class="main-header-description"><?php echo esc_html( $main_header_elements['description'] ); ?></h1>
 	</div>
 </header>
 <?php
