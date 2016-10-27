@@ -1,5 +1,7 @@
 <?php
 
+include_once( __DIR__ . '/includes/feature-youtube-embed.php' );
+
 add_filter( 'spine_child_theme_version', 'medicine_theme_version' );
 function medicine_theme_version() {
 	return '0.0.22';
