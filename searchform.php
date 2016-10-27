@@ -7,4 +7,4 @@
 		<input type="search" class="search-field" placeholder="Search &hellip;" value="<?php echo esc_attr( get_query_var( 'q' ) ); ?>" name="q" />
 	</label>
 	<input type="submit" class="search-submit" value="Search" />
-</form>';
+</form>

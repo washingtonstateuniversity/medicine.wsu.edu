@@ -287,6 +287,13 @@ function medicine_search_query_vars_filter( $vars ) {
 	return $vars;
 }
 
+/**
+ * Processes a search request by passing to the WSU ES server.
+ *
+ * @param string $var
+ *
+ * @return object
+ */
 function medicine_process_search_request( $var ) {
 	$request_url = 'https://elastic.wsu.edu/wsu-web/_search?q=%2bhostname:admission.wsu.edu%20' . urlencode( $var );
 	$request = wp_remote_get( $request_url );
@@ -294,4 +301,24 @@ function medicine_process_search_request( $var ) {
 	$request = json_decode( $request );
 
 	return $request;
+}
+
+/**
+ * Filters the content returned by Elastic Search for display in a search
+ * results page.
+ *
+ * @param string $visible_content
+ *
+ * @return mixed|string
+ */
+function medicine_process_search_visible_content( $visible_content ) {
+	$visible_content = preg_replace( '/[\r\n]+/', "\n", $visible_content );
+	$visible_content = preg_replace( '/[ \t]+/', ' ', $visible_content );
+	$visible_content = strip_tags( $visible_content, '<p><strong><em>' );
+	$visible_content = trim( $visible_content );
+	$visible_content = substr( $visible_content, 0, 260 );
+	$visible_content = force_balance_tags( $visible_content . '....' );
+	$visible_content = wpautop( $visible_content, false );
+
+	return $visible_content;
 }

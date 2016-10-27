@@ -15,6 +15,11 @@ get_header();
 			<?php get_template_part( 'parts/headers' ); ?>
 			<?php get_template_part( 'parts/featured-images' ); ?>
 
+			<section class="row single gutter pad-ends">
+				<div class="column one">
+					<?php get_search_form(); ?>
+				</div>
+			</section>
 			<section class="row side-right gutter pad-ends">
 
 				<div class="column one">
@@ -26,11 +31,8 @@ get_header();
 							<span class="visible-url"><?php echo esc_url( $search_result->_source->url ); ?></span>
 							<div class="visible-content">
 								<?php
-								$visible_content = wpautop( $search_result->_source->content );
-								$visible_content = strip_tags( $visible_content, '<p><strong><em>' );
-								$visible_content = substr( $visible_content, 0, 260 );
-								$visible_content = force_balance_tags( $visible_content . '....' );
-								$visible_content = wpautop( $visible_content, false );
+								$visible_content = medicine_process_search_visible_content( $search_result->_source->content );
+
 								echo wp_kses_post( $visible_content );
 								?>
 							</div>
