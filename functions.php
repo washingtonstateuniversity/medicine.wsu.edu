@@ -301,7 +301,7 @@ function medicine_process_search_request( $var ) {
 		return $results;
 	}
 
-	$request_url = 'https://elastic.wsu.edu/wsu-web/_search?q=%2bhostname:admission.wsu.edu%20' . urlencode( $var );
+	$request_url = 'https://elastic.wsu.edu/wsu-web/_search?q=%2bhostname:admission.wsu.edu%20%2b' . urlencode( $var );
 
 	$response = wp_remote_get( $request_url );
 
