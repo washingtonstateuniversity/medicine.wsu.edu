@@ -359,3 +359,66 @@ function medicine_redirect_old_search_requests() {
 		exit;
 	}
 }
+
+/**
+ * Determine what should be displayed in the spine's main header area for the
+ * sub and sub sections.
+ *
+ * @return array List of elements for output in main header.
+ */
+function medicine_get_main_header() {
+	$main_header = array(
+		'name' => '',
+		'description' => '',
+	);
+
+	// Top level pages show their title. Sub pages show their parent's title.
+	if ( is_page() ) {
+		$_post = get_post();
+
+		if ( $_post->post_parent ) {
+			$main_header['description'] = get_the_title( $_post->post_parent );
+		} else {
+			$main_header['description'] = get_the_title();
+		}
+	} elseif ( is_singular( 'post' ) ) {
+		$main_header['description'] = 'News';
+	} elseif ( is_singular( 'tribe_events' ) ) {
+		$main_header['description'] = 'Events';
+	} elseif ( is_archive() ) {
+		if ( is_category() ) {
+			$main_header['description'] = 'Category: ' . single_cat_title( '', false );
+		} elseif ( is_tag() ) {
+			$main_header['description'] = 'Tag: ' . single_tag_title( '', false );
+		} elseif ( is_day() ) {
+			$month_object = DateTime::createFromFormat( '!m', get_query_var( 'monthnum' ) );
+			$month_name = $month_object->format( 'F' );
+			$main_header['description'] = 'Archive: ' . $month_name . ' ' . get_query_var( 'day' ) . ', ' . get_query_var( 'year' );
+		} elseif ( is_month() ) {
+			$month_object = DateTime::createFromFormat( '!m', get_query_var( 'monthnum' ) );
+			$month_name = $month_object->format( 'F' );
+			$main_header['description'] = 'Archive: ' . $month_name . ' ' . get_query_var( 'year' );
+		} elseif ( is_year() ) {
+			$main_header['description'] = 'Archive: ' . get_query_var( 'year' );
+		} elseif ( is_author() ) {
+			$main_header['description'] = get_the_author();
+		} elseif ( is_post_type_archive( 'tribe_events' ) ) {
+			$main_header['description'] = 'Events';
+		} else {
+			$main_header['description'] = 'Archives';
+		}
+	} elseif ( is_404() ) {
+		$main_header['description'] = 'Page not found';
+	}
+
+	if ( is_search() ) {
+		$main_header['description'] = 'Search';
+	}
+
+	if ( is_home() ) {
+		$page_for_posts = absint( get_option( 'page_for_posts', 0 ) );
+		$main_header['description'] = get_the_title( $page_for_posts );
+	}
+
+	return $main_header;
+}
