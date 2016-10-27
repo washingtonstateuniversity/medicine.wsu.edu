@@ -1,6 +1,7 @@
 <?php
 
 include_once( __DIR__ . '/includes/feature-youtube-embed.php' );
+include_once( __DIR__ . '/includes/class-medicine-bar-graph-shortcode.php' );
 
 add_filter( 'spine_child_theme_version', 'medicine_theme_version' );
 function medicine_theme_version() {
