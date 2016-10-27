@@ -1096,6 +1096,7 @@
 		 */
 		setup_standard_navigation: function() {
 			this.nav_elements.spine_nav.find( "> ul > li > .sub-menu > .non-anchor > a" ).contents().unwrap().wrap( "<span class='parent-anchor'></span>" );
+			this.nav_elements.spine_nav.find( "> ul > .parent > .sub-menu > .parent > a" ).contents().unwrap().wrap( "<span class='parent-anchor'></span>" );
 			this.nav_elements.top_level_parent_anchors.on( "click", $.ui.spine.prototype.handle_top_level_anchor_click );
 			this.nav_elements.sub_level_parent_anchors.on( "click", $.ui.spine.prototype.handle_sub_level_anchor_click );
 		},
