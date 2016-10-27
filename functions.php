@@ -213,12 +213,33 @@ function medicine_nav_menu_id( $id ) {
 	return false;
 }
 
+add_filter( 'wp_nav_menu_items', 'medicine_add_search_form_to_global_top_menu', 10, 2 );
+/**
+ * Filters the nav items attached to the global navigation and appends a
+ * search form.
+ *
+ * @param $items
+ * @param $args
+ *
+ * @return string
+ */
+function medicine_add_search_form_to_global_top_menu( $items, $args ) {
+	if ( 'global-top-menu' !== $args->theme_location ) {
+		return $items;
+	}
+
+	return $items . '<li class="search">' . get_search_form( false ) . '</li>';
+}
+
 add_action( 'after_setup_theme', 'medicine_nav_menu_register' );
 /**
  * Register additional menus used by the theme.
  */
 function medicine_nav_menu_register() {
+	register_nav_menu( 'global-top-menu', 'Global Top Menu' );
 	register_nav_menu( 'site-footer-menu', 'Footer Menu' );
+
+	add_theme_support( 'html5', array( 'search-form' ) );
 }
 
 add_filter( 'bcn_breadcrumb_url', 'medicine_modify_breadcrumb_url', 10, 3 );
@@ -251,4 +272,88 @@ add_filter( 'spine_default_section_classes', 'medicine_filter_section_classes', 
  */
 function medicine_filter_section_classes() {
 	return 'pad-top';
+}
+
+add_filter( 'query_vars', 'medicine_search_query_vars_filter' );
+/**
+ * Adds `q` as our search query variable.
+ *
+ * @param $vars
+ *
+ * @return array
+ */
+function medicine_search_query_vars_filter( $vars ) {
+	$vars[] = 'q';
+	return $vars;
+}
+
+/**
+ * Processes a search request by passing to the WSU ES server.
+ *
+ * @param string $var
+ *
+ * @return array
+ */
+function medicine_process_search_request( $var ) {
+	$search_key = md5( 'search' . $var );
+
+	if ( $results = wp_cache_get( $search_key, 'search' ) ) {
+		return $results;
+	}
+
+	$request_url = 'https://elastic.wsu.edu/wsu-web/_search?q=%2bhostname:admission.wsu.edu%20%2b' . urlencode( $var );
+
+	$response = wp_remote_get( $request_url );
+
+	if ( is_wp_error( $response ) ) {
+		return array();
+	}
+
+	if ( 200 !== wp_remote_retrieve_response_code( $response ) ) {
+		return array();
+	}
+
+	$response = wp_remote_retrieve_body( $response );
+	$response = json_decode( $response );
+
+	if ( isset( $response->hits ) && isset( $response->hits->total ) && 0 === $response->hits->total ) {
+		return array(); // no results found.
+	}
+
+	$search_results = $response->hits->hits;
+
+	wp_cache_set( $search_key, $search_results, 'search', 3600 );
+
+	return $search_results;
+}
+
+/**
+ * Filters the content returned by Elastic Search for display in a search
+ * results page.
+ *
+ * @param string $visible_content
+ *
+ * @return mixed|string
+ */
+function medicine_process_search_visible_content( $visible_content ) {
+	$visible_content = preg_replace( '/[\r\n]+/', "\n", $visible_content );
+	$visible_content = preg_replace( '/[ \t]+/', ' ', $visible_content );
+	$visible_content = strip_tags( $visible_content, '<p><strong><em>' );
+	$visible_content = trim( $visible_content );
+	$visible_content = substr( $visible_content, 0, 260 );
+	$visible_content = force_balance_tags( $visible_content . '....' );
+	$visible_content = wpautop( $visible_content, false );
+
+	return $visible_content;
+}
+
+add_action( 'template_redirect', 'medicine_redirect_old_search_requests' );
+/**
+ * Redirect old search URL requests to the new search URL.
+ */
+function medicine_redirect_old_search_requests() {
+	if ( is_search() ) {
+		wp_redirect( home_url( '/search/?q=' . get_query_var( 's' ) ) );
+		exit;
+	}
 }
