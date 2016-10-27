@@ -346,3 +346,14 @@ function medicine_process_search_visible_content( $visible_content ) {
 
 	return $visible_content;
 }
+
+add_action( 'template_redirect', 'medicine_redirect_old_search_requests' );
+/**
+ * Redirect old search URL requests to the new search URL.
+ */
+function medicine_redirect_old_search_requests() {
+	if ( is_search() ) {
+		wp_redirect( home_url( '/search/?q=' . get_query_var( 's' ) ) );
+		exit;
+	}
+}
