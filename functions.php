@@ -4,7 +4,7 @@ include_once( __DIR__ . '/includes/feature-youtube-embed.php' );
 
 add_filter( 'spine_child_theme_version', 'medicine_theme_version' );
 function medicine_theme_version() {
-	return '0.1.0';
+	return '0.1.1';
 }
 
 add_action( 'init', 'medicine_remove_spine_wp_enqueue_scripts' );
