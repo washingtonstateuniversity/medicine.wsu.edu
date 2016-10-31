@@ -15,6 +15,7 @@ main {
 	position: relative;
 }
 
+.site-search *,
 main *,
 .site-footer * {
 	box-sizing: border-box;
@@ -39,6 +40,7 @@ main .page > section,
 
 @media (max-width: 1250px) {
 
+	.site-search ul,
 	#glue,
 	.main-header .hgroup,
 	.breadcrumbs,
@@ -383,6 +385,16 @@ div#wsu-video-background:after {
 	left: calc((100vw - 1188px) / 2);
 	justify-content: center;
 	z-index: 3;
+}
+
+@media (max-width: 1250px) {
+
+	.home-hero .hgroup {
+		left: 0;
+		padding: 0 2em;
+		width: calc(100% - 4em);
+	}
+
 }
 
 .home-hero .hgroup:before {

@@ -11,9 +11,9 @@
 	color: #981e32;
 	font-size: 1em;
 	font-weight: 300;
-	padding: .25em .5em;
-	width: 12em;
-	transition: border .3s ease;
+	padding: .35em .5em;
+	width: 6em;
+	transition: all .3s ease;
 }
 
 .site-search input.search-field:hover {
@@ -22,18 +22,20 @@
 
 .site-search input.search-field:focus {
 	border-color: #981e32;
+	width: 12em;
 }
 
 .site-search li.search {
 	margin-top: -.25em;
 }
 
-.site-search .search-submit {
-	background: none;
+.site-search input.search-submit {
+	background: url(./images/ico-search-thin.svg);
 	border: none;
 	text-indent: 99999px;
 	padding: 0;
-	width: 10px;
+	height: 16px;
+	width: 16px;
 	position: relative;
 }
 

@@ -339,10 +339,10 @@ blockquote cite {
 	color: #981e32;
 	font-size: 1em;
 	font-weight: 300;
-	padding: .25em .5em;
-	width: 12em;
-	-webkit-transition: border .3s ease;
-	transition: border .3s ease;
+	padding: .35em .5em;
+	width: 6em;
+	-webkit-transition: all .3s ease;
+	transition: all .3s ease;
 }
 
 .site-search input.search-field:hover {
@@ -351,18 +351,20 @@ blockquote cite {
 
 .site-search input.search-field:focus {
 	border-color: #981e32;
+	width: 12em;
 }
 
 .site-search li.search {
 	margin-top: -.25em;
 }
 
-.site-search .search-submit {
-	background: none;
+.site-search input.search-submit {
+	background: url(./images/ico-search-thin.svg);
 	border: none;
 	text-indent: 99999px;
 	padding: 0;
-	width: 10px;
+	height: 16px;
+	width: 16px;
 	position: relative;
 }
 
@@ -877,6 +879,7 @@ main {
 	position: relative;
 }
 
+.site-search *,
 main *,
 .site-footer * {
 	box-sizing: border-box;
@@ -901,6 +904,7 @@ main .page > section,
 
 @media (max-width: 1250px) {
 
+	.site-search ul,
 	#glue,
 	.main-header .hgroup,
 	.breadcrumbs,
@@ -1279,6 +1283,16 @@ div#wsu-video-background:after {
 	    -ms-flex-pack: center;
 	        justify-content: center;
 	z-index: 3;
+}
+
+@media (max-width: 1250px) {
+
+	.home-hero .hgroup {
+		left: 0;
+		padding: 0 2em;
+		width: calc(100% - 4em);
+	}
+
 }
 
 .home-hero .hgroup:before {
