@@ -1,7 +1,7 @@
 ( function( $, window, document ) {
 
 	/**
-	 * Check if the element to be animated is in the viewport.
+	 * Check if at least half of the element to be animated is in the viewport.
 	 */
 	function inViewport( element ) {
 		if ( element instanceof jQuery ) {
@@ -13,7 +13,7 @@
 		return rect.bottom > 0 &&
 			rect.right > 0 &&
 			rect.left < ( window.innerWidth || document.documentElement.clientWidth ) &&
-			rect.top < ( window.innerHeight || document.documentElement.clientHeight );
+			rect.top + rect.height / 2 < ( window.innerHeight || document.documentElement.clientHeight );
 	}
 
 	/**
