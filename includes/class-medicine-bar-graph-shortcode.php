@@ -35,8 +35,8 @@ class Medicine_Bar_Graph_Shortcode {
 		ob_start();
 		?>
 		<ul class="bargraph"
-			data-total="<?php echo esc_attr( str_replace( ',', '', $atts[ 'total' ] ) ); ?>"
-			data-prefix="<?php echo esc_attr( $atts[ 'prefix' ] ); ?>">
+			data-total="<?php echo esc_attr( str_replace( ',', '', $atts['total'] ) ); ?>"
+			data-prefix="<?php echo esc_attr( $atts['prefix'] ); ?>">
 			<?php
 			$bars = explode( '|', $atts['bars'] );
 			if ( is_array( $bars ) ) {
@@ -45,7 +45,7 @@ class Medicine_Bar_Graph_Shortcode {
 				<li>
 					<?php $pair = explode( ',', $bar ); ?>
 					<span class="label"><?php echo esc_html( $pair[0] ); ?></span>
-					<span class="value" data-amount="<?php echo esc_attr( $pair[1] ); ?>"><?php echo esc_html( $atts[ 'prefix' ] . $pair[1] ); ?></span>
+					<span class="value" data-amount="<?php echo esc_attr( $pair[1] ); ?>"><?php echo esc_html( $atts['prefix'] . $pair[1] ); ?></span>
 				</li>
 				<?php
 				}
@@ -63,7 +63,7 @@ class Medicine_Bar_Graph_Shortcode {
 		$fields = array(
 			array(
 				'label' => 'Total',
-				'description' => "The maximum value to measure the bars against.",
+				'description' => 'The maximum value to measure the bars against.',
 				'attr' => 'total',
 				'type' => 'text',
 			),
