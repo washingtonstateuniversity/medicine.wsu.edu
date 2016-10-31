@@ -30,26 +30,47 @@ h2 {
 h3 {
 	font-size: 1.2em;
 	font-weight: 300;
-	line-height: 1.2;
+	line-height: 1.6;
+	padding: .5em 0 .6em;
 	text-transform: uppercase;
 }
 
 h4 {
-	color: #981e32;
+	color: #a31d36;
 	font-size: 1em;
-	font-weight: 800;
+	font-weight: 400;
 	text-transform: uppercase;
 	margin-top: 1em;
+	padding: .7em 0;
 }
 
 h5 {
-	font-size: 1em;
-	font-weight: 800;
+	font-size: .9em;
+	font-weight: 400;
+	margin: 1em 0 0;
+	padding: .7em 0;
+	text-transform: uppercase;
 }
 
 h6 {
-	font-size: 1em;
-	font-weight: 400;
+	font-size: .85em;
+	font-weight: 600;
+	padding: .5em 0;
+	margin: 1em 0 0;
+}
+
+p {
+	padding-bottom: 1.5em;
+}
+
+strong {
+	color: #000;
+	font-weight: 600;
+}
+
+hr {
+	background-color: rgba(93, 105, 112, .1);
+	margin: 3em 0;
 }
 
 /* headers lead off content, don't want top padding on H elements
@@ -97,6 +118,10 @@ main a:after {
 	transition: width .3s ease;
 }
 
+main a:hover {
+	color: #b7203d;
+}
+
 main a:hover:before {
 	width: 100%;
 	background: #b7203d;
@@ -132,6 +157,11 @@ main ul {
 	list-style: none;
 }
 
+main ol li,
+main ul li {
+	padding: 0 0 .5em;
+}
+
 main ul li {
 	list-style: none;
 	position: relative; /* so before element can be absolutely positioned to li */
@@ -142,9 +172,32 @@ main ul li:before {
 	position: absolute;
 	left: -1.25em;
 	top: 13px;
-	background: #981e32;
+	background: #a31d36;
 	height: 1px;
 	width: 8px;
+}
+
+/* buttons */
+.button,
+.button:hover {
+	background: #fff;
+	border: 1px solid #2d2d2d;
+	border-radius: 0;
+	color: #3b4042;
+	font-weight: 300;
+	text-decoration: none;
+	text-transform: uppercase;
+	margin-top: 2em;
+	padding: 1.05em 5em 1em;
+	vertical-align: middle;
+	-webkit-transition: all .3s ease;
+	transition: all .3s ease;
+}
+
+.button:hover {
+	background: #981e32;
+	border-color: #981e32;
+	color: #fff;
 }
 
 /* a class to show a header in a unique way. A way to introduce
@@ -162,6 +215,7 @@ main ul li:before {
 
 .rule,
 .rule-thick,
+.rule-drk,
 .space-case {
 	margin-bottom: 3em;
 	padding-bottom: 1.5em;
@@ -174,11 +228,12 @@ main ul li:before {
 
 .rule-thick:after,
 .rule:after,
+.rule-drk:after,
 .space-case:after {
 	content: "";
-	width: 4.5em;
+	width: 3.75em;
 	height: 1px;
-	background: #981e32;
+	background: #a31d36;
 	position: absolute;
 	bottom: 0;
 	left: 0;
@@ -186,6 +241,10 @@ main ul li:before {
 
 .rule-thick:after {
 	height: 6px;
+}
+
+.rule-drk:after {
+	background: #2d2d2d;
 }
 
 /* centered content for space-case and rules */
@@ -203,17 +262,25 @@ main ul li:before {
 	font-size: .9rem;
 }
 
+/* adds crimson and makes the text all caps */
+.bolder {
+	color: #981e32;
+	text-transform: uppercase;
+}
+
 /* blockquotes are being used in three different ways on
 	 the site - two of which are to break up content */
 blockquote {
-	border-left: 1px solid #981e32;
+	border-left: 1px solid #a31d36;
 	font-family: "Open Sans", "Lucida Sans", "Lucida Grande", "Lucida Sans Unicode", sans-serif;
+	font-size: 1em;
 	margin: 4em 0 5em 3.5em;
-	padding: .5em 0 .5em 1.5em;
+	padding: 1.5em 0 0 1.5em;
 }
 
 blockquote cite {
 	color: #777;
+	font-size: .8em;
 }
 
 .center.mid-feature blockquote {
@@ -224,11 +291,15 @@ blockquote cite {
 	border: none;
 }
 
+.center.mid-feature blockquote p {
+	padding-bottom: 0;
+}
+
 .center blockquote:before {
 	content: "";
 	width: 15%;
 	height: 1px;
-	background: #981e32;
+	background: #a31d36;
 	position: absolute;
 	top: 0;
 	margin-left: auto;
@@ -241,7 +312,7 @@ blockquote cite {
 	content: "";
 	width: 15%;
 	height: 1px;
-	background: #981e32;
+	background: #a31d36;
 	position: absolute;
 	bottom: 0;
 	margin-left: auto;
@@ -256,8 +327,45 @@ blockquote cite {
 }
 
 /* --- have Spine nav use Open Sans --- */
-#spine {
+#spine,
+.site-search {
 	font-family: "Open Sans", "Lucida Sans", "Lucida Grande", "Lucida Sans Unicode", sans-serif;
+}
+
+/* --- site search and contact bar --- */
+.site-search input.search-field {
+	border: none;
+	border-bottom: 1px solid rgba(0, 0, 0, .1);
+	color: #981e32;
+	font-size: 1em;
+	font-weight: 300;
+	padding: .35em .5em;
+	width: 6em;
+	-webkit-transition: all .3s ease;
+	transition: all .3s ease;
+}
+
+.site-search input.search-field:hover {
+	border-color: rgba(0, 0, 0, .6);
+}
+
+.site-search input.search-field:focus {
+	border-color: #981e32;
+	width: 12em;
+}
+
+.site-search li.search {
+	margin-top: -.25em;
+}
+
+.site-search input.search-submit {
+	background: url(./images/ico-search-thin.svg);
+	border: none;
+	text-indent: 99999px;
+	padding: 0;
+	height: 16px;
+	width: 16px;
+	position: relative;
 }
 
 /* --- overwrite an old Spine remnant - will be changed in next release --- */
@@ -419,9 +527,10 @@ blockquote cite {
 	}
 
 	#jacket #binder #spine header {
-		position: absolute;
-		top: 2.5em;
 		background-color: transparent;
+		height: 68px;
+		margin: 2.5em 0 2.2em;
+		position: static;
 	}
 
 	#wsu-signature {
@@ -440,7 +549,7 @@ blockquote cite {
 	}
 
 	#spine .spine-sitenav {
-		padding: 120px 0 0;
+		padding: 0;
 		margin: 0;
 	}
 
@@ -744,6 +853,15 @@ blockquote cite {
 	}
 }
 
+@media (min-width: 1825px) {
+
+	#wsu-signature {
+		position: absolute;
+		left: 2em;
+	}
+
+}
+
 
 html {
 	background: #fff;
@@ -761,6 +879,7 @@ main {
 	position: relative;
 }
 
+.site-search *,
 main *,
 .site-footer * {
 	box-sizing: border-box;
@@ -785,6 +904,7 @@ main .page > section,
 
 @media (max-width: 1250px) {
 
+	.site-search ul,
 	#glue,
 	.main-header .hgroup,
 	.breadcrumbs,
@@ -851,6 +971,10 @@ header.main-header {
 	        align-items: flex-end;
 }
 
+.has-featured-image header.main-header:after {
+	border: 1px solid rgba(255, 255, 255, .5);
+}
+
 .has-featured-image .main-header .hgroup {
 	display: -webkit-box;
 	display: -ms-flexbox;
@@ -898,16 +1022,25 @@ header.main-header {
 	}
 
 	#jacket .row.thirds .column.one {
-		padding-right: 30px;
+		margin-right: 14px;
+		padding: 0;
 	}
 
 	#jacket .row.thirds .column.two {
-		padding-right: 15px;
-		padding-left: 15px;
+		margin-right: 7px;
+		margin-left: 7px;
+		padding: 0;
 	}
 
 	#jacket .row.thirds .column.three {
-		padding-left: 30px;
+		margin-left: 14px;
+		padding: 0;
+	}
+
+	/* - no padding on column - */
+	.no-pad .column {
+		padding-left: 0 !important;
+		padding-right: 0 !important;
 	}
 
 }
@@ -968,6 +1101,7 @@ header.main-header {
 		    -ms-flex: 1;
 		        flex: 1;
 	}
+
 }
 
 /* --- bleeds --- */
@@ -1027,6 +1161,12 @@ header.main-header {
 	max-width: 500px;
 }
 
+/* background colors */
+.gray-lightest-back,
+.lightest-back {
+	background-color: rgba(0, 0, 0, .035);
+}
+
 /* --- site footer --- */
 .site-footer {
 	background-color: #333;
@@ -1038,8 +1178,8 @@ header.main-header {
 /* footer address content */
 .site-footer address {
 	font-size: .8em;
-	color: inherit;
-	border-bottom: 1px solid;
+	color: rgba(255, 255, 255, .8);
+	border-bottom: 1px solid rgba(255, 255, 255, .2);
 	margin: 6em auto .5em;
 	padding-bottom: .5em;
 }
@@ -1103,6 +1243,241 @@ header.main-header {
 		padding-left: 0;
 		padding-right: 0;
 	}
+}
+
+/* --- Home page layout --- */
+.home-hero,
+.home-hero #wsu-video-background {
+	height: 700px;
+}
+
+div#wsu-video-background:after {
+	content: "";
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background: rgba(0, 0, 0, .2);
+}
+
+.home .main-header {
+	display: none;
+}
+
+.home-hero .hgroup {
+	position: absolute;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	    -ms-flex-direction: column;
+	        flex-direction: column;
+	top: 0;
+	bottom: 0;
+	max-width: 1188px;
+	width: 100%;
+	left: calc((100vw - 1188px) / 2);
+	-webkit-box-pack: center;
+	    -ms-flex-pack: center;
+	        justify-content: center;
+	z-index: 3;
+}
+
+@media (max-width: 1250px) {
+
+	.home-hero .hgroup {
+		left: 0;
+		padding: 0 2em;
+		width: calc(100% - 4em);
+	}
+
+}
+
+.home-hero .hgroup:before {
+	content: "";
+	position: absolute;
+	width: 100%;
+	height: 1px;
+	background: rgba(255, 255, 255, .4);
+	top: 9.5em;
+}
+
+.home-hero .main-header-name,
+.home-hero .main-header-description {
+	color: #fff;
+}
+
+.home-hero .main-header-name {
+	letter-spacing: 5px;
+	font-weight: 300;
+}
+
+.home-hero h1.main-header-description,
+.home-hero h2.main-header-description {
+	text-transform: initial;
+	font-size: 2.5em;
+	font-weight: 300;
+	letter-spacing: 1px;
+	line-height: 1.35;
+	max-width: 600px;
+}
+
+.home-hero h2.main-header-description {
+	font-size: 1.1em;
+	letter-spacing: 0;
+	line-height: 1.5;
+}
+
+.home-hero .rule-thick {
+	padding-bottom: 1.25em;
+	margin-bottom: 1.15em;
+}
+
+.home-hero .rule-thick:after {
+	background: #981e32;
+	height: 10px;
+}
+
+/* area highlights */
+#jacket #binder .area-highlights .column {
+	position: relative;
+	padding-bottom: 2.5em;
+}
+
+.area-highlights p:last-child {
+	font-size: .8em;
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+}
+
+#jacket .halves.no-pad .column {
+	-webkit-box-flex: 1;
+	    -ms-flex: auto;
+	        flex: auto;
+}
+
+/* home news sections */
+#jacket #binder .bleed-right.home-news section {
+	margin: 0;
+	width: 100% !important;
+	max-width: 100% !important;
+}
+
+.featured-news-item-wrap {
+	height: 400px;
+	overflow: hidden;
+}
+
+.featured-news-item {
+	height: 400px;
+	background-size: cover;
+	background-position: right center;
+	position: relative;
+	-webkit-transition: all .3s ease;
+	transition: all .3s ease;
+}
+
+.featured-news-item:after {
+	content: "";
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background: -webkit-linear-gradient(295deg, rgba(171, 77, 94, .8) 0%, rgba(171, 77, 94, .4) 10%, rgba(0, 0, 0, 0) 35%);
+	background: linear-gradient(155deg, rgba(171, 77, 94, .8) 0%, rgba(171, 77, 94, .4) 10%, rgba(0, 0, 0, 0) 35%);
+}
+
+.featured-news-item a {
+	padding: 2em 3em;
+}
+
+.featured-news-item a:hover {
+	color: #fff;
+}
+
+.home-news a {
+	color: #fff;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	    -ms-flex-direction: column;
+	        flex-direction: column;
+	border: none;
+	height: 100%;
+	z-index: 2;
+	-webkit-transition: color .3s ease;
+	transition: color .3s ease;
+}
+
+.home-news a:after,
+.home-news a:before {
+	display: none;
+}
+
+.featured-news-item .news-item-head,
+.featured-news-item .news-item-descr {
+	display: block;
+	max-width: 500px;
+	padding: 0 0 .5em;
+}
+
+.featured-news-item .news-item-head {
+	font-size: 1em;
+	font-weight: 700;
+	line-height: 1.2;
+	color: #fff;
+}
+
+.featured-news-item .news-item-descr {
+	font-size: .9em;
+}
+
+.news-item-wrap {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	margin-top: 3em;
+}
+
+.news-item-wrap a {
+	color: inherit;
+}
+
+.news-item-wrap .news-item-head {
+	font-weight: 600;
+	font-size: .9em;
+	margin-bottom: .5em;
+	color: #000;
+}
+
+.news-item-wrap .news-item-descr {
+	font-weight: 300;
+	font-size: .9em;
+}
+
+.news-item {
+	-webkit-box-flex: 1;
+	    -ms-flex: 1;
+	        flex: 1;
+	border-right: solid 1px rgba(0, 0, 0, .2);
+	padding: 0 2.5em;
+}
+
+.news-item:last-child {
+	border: none;
+}
+
+/* homepage map */
+.map-wrap {
+	max-width: 700px;
+	margin: 0 auto;
+	padding-bottom: 4em;
 }
 
 /* ----- Input ----- */
@@ -1546,7 +1921,7 @@ table {
 /* video wrapper allows you to easily position the video within the content
    and set the width and max-width of the video */
 .video-wrap-control {
-	width: 400px;
+	width: 100%;
 }
 
 .video-in-scroll {
@@ -1561,8 +1936,8 @@ table {
    the video player have a height that is responsive to the width */
 .video-wrap-inner {
 	position: relative;
-	padding-bottom: 56.25%;
-	padding-top: 25px;
+	padding-bottom: 56.1%;
+	padding-top: 0;
 	height: 0;
 }
 
