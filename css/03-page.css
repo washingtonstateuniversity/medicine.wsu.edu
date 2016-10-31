@@ -235,6 +235,14 @@ header.main-header {
 	}
 }
 
+@media (max-width: 1250px) {
+
+	#jacket #binder .bleed-right section {
+		padding-left: 0;
+		padding-right: 0;
+	}
+}
+
 /* --- special callouts	--- */
 .mid-feature {
 	margin: 4rem 0;
@@ -360,6 +368,10 @@ header.main-header {
 	height: 700px;
 }
 
+.home-hero {
+	padding: 0 !important;
+}
+
 div#wsu-video-background:after {
 	content: "";
 	position: absolute;
@@ -382,7 +394,7 @@ div#wsu-video-background:after {
 	bottom: 0;
 	max-width: 1188px;
 	width: 100%;
-	left: calc((100vw - 1188px) / 2);
+	left: calc((100% - 1188px) / 2);
 	justify-content: center;
 	z-index: 3;
 }
