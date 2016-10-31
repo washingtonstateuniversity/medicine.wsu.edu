@@ -45,7 +45,7 @@ class Medicine_Bar_Graph_Shortcode {
 				<li>
 					<?php $pair = explode( ',', $bar ); ?>
 					<span class="label"><?php echo esc_html( $pair[0] ); ?></span>
-					<span class="value" data-amount="<?php echo esc_attr( $pair[1] ); ?>"><?php echo esc_html( $atts['prefix'] . $pair[1] ); ?></span>
+					<span class="value" data-amount="<?php echo esc_attr( $pair[1] ); ?>"><?php echo esc_html( $atts['prefix'] . number_format( $pair[1] ) ); ?></span>
 				</li>
 				<?php
 				}
