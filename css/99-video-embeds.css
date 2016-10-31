@@ -1,7 +1,7 @@
 /* video wrapper allows you to easily position the video within the content
    and set the width and max-width of the video */
 .video-wrap-control {
-	width: 400px;
+	width: 100%;
 }
 
 .video-in-scroll {
@@ -16,8 +16,8 @@
    the video player have a height that is responsive to the width */
 .video-wrap-inner {
 	position: relative;
-	padding-bottom: 56.25%;
-	padding-top: 25px;
+	padding-bottom: 56.1%;
+	padding-top: 0;
 	height: 0;
 }
 

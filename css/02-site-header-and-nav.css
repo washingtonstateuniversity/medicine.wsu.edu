@@ -1,6 +1,42 @@
 /* --- have Spine nav use Open Sans --- */
-#spine {
+#spine,
+.site-search {
 	font-family: "Open Sans", "Lucida Sans", "Lucida Grande", "Lucida Sans Unicode", sans-serif;
+}
+
+/* --- site search and contact bar --- */
+.site-search input.search-field {
+	border: none;
+	border-bottom: 1px solid rgba(0, 0, 0, .1);
+	color: #981e32;
+	font-size: 1em;
+	font-weight: 300;
+	padding: .35em .5em;
+	width: 6em;
+	transition: all .3s ease;
+}
+
+.site-search input.search-field:hover {
+	border-color: rgba(0, 0, 0, .6);
+}
+
+.site-search input.search-field:focus {
+	border-color: #981e32;
+	width: 12em;
+}
+
+.site-search li.search {
+	margin-top: -.25em;
+}
+
+.site-search input.search-submit {
+	background: url(./images/ico-search-thin.svg);
+	border: none;
+	text-indent: 99999px;
+	padding: 0;
+	height: 16px;
+	width: 16px;
+	position: relative;
 }
 
 /* --- overwrite an old Spine remnant - will be changed in next release --- */
@@ -153,9 +189,10 @@
 	}
 
 	#jacket #binder #spine header {
-		position: absolute;
-		top: 2.5em;
 		background-color: transparent;
+		height: 68px;
+		margin: 2.5em 0 2.2em;
+		position: static;
 	}
 
 	#wsu-signature {
@@ -174,7 +211,7 @@
 	}
 
 	#spine .spine-sitenav {
-		padding: 120px 0 0;
+		padding: 0;
 		margin: 0;
 	}
 
@@ -461,4 +498,13 @@
 		color: rgba(255, 255, 255, .7);
 		font-size: .9em;
 	}
+}
+
+@media (min-width: 1825px) {
+
+	#wsu-signature {
+		position: absolute;
+		left: 2em;
+	}
+
 }
