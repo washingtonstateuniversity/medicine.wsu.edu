@@ -5,14 +5,18 @@
 }
 
 /* --- site search and contact bar --- */
+.site-search .search-form {
+	position: relative;
+}
+
 .site-search input.search-field {
 	border: none;
 	border-bottom: 1px solid rgba(0, 0, 0, .1);
 	color: #981e32;
 	font-size: 1em;
 	font-weight: 300;
-	padding: .35em .5em;
-	width: 6em;
+	padding: .35em 1.5em .35em .5em;
+	width: 6.5em;
 	transition: all .3s ease;
 }
 
@@ -36,7 +40,11 @@
 	padding: 0;
 	height: 16px;
 	width: 16px;
-	position: relative;
+	position: absolute;
+	right: 0;
+	top: .6em;
+	background-size: 14px;
+	background-repeat: no-repeat;
 }
 
 /* --- overwrite an old Spine remnant - will be changed in next release --- */
