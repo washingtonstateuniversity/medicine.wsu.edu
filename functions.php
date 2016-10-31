@@ -145,6 +145,12 @@ function medicine_spine_wp_enqueue_scripts() {
 
 	// Dequeue TablePress stylesheet.
 	wp_dequeue_style( 'tablepress-default' );
+
+	// Enqueue script for animating lists on posts with content containing `animate`.
+	$post = get_post();
+	if ( isset( $post->post_content ) && strpos( $post->post_content, 'animate' ) !== false ) {
+		wp_enqueue_script( 'medicine-animated-list', get_stylesheet_directory_uri() . '/js/animated-list.min.js', array( 'jquery' ), spine_get_child_version() );
+	}
 }
 
 add_filter( 'nav_menu_link_attributes', 'medicine_nav_menu_link_attributes', 20, 3 );
