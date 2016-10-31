@@ -34,6 +34,10 @@ module.exports = function( grunt ) {
 			graph_js: {
 				src: [ "src/js/graph.js" ],
 				dest: "js/graph.js"
+			},
+			animated_list_js: {
+				src: [ "src/js/animated-list.js" ],
+				dest: "js/animated-list.js"
 			}
 		},
 
@@ -151,6 +155,10 @@ module.exports = function( grunt ) {
 			graph_js: {
 				src: "js/graph.js",
 				dest: "js/graph.min.js"
+			},
+			animated_list_js: {
+				src: "js/animated-list.js",
+				dest: "js/animated-list.min.js"
 			}
 		},
 
