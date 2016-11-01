@@ -2276,7 +2276,6 @@ table {
 .flowchart {
 	overflow: hidden;
 	padding: 0 0 1em;
-
 }
 
 .flowchart > li {
@@ -2294,27 +2293,24 @@ table {
 }
 
 .flowchart > li:after {
+	background: url(./images/ico-down-arrow.svg) center -32px no-repeat;
 	color: #981e32;
-	content: "\2192";
+	content: "";
 	display: block;
 	font-size: 2em;
-	line-height: 1;
+	height: 32px;
 	overflow: hidden;
 	margin: .5em auto;
 	position: relative;
-	text-indent: -1em;
-	-webkit-transform: rotate(90deg);
-	    -ms-transform: rotate(90deg);
-	        transform: rotate(90deg);
-	-webkit-transition: text-indent .2s cubic-bezier(.02, .01, .47, 1);
-	transition: text-indent .2s cubic-bezier(.02, .01, .47, 1);
+	-webkit-transition: background-position .2s cubic-bezier(.02, .01, .47, 1);
+	transition: background-position .2s cubic-bezier(.02, .01, .47, 1);
 	-webkit-transition-delay: .3s;
 	        transition-delay: .3s;
 	width: 1em;
 }
 
 .flowchart > li.animated:after {
-	text-indent: 0;
+	background-position: center bottom;
 }
 
 .flowchart > li:before,
