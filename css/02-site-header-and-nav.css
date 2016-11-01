@@ -370,7 +370,8 @@
 	}
 
 	#spine nav > ul > li > ul > li > ul li.opened:hover,
-	#spine nav > ul > li > ul > li > ul li.opened > ul > li.active:hover {
+	#spine nav > ul > li > ul > li > ul li.opened > ul > li.active:hover,
+	#spine nav > ul > li > ul > li > ul > .active.opened {
 		padding-left: 0;
 	}
 
@@ -386,6 +387,14 @@
 		background: #981e32;
 		opacity: 0;
 		transition: all .5s ease;
+	}
+
+	#spine nav > ul > li > ul > li > ul > .active.opened > a:before {
+		content: none;
+	}
+
+	#spine nav > ul > li > ul > li > ul > .active.opened > ul > li {
+		display: none;
 	}
 
 	#jacket #spine .spine-sitenav > ul > li > ul > li.active:before {
