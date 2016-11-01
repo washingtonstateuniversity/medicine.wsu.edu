@@ -106,6 +106,7 @@ header.main-header {
 	flex: 1;
 	padding-top: 3.5em;
 	padding-bottom: 3.5em;
+	z-index: 1;
 }
 
 /* color treatment over splash images */
@@ -118,6 +119,10 @@ header.main-header {
 	bottom: 0;
 	left: 0;
 	background: linear-gradient(155deg, rgba(171, 77, 94, .8) 0%, rgba(171, 77, 94, .4) 10%, rgba(0, 0, 0, 0) 35%);
+}
+
+.has-featured-image header.main-header:after {
+	background: linear-gradient(155deg, rgba(171, 77, 94, .8) 0%, rgba(171, 77, 94, .4) 10%, rgba(0, 0, 0, 0) 35%), linear-gradient(-45deg, rgba(171, 77, 94, .8) 0%, rgba(171, 77, 94, .4) 10%, rgba(0, 0, 0, 0) 35%);
 }
 
 /* --- breadcrumbs --- */
@@ -136,6 +141,7 @@ header.main-header {
 
 .breadcrumbs-bottom {
 	margin-top: 6em;
+	margin-bottom: 2em;
 }
 
 @media (min-width: 694px) {
@@ -691,8 +697,16 @@ div#wsu-video-background:after {
 		padding: 0;
 	}
 
+	.site-footer address {
+		border: none;
+	}
+
 	.site-footer .email-address {
 		padding-left: 0;
+	}
+
+	.has-featured-image .main-header .hgroup {
+		align-items: center;
 	}
 
 }
