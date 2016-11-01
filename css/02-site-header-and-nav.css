@@ -16,7 +16,7 @@
 	color: #981e32;
 	font-size: 1em;
 	font-weight: 300;
-	padding: .35em 1.5em .35em .5em;
+	padding: .25em 1.5em .25em .5em;
 	width: 6.5em;
 	transition: all .3s ease;
 }
@@ -48,6 +48,13 @@
 	background-repeat: no-repeat;
 }
 
+.site-search input[placeholder],
+.site-search [placeholder],
+.site-search *[placeholder] {
+	font-family: "Open Sans", "Lucida Sans", "Lucida Grande", "Lucida Sans Unicode", sans-serif;
+	font-weight: 300;
+}
+
 /* --- overwrite an old Spine remnant - will be changed in next release --- */
 #spine nav li.parent.active > a:hover {
 	cursor: pointer;
@@ -77,6 +84,10 @@
 }
 
 @media (max-width: 989px) {
+
+	.site-search {
+		display: none;
+	}
 
 	#binder #spine.darker header {
 		background: #fff;
