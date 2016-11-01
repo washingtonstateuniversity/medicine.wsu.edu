@@ -242,13 +242,28 @@ main ul li:before {
 	right: 0;
 }
 
+@media (max-width: 1250px) {
+
+	.bleed-right .space-case {
+		text-align: center;
+	}
+
+	.bleed-right .space-case:after {
+		margin-left: auto;
+		margin-right: auto;
+		left: 0;
+		right: 0;
+	}
+
+}
+
 /* slight size adjustments for margin-right */
 .margin-right .two {
 	font-size: .9rem;
 }
 
 /* adds crimson and makes the text all caps */
-.bolder {
+.bolder h3 {
 	color: #981e32;
 	text-transform: uppercase;
 }
