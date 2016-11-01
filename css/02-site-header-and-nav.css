@@ -389,7 +389,7 @@
 		transition: all .5s ease;
 	}
 
-	#spine nav > ul > li > ul > li > ul > .active.opened > a:before {
+	#spine nav > ul > li > ul > li > ul li.active.opened:before {
 		content: none;
 	}
 
