@@ -364,14 +364,25 @@
 		transition: all .5s ease;
 	}
 
+	#spine nav > ul > li > ul > li > ul > li.active > ul > li:hover,
 	#spine nav > ul > li > ul > li > ul li:hover,
 	#spine nav > ul > li > ul > li > ul li.active {
 		padding-left: 10px;
 	}
 
+	#spine nav > ul > li > ul > li > ul > li.active > ul > li,
 	#spine nav > ul > li > ul > li > ul li.opened:hover,
-	#spine nav > ul > li > ul > li > ul li.opened > ul > li.active:hover {
+	#spine nav > ul > li > ul > li > ul li.opened > ul > li.active:hover,
+	#spine nav > ul > li > ul > li > ul > .active.opened {
 		padding-left: 0;
+	}
+
+	#spine nav > ul > li > ul > li > ul > li.active > ul > li {
+		margin-left: .35em;
+	}
+
+	#spine nav > ul > li > ul > li > ul > li.active > ul > li.active {
+		margin-left: 1.25em;
 	}
 
 	#spine nav > ul > li > ul > li > ul li:before,
@@ -386,6 +397,14 @@
 		background: #981e32;
 		opacity: 0;
 		transition: all .5s ease;
+	}
+
+	#spine nav > ul > li > ul > li > ul li.active.opened:before {
+		content: none;
+	}
+
+	#spine nav > ul > li > ul > li > ul > .active.opened > ul > li {
+		display: none;
 	}
 
 	#jacket #spine .spine-sitenav > ul > li > ul > li.active:before {

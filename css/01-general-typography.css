@@ -54,7 +54,6 @@ p {
 }
 
 strong {
-	color: #000;
 	font-weight: 600;
 }
 
@@ -120,10 +119,6 @@ main a:hover:after {
 	width: 100%;
 	background: transparent;
 	transition: all 0s ease;
-}
-
-strong {
-	font-weight: 800;
 }
 
 blockquote,
@@ -281,6 +276,8 @@ blockquote {
 blockquote cite {
 	color: #777;
 	font-size: .8em;
+	display: block;
+	padding-bottom: 1.5em;
 }
 
 .center.mid-feature blockquote {
@@ -289,10 +286,6 @@ blockquote cite {
 	font-size: 1.2em;
 	text-align: center;
 	border: none;
-}
-
-.center.mid-feature blockquote p {
-	padding-bottom: 0;
 }
 
 .center blockquote:before {
@@ -324,4 +317,16 @@ blockquote cite {
 .block-head {
 	font-size: .9em;
 	text-transform: uppercase;
+}
+
+@media (max-width: 693px) {
+
+	blockquote {
+		margin-left: .5em;
+	}
+
+	.center.mid-feature blockquote cite {
+		padding-bottom: 0;
+	}
+
 }
