@@ -25,7 +25,7 @@
 
 		$elementsToAnimate.each( function() {
 			var $element = $( this ),
-				interval = ( $element.hasClass( "flowchart" ) ) ? 600 : 200;
+				interval = ( $element.hasClass( "flowchart" ) ) ? 300 : 200;
 
 			// For timelines, wrap the contents of each list item in two divs.
 			// (This is kind of silly and exclusively for styling purposes.)

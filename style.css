@@ -2196,6 +2196,7 @@ table {
 }
 
 .timeline > li {
+	padding-bottom: 2em;
 	padding-left: 2em;
 }
 
@@ -2283,8 +2284,8 @@ table {
 
 .flowchart > li {
 	left: -101%;
-	-webkit-transition: left .3s cubic-bezier(.02, .01, .47, 1);
-	transition: left .3s cubic-bezier(.02, .01, .47, 1);
+	-webkit-transition: left .2s cubic-bezier(.02, .01, .47, 1);
+	transition: left .2s cubic-bezier(.02, .01, .47, 1);
 }
 
 .flowchart > li:last-of-type {
@@ -2305,10 +2306,10 @@ table {
 	overflow: hidden;
 	margin: .5em auto;
 	position: relative;
-	-webkit-transition: background-position .2s cubic-bezier(.02, .01, .47, 1);
-	transition: background-position .2s cubic-bezier(.02, .01, .47, 1);
-	-webkit-transition-delay: .3s;
-	        transition-delay: .3s;
+	-webkit-transition: background-position .1s cubic-bezier(.02, .01, .47, 1);
+	transition: background-position .1s cubic-bezier(.02, .01, .47, 1);
+	-webkit-transition-delay: .2s;
+	        transition-delay: .2s;
 	width: 1em;
 }
 
@@ -2326,6 +2327,14 @@ table {
 	line-height: normal;
 	margin-top: 0;
 	padding-top: 0;
+}
+
+@media screen and (min-width: 792px) {
+
+	.flowchart {
+		margin: 0 8em;
+	}
+
 }
 
 

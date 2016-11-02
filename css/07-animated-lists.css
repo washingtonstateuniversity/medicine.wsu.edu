@@ -30,6 +30,7 @@
 }
 
 .timeline > li {
+	padding-bottom: 2em;
 	padding-left: 2em;
 }
 
@@ -115,7 +116,7 @@
 
 .flowchart > li {
 	left: -101%;
-	transition: left .3s cubic-bezier(.02, .01, .47, 1);
+	transition: left .2s cubic-bezier(.02, .01, .47, 1);
 }
 
 .flowchart > li:last-of-type {
@@ -136,8 +137,8 @@
 	overflow: hidden;
 	margin: .5em auto;
 	position: relative;
-	transition: background-position .2s cubic-bezier(.02, .01, .47, 1);
-	transition-delay: .3s;
+	transition: background-position .1s cubic-bezier(.02, .01, .47, 1);
+	transition-delay: .2s;
 	width: 1em;
 }
 
@@ -155,4 +156,12 @@
 	line-height: normal;
 	margin-top: 0;
 	padding-top: 0;
+}
+
+@media screen and (min-width: 792px) {
+
+	.flowchart {
+		margin: 0 8em;
+	}
+
 }
