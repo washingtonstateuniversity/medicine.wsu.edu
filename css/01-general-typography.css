@@ -130,6 +130,18 @@ p {
 	line-height: 1.75;
 }
 
+main figure {
+	margin: 1em 0;
+}
+
+main figcaption {
+	color: rgba(0, 0, 0, .6);
+	font-size: .8em;
+	margin-bottom: 2em;
+	padding: 0 1em;
+	text-align: right;
+}
+
 main li li {
 	font-size: 1em; /* keep nested li the same size as parent */
 }
@@ -289,7 +301,6 @@ blockquote cite {
 }
 
 .center.mid-feature blockquote cite {
-	font-size: .8em;
 	padding-bottom: 0;
 	padding-top: 1.5em;
 }
