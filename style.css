@@ -1075,13 +1075,15 @@ header.main-header {
 	color: rgba(0, 0, 0, .6);
 }
 
-.breadcrumbs-divider {
-	padding: 0 1em;
-}
-
 .breadcrumbs-bottom {
 	margin-top: 6em;
 	margin-bottom: 2em;
+}
+
+.breadcrumbs-divider img {
+	width: 8px;
+	margin-left: .5em;
+	margin-right: .5em;
 }
 
 @media (min-width: 694px) {
