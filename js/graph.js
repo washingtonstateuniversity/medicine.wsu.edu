@@ -58,7 +58,7 @@
 
 				// Animate the element's value from x to y:
 				$( { currentAmount: 0 } ).animate( { currentAmount: amount }, {
-					duration: 1500,
+					duration: 400,
 					easing: "swing",
 					step: function() {
 						$value.text( prefix + commaSeparateNumber( Math.round( this.currentAmount ) ) );

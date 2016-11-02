@@ -2128,16 +2128,16 @@ table {
 }
 
 .bargraph li {
-	background: rgba(0, 0, 0, .035);
+	background: rgba(0, 0, 0, .1);
 	clear: left;
 	float: left;
-	margin: 0 0 .3em;
+	margin: 0 0 5px;
 	overflow: hidden;
 	padding: 0;
 	position: relative;
 	width: 5%;
-	-webkit-transition: width 2s cubic-bezier(.02, .01, .47, 1);
-	transition: width 2s cubic-bezier(.02, .01, .47, 1);
+	-webkit-transition: width .4s cubic-bezier(.02, .01, .47, 1);
+	transition: width .4s cubic-bezier(.02, .01, .47, 1);
 }
 
 .bargraph li:before {
@@ -2145,12 +2145,16 @@ table {
 }
 
 .bargraph span {
+	font-size: .8em;
+	font-weight: 100;
 	display: inline-block;
 	padding: .5em 1em;
 }
 
 .bargraph li .label {
-	background: #fff;
+	background: rgba(0, 0, 0, .7);
+	color: #fff;
+	letter-spacing: 2px;
 	position: relative;
 	z-index: 1;
 }
