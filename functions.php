@@ -445,3 +445,13 @@ function medicine_get_main_header() {
 
 	return $main_header;
 }
+
+add_filter( 'wsuwp_search_public_status', 'medicine_search_public_status' );
+/**
+ * Adds support for search indexing while also set as a private site.
+ *
+ * @return int
+ */
+function medicine_search_public_status() {
+	return 1;
+}
