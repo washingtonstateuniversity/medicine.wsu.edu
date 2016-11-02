@@ -275,7 +275,7 @@ blockquote {
 
 blockquote cite {
 	color: #777;
-	font-size: .8em;
+	font-size: .9em;
 	display: block;
 	padding-bottom: 1.5em;
 }
@@ -286,6 +286,16 @@ blockquote cite {
 	font-size: 1.2em;
 	text-align: center;
 	border: none;
+}
+
+.center.mid-feature blockquote cite {
+	font-size: .8em;
+	padding-bottom: 0;
+	padding-top: 1.5em;
+}
+
+.center.mid-feature blockquote p {
+	padding-bottom: 0;
 }
 
 .center blockquote:before {
@@ -323,10 +333,6 @@ blockquote cite {
 
 	blockquote {
 		margin-left: .5em;
-	}
-
-	.center.mid-feature blockquote cite {
-		padding-bottom: 0;
 	}
 
 }
