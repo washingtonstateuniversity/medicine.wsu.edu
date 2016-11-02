@@ -251,6 +251,22 @@ function medicine_nav_menu_register() {
 	add_theme_support( 'html5', array( 'search-form' ) );
 }
 
+add_filter( 'medicine_filter_breadcrumb', 'medicine_modify_breadcrumb_options', 10 );
+/**
+ * Filters the breadcrumb divider to be an SVG image.
+ *
+ * This requires that the text `%svgdivider%` is entered in the BreadCrumb NavXT options.
+ *
+ * @param string $display
+ *
+ * @return string
+ */
+function medicine_modify_breadcrumb_options( $display ) {
+	$svg_divider = '<img src="' . esc_url( get_stylesheet_directory_uri() . '/images/ico-breadcrumb-arrow-sharp.svg' ) . '">';
+
+	return str_replace( '%svgdivide%', $svg_divider, $display );
+}
+
 add_filter( 'bcn_breadcrumb_url', 'medicine_modify_breadcrumb_url', 10, 3 );
 /**
  * Removes the URL from pages that are assigned the section label template.

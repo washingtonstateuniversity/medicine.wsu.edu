@@ -16,6 +16,8 @@ if ( spine_has_featured_image() ) {
 
 $main_header_elements = medicine_get_main_header();
 
+$breadcrumb_display = apply_filters( 'medicine_filter_breadcrumb', bcn_display( true ) );
+
 /**
  * @codingStandardsIgnoreStart
  *
@@ -29,13 +31,13 @@ $main_header_elements = medicine_get_main_header();
 	</div>
 </header>
 <?php
-// @codingStandardsIgnoreEnd
 
 if ( ! is_front_page() && ! is_home() && spine_display_breadcrumbs( 'top' ) ) {
 	?>
 	<section class="row single breadcrumbs breadcrumbs-top gutter pad-top" typeof="BreadcrumbList" vocab="http://schema.org/">
-		<div class="column one"><?php bcn_display(); ?></div>
+		<div class="column one"><?php echo $breadcrumb_display; ?></div>
 	</section>
 	<?php
 }
 
+// @codingStandardsIgnoreEnd
