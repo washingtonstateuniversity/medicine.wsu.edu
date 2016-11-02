@@ -109,6 +109,10 @@ header.main-header {
 	z-index: 1;
 }
 
+.single-post.has-featured-image .main-header {
+	max-height: 300px;
+}
+
 /* color treatment over splash images */
 .has-featured-image header.main-header:after,
 .featured-news-item:after {
