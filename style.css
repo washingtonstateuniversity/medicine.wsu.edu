@@ -2109,6 +2109,7 @@ table {
 .tablepress th,
 .tablepress td {
 	border-bottom: 1px solid #e7e7e7;
+	line-height: 1.5;
 	padding: .8em .6em .8em 0;
 }
 
