@@ -1,7 +1,7 @@
 ( function( $, window, document ) {
 
 	/**
-	 * Check if at least half of the element to be animated is in the viewport.
+	 * Check if the element to be animated is in the viewport.
 	 */
 	function inViewport( element ) {
 		if ( element instanceof jQuery ) {
@@ -13,7 +13,7 @@
 		return rect.bottom > 0 &&
 			rect.right > 0 &&
 			rect.left < ( window.innerWidth || document.documentElement.clientWidth ) &&
-			rect.top + rect.height / 2 < ( window.innerHeight || document.documentElement.clientHeight );
+			rect.top < ( window.innerHeight || document.documentElement.clientHeight );
 	}
 
 	/**
@@ -35,19 +35,39 @@
 				} );
 			}
 
-			$( document ).on( "scroll", function() {
-				if ( !inViewport( $element ) ) {
-					return;
-				}
+			if ( $element.hasClass( "items" ) ) {
+				var $items = $element.children( "li" );
 
-				$element.removeClass( "animate" ).children( "li" ).each( function( i ) {
+				$items.each( function() {
 					var $item = $( this );
 
-					setTimeout( function() {
+					$( document ).on( "scroll", function() {
+						if ( !inViewport( $item ) ) {
+							return;
+						}
+
 						$item.addClass( "animated" );
-					}, i * interval );
+
+						if ( $item[ 0 ] === $items.last()[ 0 ] ) {
+							$item.parent( ".animate" ).removeClass( "animate" );
+						}
+					} );
 				} );
-			} );
+			} else {
+				$( document ).on( "scroll", function() {
+					if ( !inViewport( $element ) ) {
+						return;
+					}
+
+					$element.removeClass( "animate" ).children( "li" ).each( function( i ) {
+						var $item = $( this );
+
+						setTimeout( function() {
+							$item.addClass( "animated" );
+						}, i * interval );
+					} );
+				} );
+			}
 		} );
 	}
 
