@@ -64,7 +64,6 @@ p {
 }
 
 strong {
-	color: #000;
 	font-weight: 600;
 }
 
@@ -134,10 +133,6 @@ main a:hover:after {
 	background: transparent;
 	-webkit-transition: all 0s ease;
 	transition: all 0s ease;
-}
-
-strong {
-	font-weight: 800;
 }
 
 blockquote,
@@ -296,6 +291,8 @@ blockquote {
 blockquote cite {
 	color: #777;
 	font-size: .8em;
+	display: block;
+	padding-bottom: 1.5em;
 }
 
 .center.mid-feature blockquote {
@@ -304,10 +301,6 @@ blockquote cite {
 	font-size: 1.2em;
 	text-align: center;
 	border: none;
-}
-
-.center.mid-feature blockquote p {
-	padding-bottom: 0;
 }
 
 .center blockquote:before {
@@ -339,6 +332,18 @@ blockquote cite {
 .block-head {
 	font-size: .9em;
 	text-transform: uppercase;
+}
+
+@media (max-width: 693px) {
+
+	blockquote {
+		margin-left: .5em;
+	}
+
+	.center.mid-feature blockquote cite {
+		padding-bottom: 0;
+	}
+
 }
 
 /* --- have Spine nav use Open Sans --- */
@@ -1039,6 +1044,7 @@ header.main-header {
 	        flex: 1;
 	padding-top: 3.5em;
 	padding-bottom: 3.5em;
+	z-index: 1;
 }
 
 /* color treatment over splash images */
@@ -1052,6 +1058,11 @@ header.main-header {
 	left: 0;
 	background: -webkit-linear-gradient(295deg, rgba(171, 77, 94, .8) 0%, rgba(171, 77, 94, .4) 10%, rgba(0, 0, 0, 0) 35%);
 	background: linear-gradient(155deg, rgba(171, 77, 94, .8) 0%, rgba(171, 77, 94, .4) 10%, rgba(0, 0, 0, 0) 35%);
+}
+
+.has-featured-image header.main-header:after {
+	background: -webkit-linear-gradient(295deg, rgba(171, 77, 94, .8) 0%, rgba(171, 77, 94, .4) 10%, rgba(0, 0, 0, 0) 35%), -webkit-linear-gradient(135deg, rgba(171, 77, 94, .8) 0%, rgba(171, 77, 94, .4) 10%, rgba(0, 0, 0, 0) 35%);
+	background: linear-gradient(155deg, rgba(171, 77, 94, .8) 0%, rgba(171, 77, 94, .4) 10%, rgba(0, 0, 0, 0) 35%), linear-gradient(-45deg, rgba(171, 77, 94, .8) 0%, rgba(171, 77, 94, .4) 10%, rgba(0, 0, 0, 0) 35%);
 }
 
 /* --- breadcrumbs --- */
@@ -1070,6 +1081,7 @@ header.main-header {
 
 .breadcrumbs-bottom {
 	margin-top: 6em;
+	margin-bottom: 2em;
 }
 
 @media (min-width: 694px) {
@@ -1671,8 +1683,18 @@ div#wsu-video-background:after {
 		padding: 0;
 	}
 
+	.site-footer address {
+		border: none;
+	}
+
 	.site-footer .email-address {
 		padding-left: 0;
+	}
+
+	.has-featured-image .main-header .hgroup {
+		-webkit-box-align: center;
+		    -ms-flex-align: center;
+		        align-items: center;
 	}
 
 }
