@@ -53,9 +53,8 @@
 	display: inline-block;
 	height: 15px;
 	left: -14px;
-	margin-top: -7px;
 	position: absolute;
-	top: 50%;
+	top: 3px;
 	width: 15px;
 }
 
@@ -149,4 +148,11 @@
 .flowchart > li:before,
 .flowchart > li:last-of-type:after {
 	content: initial;
+}
+
+.timeline > li > div > div > *,
+.flowchart > li > * {
+	line-height: normal;
+	margin-top: 0;
+	padding-top: 0;
 }
