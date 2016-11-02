@@ -1,18 +1,25 @@
 /* global YT */
 ( function( $, window ) {
 	/**
-	 * Track whether a scroll event has been set.
+	 * Tracks the number of videos playing at any given time.
 	 *
-	 * @type {boolean}
+	 * @type {number}
 	 */
-	var scroll_event_set = false;
+	var scroll_event_set = 0;
 
 	/**
 	 * Track the initial position of a video on the screen.
 	 *
 	 * @type {number}
 	 */
-	var video_off_screen_position = 0;
+	var video_off_screen_position = [];
+
+	/**
+	 * Tracks the IDs of the videos currently playing.
+	 *
+	 * @type {Array}
+	 */
+	var video_ids_playing = [];
 
 	/**
 	 * Create a script element to load in the YouTube iFrame API and insert it
@@ -31,15 +38,21 @@
 	 * its location in the page when scrolling.
 	 */
 	var handle_scroll_event = function() {
-		var video = $( ".video-wrap-control" );
-		var video_off_screen = ( 0 <= $( window ).scrollTop() - video_off_screen_position );
+		var video, video_off_screen;
 
-		if ( video_off_screen && !video.hasClass( "video-in-scroll" ) ) {
-			video.addClass( "video-in-scroll" );
-		}
+		for ( var video_id in video_off_screen_position ) {
+			if ( video_off_screen_position.hasOwnProperty( video_id ) ) {
+				video = $( "#video-wrap-" + video_id );
+				video_off_screen = ( 0 <= $( window ).scrollTop() - video_off_screen_position[ video_id ] );
 
-		if ( !video_off_screen && video.hasClass( "video-in-scroll" ) ) {
-			video.removeClass( "video-in-scroll" );
+				if ( video_off_screen && false === video.hasClass( "video-in-scroll" ) && true === video_ids_playing[ video_id ] ) {
+					video.addClass( "video-in-scroll" );
+				}
+
+				if ( !video_off_screen && video.hasClass( "video-in-scroll" ) ) {
+					video.removeClass( "video-in-scroll" );
+				}
+			}
 		}
 	};
 
@@ -83,8 +96,10 @@
 	 *
 	 * @param event
 	 */
-	window.onPlayerReady = function( ) {
-		video_off_screen_position = $( ".video-wrap-control" ).offset().top;
+	window.onPlayerReady = function( e ) {
+		var video_id = $( e.target.h ).data( "video-id" );
+		video_off_screen_position[ video_id ] = $( "#video-wrap-" + video_id ).offset().top;
+		video_ids_playing[ video_id ] = false;
 	};
 
 	/**
@@ -98,14 +113,24 @@
 			return;
 		}
 
-		if ( 1 === event.data && false === scroll_event_set ) {
-			$( document ).on( "scroll", handle_scroll_event );
-			scroll_event_set = true;
+		var video_id = $( event.target.h ).data( "video-id" );
+
+		if ( 1 === event.data && false === video_ids_playing[ video_id ] ) {
+			video_ids_playing[ video_id ] = true;
+		} else if ( 2 === event.data && true === video_ids_playing[ video_id ] ) {
+			video_ids_playing[ video_id ] = false;
 		}
 
-		if ( 1 !== event.data && true === scroll_event_set ) {
+		if ( 1 === event.data && 0 < scroll_event_set ) {
+			scroll_event_set++;
+		} else if ( 1 === event.data && 0 === scroll_event_set ) {
+			$( document ).on( "scroll", handle_scroll_event );
+			scroll_event_set = 1;
+		} else if ( 2 === event.data && 1 < scroll_event_set ) {
+			scroll_event_set--;
+		} else if ( 2 === event.data && 1 === scroll_event_set ) {
 			$( document ).unbind( "scroll", handle_scroll_event );
-			scroll_event_set = false;
+			scroll_event_set = 0;
 		}
 	};
 
