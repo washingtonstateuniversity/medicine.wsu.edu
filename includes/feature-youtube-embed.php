@@ -28,7 +28,7 @@ class WSU_Home_YouTube_Embed {
 		ob_start();
 		?>
 		<!-- 1. The <iframe> (and video player) will replace this <div> tag. -->
-		<div class="video-wrap-control">
+		<div id="video-wrap-<?php echo esc_attr( $atts['video_id'] ); ?>" class="video-wrap-control">
 			<div class="video-wrap-inner">
 				<div class="inline-youtube-video"
 			        id="youtube-video-<?php echo esc_attr( $atts['video_id'] ); ?>"
