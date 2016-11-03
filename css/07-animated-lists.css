@@ -30,6 +30,7 @@
 }
 
 .timeline > li {
+	padding-bottom: 2em;
 	padding-left: 2em;
 }
 
@@ -53,9 +54,8 @@
 	display: inline-block;
 	height: 15px;
 	left: -14px;
-	margin-top: -7px;
 	position: absolute;
-	top: 50%;
+	top: 3px;
 	width: 15px;
 }
 
@@ -112,12 +112,11 @@
 .flowchart {
 	overflow: hidden;
 	padding: 0 0 1em;
-
 }
 
 .flowchart > li {
 	left: -101%;
-	transition: left .3s cubic-bezier(.02, .01, .47, 1);
+	transition: left .2s cubic-bezier(.02, .01, .47, 1);
 }
 
 .flowchart > li:last-of-type {
@@ -129,26 +128,40 @@
 }
 
 .flowchart > li:after {
+	background: url(./images/ico-down-arrow.svg) center -32px no-repeat;
 	color: #981e32;
-	content: "\2192";
+	content: "";
 	display: block;
 	font-size: 2em;
-	line-height: 1;
+	height: 32px;
 	overflow: hidden;
 	margin: .5em auto;
 	position: relative;
-	text-indent: -1em;
-	transform: rotate(90deg);
-	transition: text-indent .2s cubic-bezier(.02, .01, .47, 1);
-	transition-delay: .3s;
+	transition: background-position .1s cubic-bezier(.02, .01, .47, 1);
+	transition-delay: .2s;
 	width: 1em;
 }
 
 .flowchart > li.animated:after {
-	text-indent: 0;
+	background-position: center bottom;
 }
 
 .flowchart > li:before,
 .flowchart > li:last-of-type:after {
 	content: initial;
+}
+
+.timeline > li > div > div > *,
+.flowchart > li > * {
+	line-height: normal;
+	margin-top: 0;
+	padding-top: 0;
+}
+
+@media screen and (min-width: 792px) {
+
+	.flowchart {
+		margin: 0 8em;
+	}
+
 }
