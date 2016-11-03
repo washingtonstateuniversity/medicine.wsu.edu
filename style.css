@@ -2335,10 +2335,10 @@ table {
 
 .video-in-scroll {
 	position: fixed;
-	z-index: 2;
 	bottom: 1rem;
 	right: 1rem;
 	width: 30vw;
+	z-index: 99;
 }
 
 /* The inner uses padding bottom (a percentage of it's own width) to allow
