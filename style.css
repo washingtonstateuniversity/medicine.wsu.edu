@@ -627,11 +627,6 @@ blockquote cite {
 		color: #2a3033;
 	}
 
-	/* - home link not needed on desktop view - logo serves as home link - */
-	nav#spine-sitenav > ul > li:first-child {
-		display: none;
-	}
-
 	#jacket #spine .spine-sitenav > ul > li:first-child > a {
 		background: none;
 	}
