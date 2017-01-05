@@ -455,3 +455,25 @@ add_filter( 'wsuwp_search_public_status', 'medicine_search_public_status' );
 function medicine_search_public_status() {
 	return 1;
 }
+
+add_action( 'wp_footer', 'medicine_seattle_times_javascript' );
+/**
+ * Adds the tracking script required by Seattle Times
+ */
+function medicine_seattle_times_javascript() {
+	?>
+	<script type="text/javascript">
+		(function () {
+			var tagjs = document.createElement("script");
+			var s = document.getElementsByTagName("script")[0];
+			tagjs.async = true;
+			tagjs.src = "https://s.btstatic.com/tag.js#site=tjFVGKS";
+			s.parentNode.insertBefore(tagjs, s);
+		}());
+	</script>
+	<noscript>
+		<iframe src="https://s.thebrighttag.com/iframe?c=tjFVGKS" width="1" height="1"
+		        frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+	</noscript>
+	<?php
+}
