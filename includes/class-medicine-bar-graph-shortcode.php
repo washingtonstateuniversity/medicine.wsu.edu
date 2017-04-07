@@ -5,7 +5,7 @@ class Medicine_Bar_Graph_Shortcode {
 	/**
 	 * @var string Bar graph shortcode tag.
 	 */
-	var $bar_graph_tag = 'medicine_bar_graph';
+	public $bar_graph_tag = 'medicine_bar_graph';
 
 	/**
 	 * Setup the hooks used with image shortcake.

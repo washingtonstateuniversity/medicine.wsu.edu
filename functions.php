@@ -1,6 +1,6 @@
 <?php
 
-include_once( __DIR__ . '/includes/feature-youtube-embed.php' );
+include_once( __DIR__ . '/includes/class-wsu-home-youtube-embed.php' );
 include_once( __DIR__ . '/includes/class-medicine-bar-graph-shortcode.php' );
 
 add_filter( 'spine_child_theme_version', 'medicine_theme_version' );
@@ -321,12 +321,13 @@ function medicine_search_query_vars_filter( $vars ) {
  */
 function medicine_process_search_request( $var ) {
 	$search_key = md5( 'search' . $var );
+	$results = wp_cache_get( $search_key, 'search' );
 
-	if ( $results = wp_cache_get( $search_key, 'search' ) ) {
+	if ( $results ) {
 		return $results;
 	}
 
-	$request_url = 'https://elastic.wsu.edu/wsu-web/_search?q=%2bhostname:medicine.wsu.edu%20%2b' . urlencode( $var );
+	$request_url = 'https://elastic.wsu.edu/wsu-web/_search?q=%2bhostname:medicine.wsu.edu%20%2b' . rawurlencode( $var );
 
 	$response = wp_remote_get( $request_url );
 
@@ -473,7 +474,7 @@ function medicine_seattle_times_javascript() {
 	</script>
 	<noscript>
 		<iframe src="https://s.thebrighttag.com/iframe?c=tjFVGKS" width="1" height="1"
-		        frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+				frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
 	</noscript>
 	<?php
 }
