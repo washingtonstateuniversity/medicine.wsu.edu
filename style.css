@@ -500,7 +500,7 @@ blockquote cite {
 		width: calc(100vw - 54px);
 	}
 
-	.spine-mobile #wsu-signature {
+	.spine-mobile #binder #wsu-signature {
 		background-image: url(./images/esfcom-logo-horiz.svg);
 	}
 }
@@ -597,7 +597,7 @@ blockquote cite {
 		position: static;
 	}
 
-	#wsu-signature {
+	#binder #wsu-signature {
 		background-image: url(./images/esfcom-logo.svg);
 		background-size: 260px auto;
 		width: 260px;
