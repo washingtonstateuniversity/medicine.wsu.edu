@@ -5,7 +5,7 @@
  Author:         WSU University Communications
  Author URI:     https://web.wsu.edu
  Template:       spine
- Version:        0.1.9
+ Version:        0.1.10
 */
 
 /* --- general typography and type classes --- */
@@ -500,7 +500,7 @@ blockquote cite {
 		width: calc(100vw - 54px);
 	}
 
-	.spine-mobile #wsu-signature {
+	.spine-mobile #binder #wsu-signature {
 		background-image: url(./images/esfcom-logo-horiz.svg);
 	}
 }
@@ -597,7 +597,7 @@ blockquote cite {
 		position: static;
 	}
 
-	#wsu-signature {
+	#binder #wsu-signature {
 		background-image: url(./images/esfcom-logo.svg);
 		background-size: 260px auto;
 		width: 260px;

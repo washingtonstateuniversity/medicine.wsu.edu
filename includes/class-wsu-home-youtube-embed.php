@@ -31,10 +31,10 @@ class WSU_Home_YouTube_Embed {
 		<div id="video-wrap-<?php echo esc_attr( $atts['video_id'] ); ?>" class="video-wrap-control">
 			<div class="video-wrap-inner">
 				<div class="inline-youtube-video"
-			        id="youtube-video-<?php echo esc_attr( $atts['video_id'] ); ?>"
-		            data-video-id="<?php echo esc_attr( $atts['video_id'] ); ?>"
-			        data-video-width="<?php echo absint( $atts['width'] ); ?>"
-			        data-video-height="<?php echo absint( $atts['height'] ); ?>"></div>
+					 id="youtube-video-<?php echo esc_attr( $atts['video_id'] ); ?>"
+					 data-video-id="<?php echo esc_attr( $atts['video_id'] ); ?>"
+					 data-video-width="<?php echo absint( $atts['width'] ); ?>"
+					 data-video-height="<?php echo absint( $atts['height'] ); ?>"></div>
 			</div>
 		</div>
 		<?php
