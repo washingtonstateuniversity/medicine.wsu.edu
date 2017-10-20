@@ -16,7 +16,9 @@ if ( spine_has_featured_image() ) {
 
 $main_header_elements = medicine_get_main_header();
 
-$breadcrumb_display = apply_filters( 'medicine_filter_breadcrumb', bcn_display( true ) );
+if ( class_exists( 'bcn_breadcrumb' ) ) {
+	$breadcrumb_display = apply_filters( 'medicine_filter_breadcrumb', bcn_display( true ) );
+}
 
 /**
  * @codingStandardsIgnoreStart
