@@ -2,6 +2,7 @@
 
 include_once( __DIR__ . '/includes/class-wsu-home-youtube-embed.php' );
 include_once( __DIR__ . '/includes/class-medicine-bar-graph-shortcode.php' );
+include_once( __DIR__ . '/includes/content-syndicate.php' );
 
 add_filter( 'spine_child_theme_version', 'medicine_theme_version' );
 function medicine_theme_version() {
