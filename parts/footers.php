@@ -1,6 +1,8 @@
 <?php
 
-$breadcrumb_display = apply_filters( 'medicine_filter_breadcrumb', bcn_display( true ) );
+if ( class_exists( 'bcn_breadcrumb' ) ) {
+	$breadcrumb_display = apply_filters( 'medicine_filter_breadcrumb', bcn_display( true ) );
+}
 
 // @codingStandardsIgnoreStart
 if ( ! is_front_page() && ! is_home() && spine_display_breadcrumbs( 'bottom' ) ) {
