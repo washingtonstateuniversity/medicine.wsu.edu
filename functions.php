@@ -2,10 +2,11 @@
 
 include_once( __DIR__ . '/includes/class-wsu-home-youtube-embed.php' );
 include_once( __DIR__ . '/includes/class-medicine-bar-graph-shortcode.php' );
+include_once( __DIR__ . '/includes/content-syndicate.php' );
 
 add_filter( 'spine_child_theme_version', 'medicine_theme_version' );
 function medicine_theme_version() {
-	return '0.1.10';
+	return '0.1.11';
 }
 
 add_action( 'init', 'medicine_remove_spine_wp_enqueue_scripts' );
