@@ -5,7 +5,7 @@
  Author:         WSU University Communications
  Author URI:     https://web.wsu.edu
  Template:       spine
- Version:        0.1.11
+ Version:        0.1.12
 */
 
 /* --- general typography and type classes --- */
@@ -104,7 +104,6 @@ main a:before {
 	bottom: -1px;
 	height: 1px;
 	width: 0;
-	-webkit-transition: width 0s ease, background .3s ease;
 	transition: width 0s ease, background .3s ease;
 }
 
@@ -117,7 +116,6 @@ main a:after {
 	height: 1px;
 	width: 0;
 	background: #b7203d;
-	-webkit-transition: width .3s ease;
 	transition: width .3s ease;
 }
 
@@ -128,14 +126,12 @@ main a:hover {
 main a:hover:before {
 	width: 100%;
 	background: #b7203d;
-	-webkit-transition: width .3s ease;
 	transition: width .3s ease;
 }
 
 main a:hover:after {
 	width: 100%;
 	background: transparent;
-	-webkit-transition: all 0s ease;
 	transition: all 0s ease;
 }
 
@@ -202,7 +198,6 @@ main ul li:before {
 	margin-top: 2em;
 	padding: 1.05em 5em 1em;
 	vertical-align: middle;
-	-webkit-transition: all .3s ease;
 	transition: all .3s ease;
 }
 
@@ -390,7 +385,6 @@ blockquote cite {
 	font-weight: 300;
 	padding: .25em 1.5em .25em .5em;
 	width: 6.5em;
-	-webkit-transition: all .3s ease;
 	transition: all .3s ease;
 }
 
@@ -433,15 +427,6 @@ blockquote cite {
 	cursor: pointer;
 }
 
-/* --- Remove the padding on glue when the user is logged in --- */
-@media (min-width: 990px) {
-
-	.admin-bar #spine #glue {
-		margin-top: 0;
-	}
-
-}
-
 /* --- temporary overwrite to get the nav out of the way --- */
 .spine-mobile #spine {
 	display: block;
@@ -454,6 +439,13 @@ blockquote cite {
 		left: 32px;
 	}
 
+}
+
+@media (max-width: 791px) {
+
+	#binder.fluid #spine #wsu-actions section {
+		width: 100%;
+	}
 }
 
 @media (max-width: 989px) {
@@ -503,9 +495,18 @@ blockquote cite {
 	.spine-mobile #binder #wsu-signature {
 		background-image: url(./images/esfcom-logo-horiz.svg);
 	}
+
+	#binder #spine #wsu-actions section {
+		width: 100%;
+	}
 }
 
 @media (min-width: 990px) {
+
+	/* --- Remove the padding on glue when the user is logged in --- */
+	.admin-bar #spine #glue {
+		margin-top: 0;
+	}
 
 	.global-bar-wrap {
 		background: rgba(0, 0, 0, .05);
@@ -555,7 +556,6 @@ blockquote cite {
 
 	.site-search a {
 		color: rgba(0, 0, 0, .6);
-		-webkit-transition: color .3s ease;
 		transition: color .3s ease;
 	}
 
@@ -638,7 +638,6 @@ blockquote cite {
 	#spine nav.spine-sitenav > ul > li {
 		position: static;
 		padding-bottom: 0;
-		-webkit-transition: all .3s ease;
 		transition: all .3s ease;
 	}
 
@@ -745,7 +744,6 @@ blockquote cite {
 	#spine nav > ul > li > ul > li > ul li {
 		padding: .35em 0;
 		position: relative;
-		-webkit-transition: all .5s ease;
 		transition: all .5s ease;
 	}
 
@@ -781,7 +779,6 @@ blockquote cite {
 		width: 6px;
 		background: #981e32;
 		opacity: 0;
-		-webkit-transition: all .5s ease;
 		transition: all .5s ease;
 	}
 
@@ -824,7 +821,6 @@ blockquote cite {
 		color: rgba(255, 255, 255, .7);
 		font-weight: 300;
 		padding: 0;
-		-webkit-transition: color .3s ease;
 		transition: color .3s ease;
 	}
 
@@ -1077,12 +1073,10 @@ header.main-header {
 	right: 0;
 	bottom: 0;
 	left: 0;
-	background: -webkit-linear-gradient(295deg, rgba(171, 77, 94, .8) 0%, rgba(171, 77, 94, .4) 10%, rgba(0, 0, 0, 0) 35%);
 	background: linear-gradient(155deg, rgba(171, 77, 94, .8) 0%, rgba(171, 77, 94, .4) 10%, rgba(0, 0, 0, 0) 35%);
 }
 
 .has-featured-image header.main-header:after {
-	background: -webkit-linear-gradient(295deg, rgba(171, 77, 94, .8) 0%, rgba(171, 77, 94, .4) 10%, rgba(0, 0, 0, 0) 35%), -webkit-linear-gradient(135deg, rgba(171, 77, 94, .8) 0%, rgba(171, 77, 94, .4) 10%, rgba(0, 0, 0, 0) 35%);
 	background: linear-gradient(155deg, rgba(171, 77, 94, .8) 0%, rgba(171, 77, 94, .4) 10%, rgba(0, 0, 0, 0) 35%), linear-gradient(-45deg, rgba(171, 77, 94, .8) 0%, rgba(171, 77, 94, .4) 10%, rgba(0, 0, 0, 0) 35%);
 }
 
@@ -1376,7 +1370,6 @@ header.main-header {
 	margin-top: 4em;
 	width: 250px;
 	opacity: .2;
-	-webkit-transition: all .3s ease;
 	transition: all .3s ease;
 }
 
@@ -1528,7 +1521,6 @@ div#wsu-video-background:after {
 	background-size: cover;
 	background-position: right center;
 	position: relative;
-	-webkit-transition: all .3s ease;
 	transition: all .3s ease;
 }
 
@@ -1541,7 +1533,6 @@ div#wsu-video-background:after {
 	top: 2em;
 	bottom: 2em;
 	z-index: 2;
-	-webkit-transition: all .3s ease;
 	transition: all .3s ease;
 }
 
@@ -1569,7 +1560,6 @@ div#wsu-video-background:after {
 	border: none;
 	height: 100%;
 	z-index: 2;
-	-webkit-transition: color .3s ease;
 	transition: color .3s ease;
 }
 
@@ -1733,7 +1723,6 @@ main .formwrap {
 main input,
 main textarea {
 	color: rgba(94, 106, 113, 1);
-	-webkit-transition: border-bottom .3s ease-in-out;
 	transition: border-bottom .3s ease-in-out;
 }
 
@@ -1867,7 +1856,6 @@ main input[type="submit"] {
 	font: 400 12px/12px "Open Sans", Helvetica, Arial, san-serif;
 	text-transform: uppercase;
 	letter-spacing: 4px;
-	-webkit-transition: all .3s ease-in-out;
 	transition: all .3s ease-in-out;
 	border-radius: 0;
 	cursor: pointer;
@@ -1880,7 +1868,6 @@ main input[type="submit"]:focus {
 	outline: 0;
 	background-color: #a31d36;
 	color: #fff;
-	-webkit-transition: all .3s ease-in-out;
 	transition: all .3s ease-in-out;
 }
 
@@ -1909,7 +1896,6 @@ main input[type="radio"] + label:before {
 	margin-top: -7px;
 	position: absolute;
 	top: 50%;
-	-webkit-transition: .15s;
 	transition: .15s;
 	width: 14px;
 }
@@ -1920,7 +1906,6 @@ main input[type="radio"] + label:before {
 
 main input[type="checkbox"] + label:hover:before {
 	border: 1px solid #b7203d;
-	-webkit-transition: all .3s ease-in-out;
 	transition: all .3s ease-in-out;
 }
 
@@ -1938,7 +1923,6 @@ main input[type="radio"] + label:after {
 	margin-top: -3px;
 	position: absolute;
 	top: 50%;
-	-webkit-transition: all .3s ease-in-out;
 	transition: all .3s ease-in-out;
 	width: 6px;
 }
@@ -2016,7 +2000,6 @@ main label {
 	position: absolute;
 	right: 8px;
 	top: 22px;
-	-webkit-transition: border-top-color .3s ease-in-out;
 	transition: border-top-color .3s ease-in-out;
 	z-index: -1;
 }
@@ -2132,7 +2115,6 @@ table {
 	padding: 0;
 	position: relative;
 	width: 5%;
-	-webkit-transition: width .4s cubic-bezier(.02, .01, .47, 1);
 	transition: width .4s cubic-bezier(.02, .01, .47, 1);
 }
 
@@ -2249,7 +2231,6 @@ table {
 .timeline.in > li:nth-of-type(odd) > div > div,
 .timeline.out > li:nth-of-type(even) > div > div {
 	left: -101%;
-	-webkit-transition: left .4s cubic-bezier(.02, .01, .47, 1);
 	transition: left .4s cubic-bezier(.02, .01, .47, 1);
 }
 
@@ -2257,7 +2238,6 @@ table {
 .timeline.out > li:nth-of-type(odd) > div > div {
 	left: auto;
 	right: -101%;
-	-webkit-transition: right .4s cubic-bezier(.02, .01, .47, 1);
 	transition: right .4s cubic-bezier(.02, .01, .47, 1);
 }
 
@@ -2280,7 +2260,6 @@ table {
 
 .flowchart > li {
 	left: -101%;
-	-webkit-transition: left .2s cubic-bezier(.02, .01, .47, 1);
 	transition: left .2s cubic-bezier(.02, .01, .47, 1);
 }
 
@@ -2302,10 +2281,8 @@ table {
 	overflow: hidden;
 	margin: .5em auto;
 	position: relative;
-	-webkit-transition: background-position .1s cubic-bezier(.02, .01, .47, 1);
 	transition: background-position .1s cubic-bezier(.02, .01, .47, 1);
-	-webkit-transition-delay: .2s;
-	        transition-delay: .2s;
+	transition-delay: .2s;
 	width: 1em;
 }
 
