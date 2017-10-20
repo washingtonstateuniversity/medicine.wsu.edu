@@ -427,15 +427,6 @@ blockquote cite {
 	cursor: pointer;
 }
 
-/* --- Remove the padding on glue when the user is logged in --- */
-@media (min-width: 990px) {
-
-	.admin-bar #spine #glue {
-		margin-top: 0;
-	}
-
-}
-
 /* --- temporary overwrite to get the nav out of the way --- */
 .spine-mobile #spine {
 	display: block;
@@ -448,6 +439,13 @@ blockquote cite {
 		left: 32px;
 	}
 
+}
+
+@media (max-width: 791px) {
+
+	#binder.fluid #spine #wsu-actions section {
+		width: 100%;
+	}
 }
 
 @media (max-width: 989px) {
@@ -497,9 +495,18 @@ blockquote cite {
 	.spine-mobile #binder #wsu-signature {
 		background-image: url(./images/esfcom-logo-horiz.svg);
 	}
+
+	#binder #spine #wsu-actions section {
+		width: 100%;
+	}
 }
 
 @media (min-width: 990px) {
+
+	/* --- Remove the padding on glue when the user is logged in --- */
+	.admin-bar #spine #glue {
+		margin-top: 0;
+	}
 
 	.global-bar-wrap {
 		background: rgba(0, 0, 0, .05);
