@@ -28,8 +28,6 @@ function get_image_url( $content, $atts = array() ) {
 		return $content->thumbnail;
 	}
 
-var_dump( $content->featured_media->media_details->sizes );
-
 	$sizes = $content->featured_media->media_details->sizes;
 
 	if ( isset( $sizes->{'spine-large_size'} ) ) {
