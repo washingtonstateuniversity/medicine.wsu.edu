@@ -1,6 +1,6 @@
 <?php
 // If a featured image is assigned, apply it as an inline style to the header.
-if ( spine_has_featured_image() ) {
+if ( spine_has_featured_image() && is_page() ) {
 	$featured_image_src = spine_get_featured_image_src( 'full' );
 	$featured_image_position = get_post_meta( get_the_ID(), '_featured_image_position', true );
 

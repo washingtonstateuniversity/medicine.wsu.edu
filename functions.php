@@ -6,7 +6,7 @@ include_once( __DIR__ . '/includes/content-syndicate.php' );
 
 add_filter( 'spine_child_theme_version', 'medicine_theme_version' );
 function medicine_theme_version() {
-	return '0.1.12';
+	return '0.1.13';
 }
 
 add_action( 'init', 'medicine_remove_spine_wp_enqueue_scripts' );
