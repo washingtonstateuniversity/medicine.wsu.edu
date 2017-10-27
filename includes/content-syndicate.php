@@ -70,8 +70,14 @@ function wsuwp_json_output( $content, $data, $atts ) {
 					$offset_x++;
 					continue;
 				}
+
+				if ( ! empty( $content->thumbnail ) ) {
+					$classes = 'card--has-image';
+				} else {
+					$classes = '';
+				}
 				?>
-				<article class="card card--news">
+				<article class="card card--news <?php echo esc_attr( $classes ); ?>">
 					<?php if ( ! empty( $content->thumbnail ) ) : ?>
 					<?php $image_url = get_image_url( $content, $atts ); ?>
 					<figure class="card-image">
