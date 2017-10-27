@@ -21,7 +21,7 @@ function display_events_shortcode() {
 	<div id="idCTCTEventWidget" class="ctct_eventwidget_outer" style="border: 1px dotted #c0c0c0; padding: 5px 10px">
 		<div class="ctct_eventwidget_title" style="width: 100%; text-align: center; text-decoration: underline; font-weight: bold">Upcoming Events</div>
 		<br />
-		<script type="text/javascript" src="https://eventsfeed.constantcontact.com/widget/myevents.js?eso=001OOmTdcjovk8EtDEJJz_oXw==&datetime=true&desc=true&location=true&skiphomepage=false&numevents=5"></script>
+		<script type="text/javascript" src="https://eventsfeed.constantcontact.com/widget/myevents.js?eso=001OOmTdcjovk8EtDEJJz_oXw==&datetime=true&desc=false&location=false&skiphomepage=false&numevents=5"></script>
 		<br />
 		<span style="text-decoration:none;font-family:Arial,Helvetica,sans-serif;font-size:10px;color:#999999;"><a href="http://www.constantcontact.com/event-marketing/index.jsp" rel="nofollow" style="text-decoration:none;font-family:Arial,Helvetica,sans-serif;font-size:10px;color:#999999;">Online Event Registration</a> by <a href="http://www.constantcontact.com/event-marketing/index.jsp" rel="nofollow" style="text-decoration:none;font-family:Arial,Helvetica,sans-serif;font-size:10px;color:#999999;">Constant Contact</a></span>
 	</div>
