@@ -7,7 +7,7 @@ include_once( __DIR__ . '/includes/constant-contact.php' );
 
 add_filter( 'spine_child_theme_version', 'medicine_theme_version' );
 function medicine_theme_version() {
-	return '0.2.0';
+	return '0.2.1';
 }
 
 add_action( 'init', 'medicine_remove_spine_wp_enqueue_scripts' );
