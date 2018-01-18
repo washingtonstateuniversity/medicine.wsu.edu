@@ -19,8 +19,8 @@ $medicine_footer_menu_args = array(
 		<a href="https://wsu.edu"><img src="<?php echo esc_url( get_stylesheet_directory_uri() ); ?>/images/wsu-logo-wht.svg" alt="Washington State University logo"></a>
 	</div>
 	<address class="footer-contact-info">
-		<span class="dept-name address-item">
-		<?php echo esc_html( spine_get_option( 'contact_department' ) ); ?></span><span class="street-address address-item"><?php
+		<span class="dept-name address-item"><?php echo esc_html( spine_get_option( 'contact_department' ) ); ?></span>
+		<span class="street-address address-item"><?php
 		if ( spine_get_option( 'contact_streetAddress' ) !== '' ) {
 			echo esc_html( spine_get_option( 'contact_streetAddress' ) . ' ' );
 		}
@@ -31,15 +31,12 @@ $medicine_footer_menu_args = array(
 			echo esc_html( spine_get_option( 'contact_postalCode' ) );
 		}
 		?></span>
-
 		<?php if ( spine_get_option( 'contact_email' ) !== '' ) { ?>
 		<a class="email-address address-item" href="mailto:<?php echo esc_attr( spine_get_option( 'contact_email' ) ); ?>"><?php echo esc_html( spine_get_option( 'contact_email' ) ); ?></a>
 		<?php } ?>
-
 		<?php if ( spine_get_option( 'contact_telephone' ) !== '' ) { ?>
 		<a class="telephone-number address-item" href="tel:<?php echo esc_attr( spine_get_option( 'contact_telephone' ) ); ?>"><?php echo esc_html( spine_get_option( 'contact_telephone' ) ); ?></a>
 		<?php } ?>
-
 	</address>
 	<nav class="global-links">
 		<ul>
