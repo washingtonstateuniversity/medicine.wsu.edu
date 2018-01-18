@@ -17,6 +17,8 @@
 	<rule ref="WordPress-Extra">
 		<exclude name="WordPress.NamingConventions.ValidFunctionName" />
 		<exclude name="WordPress.Files.FileName" />
+		<exclude name="WordPress.Arrays.MultipleStatementAlignment.DoubleArrowNotAligned" />
+		<exclude name="WordPress.WhiteSpace.PrecisionAlignment.Found" />
 		<exclude name="Squiz.PHP.EmbeddedPhp.NoSemicolon" />
 		<exclude name="Squiz.PHP.EmbeddedPhp.ContentBeforeEnd" />
 		<exclude name="Squiz.PHP.EmbeddedPhp.ContentBeforeOpen" />
@@ -24,5 +26,6 @@
 		<exclude name="Squiz.PHP.EmbeddedPhp.ContentAfterEnd" />
 		<exclude name="Squiz.ControlStructures.ControlSignature.NewlineAfterOpenBrace" />
 		<exclude name="Generic.Formatting.DisallowMultipleStatements.SameLine" />
+		<exclude name="Generic.Formatting.MultipleStatementAlignment.NotSameWarning" />
 	</rule>
 </ruleset>
