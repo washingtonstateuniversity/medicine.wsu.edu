@@ -19,7 +19,27 @@ $medicine_footer_menu_args = array(
 		<a href="https://wsu.edu"><img src="<?php echo esc_url( get_stylesheet_directory_uri() ); ?>/images/wsu-logo-wht.svg" alt="Washington State University logo"></a>
 	</div>
 	<address class="footer-contact-info">
-		<span class="dept-name address-item">Elson S. Floyd College of Medicine</span><span class="street-address address-item">Washington State University, PO Box 1495, Spokane, WA 99210-1495</span><a class="email-address address-item" href="mailto:medicine@wsu.edu">medicine@wsu.edu</a><a class="telephone-number address-item" href="tel:5093587944">509-358-7944</a>
+		<span class="dept-name address-item">
+		<?php echo esc_html( spine_get_option( 'contact_department' ) ); ?></span><span class="street-address address-item"><?php
+		if ( spine_get_option( 'contact_streetAddress' ) !== '' ) {
+			echo esc_html( spine_get_option( 'contact_streetAddress' ) . ' ' );
+		}
+		if ( spine_get_option( 'contact_addressLocality' ) !== '' ) {
+			echo esc_html( spine_get_option( 'contact_addressLocality' ) . ' ' );
+		}
+		if ( spine_get_option( 'contact_postalCode' ) !== '' ) {
+			echo esc_html( spine_get_option( 'contact_postalCode' ) );
+		}
+		?></span>
+
+		<?php if ( spine_get_option( 'contact_email' ) !== '' ) { ?>
+		<a class="email-address address-item" href="mailto:<?php echo esc_attr( spine_get_option( 'contact_email' ) ); ?>"><?php echo esc_html( spine_get_option( 'contact_email' ) ); ?></a>
+		<?php } ?>
+
+		<?php if ( spine_get_option( 'contact_telephone' ) !== '' ) { ?>
+		<a class="telephone-number address-item" href="tel:<?php echo esc_attr( spine_get_option( 'contact_telephone' ) ); ?>"><?php echo esc_html( spine_get_option( 'contact_telephone' ) ); ?></a>
+		<?php } ?>
+
 	</address>
 	<nav class="global-links">
 		<ul>
