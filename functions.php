@@ -331,7 +331,7 @@ function medicine_process_search_request( $var ) {
 
 	$request_url = 'https://elastic.wsu.edu/wsu-web/_search?q=%2bhostname:medicine.wsu.edu%20%2b' . rawurlencode( $var );
 
-	$response = wp_remote_get( $request_url );
+	$response = wp_remote_get( $request_url, array( 'sslverify' => false ) );
 
 	if ( is_wp_error( $response ) ) {
 		return array();
