@@ -341,12 +341,57 @@ header.main-header {
 }
 
 /* footer address content */
+
+.site-footer .footer-contact-wrapper {
+	border-bottom: 1px solid rgba(255, 255, 255, .2);
+	margin: 6em auto .5em;
+}
+
 .site-footer address {
 	font-size: .8em;
 	color: rgba(255, 255, 255, .8);
-	border-bottom: 1px solid rgba(255, 255, 255, .2);
-	margin: 6em auto .5em;
 	padding-bottom: .5em;
+	margin-left: 200px;
+	display: block;
+}
+
+.site-footer ul.social-media {
+	float: right;
+	width: 190px;
+	padding: 0;
+	text-align: right;
+}
+
+.site-footer .social-media li {
+    display:inline-block;
+}
+
+.site-footer .social-media a {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 32px;
+    overflow: hidden;
+    text-indent: 36px;
+    white-space: nowrap;
+	width: 36px;
+	display: block;
+}
+
+.site-footer .social-media .facebook {
+    background-image: url(https://s3.wp.wsu.edu/uploads/sites/1506/2019/03/icon-facebook.png);
+}
+
+.site-footer .social-media .twitter {
+    background-image: url(https://s3.wp.wsu.edu/uploads/sites/1506/2019/03/icon-twitter.png);
+}
+
+.site-footer .social-media .instagram {
+    background-image: url(https://s3.wp.wsu.edu/uploads/sites/1506/2019/03/icon-instagram.png);
+}
+
+.site-footer .social-media .back-to-top {
+	background-image: url(https://s3.wp.wsu.edu/uploads/sites/1506/2019/03/arrow-up.png);
+	background-size: 16px;
 }
 
 .site-footer .global-links a,
@@ -705,6 +750,15 @@ div#wsu-video-background:after {
 
 	.site-footer address {
 		border: none;
+		margin-left: 0;
+	}
+
+	.site-footer ul.social-media {
+		float: none;
+		width: auto;
+		padding: 0.5rem 0;
+		display: block;
+		text-align: left;
 	}
 
 	.site-footer .email-address {
