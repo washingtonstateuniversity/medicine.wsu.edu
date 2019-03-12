@@ -27,7 +27,7 @@ $medicine_footer_menu_args = array(
 				<a class="ripple twitter" href="https://twitter.com/wsumedicine">Twitter</a>
 			</li>
 					<li>
-				<a class="ripple instagram" href="instagram.com/wsumedicine">Instagram</a>
+				<a class="ripple instagram" href="https://instagram.com/wsumedicine">Instagram</a>
 			</li>
 					<li>
 				<a class="ripple back-to-top" href="#">Back to top</a>
