@@ -1,7 +1,5 @@
 <?php /* Template Name: Search */
 
-$search_results = medicine_process_search_request( get_query_var( 'q' ) );
-
 get_header();
 
 ?>
@@ -21,26 +19,8 @@ get_header();
 			<section class="row side-right gutter pad-ends">
 
 				<div class="column one">
-					<?php
-
-					if ( empty( $search_results ) ) {
-						?><h2>No search results found.</h2><?php
-					}
-					foreach ( $search_results as $search_result ) {
-						?>
-						<article>
-							<h2><a href="<?php echo esc_url( $search_result->_source->url ); ?>"><?php echo esc_html( $search_result->_source->title ); ?></a></h2>
-							<span class="visible-url"><?php echo esc_url( $search_result->_source->url ); ?></span>
-							<div class="visible-content">
-								<?php
-								$visible_content = medicine_process_search_visible_content( $search_result->_source->content );
-
-								echo wp_kses_post( $visible_content );
-								?>
-							</div>
-						</article><?php
-					}
-					?>
+					<script async src="https://cse.google.com/cse.js?cx=013644890599324097824:kbqgwamjoxq"></script>
+					<div class="gcse-searchresults-only" data-as_sitesearch="medicine.wsu.edu"></div>
 				</div><!--/column-->
 
 				<div class="column two">
