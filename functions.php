@@ -42,6 +42,12 @@ function medicine_spine_wp_enqueue_scripts() {
 	wp_enqueue_style( 'spine-theme', get_template_directory_uri() . '/style.css', array( 'wsu-spine' ), spine_get_script_version() );
 	wp_enqueue_style( 'spine-theme-child', get_stylesheet_directory_uri() . '/style.css', array( 'wsu-spine' ), spine_get_child_version() );
 	wp_enqueue_style( 'spine-theme-print', get_template_directory_uri() . '/css/print.css', array(), spine_get_script_version(), 'print' );
+	//wp_enqueue_style( 'wds-nav', get_stylesheet_directory_uri() . '/css/08-wds-menu.css', array(), spine_get_script_version() );
+
+	//wp_enqueue_script( 'wds-nav-script', get_stylesheet_directory_uri() . '/js/wds-menu.js', array(), spine_get_script_version() );
+	wp_enqueue_style( 'wsu_design_system_bundle', 'https://cdn.web.wsu.edu/designsystem/1/build/dist/wsu-design-system.bundle.dist.css', array(), spine_get_script_version() );
+
+		wp_enqueue_script( 'wsu_design_system_css', 'https://cdn.web.wsu.edu/designsystem/1/build/dist/wsu-design-system.bundle.dist.js', array(), spine_get_script_version(), true );
 
 	// All theme styles have been output at this time. Plugins and other themes should print styles here, before blocking
 	// Javascript resources are output.
@@ -480,3 +486,5 @@ function medicine_seattle_times_javascript() {
 	</noscript>
 	<?php
 }
+
+require_once __DIR__ . '/includes/include-side-menu.php';
