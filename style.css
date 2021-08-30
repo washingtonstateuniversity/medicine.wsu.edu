@@ -1359,6 +1359,14 @@ header.main-header {
     background-image: url(https://s3.wp.wsu.edu/uploads/sites/1506/2019/03/icon-instagram.png);
 }
 
+.site-footer .social-media .youtube {
+    background-image: url(https://s3.wp.wsu.edu/uploads/sites/1506/2021/08/icon-youtube.png);
+}
+
+.site-footer .social-media .linkedin {
+    background-image: url(https://s3.wp.wsu.edu/uploads/sites/1506/2021/08/icon-linkedin.png);
+}
+
 .site-footer .social-media .back-to-top {
 	background-image: url(https://s3.wp.wsu.edu/uploads/sites/1506/2019/03/arrow-up.png);
 	background-size: 16px;
