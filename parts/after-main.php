@@ -30,7 +30,7 @@ $medicine_footer_menu_args = array(
 				<a class="ripple instagram" href="https://instagram.com/wsumedicine">Instagram</a>
 			</li>
 			<li>
-				<a class="ripple youtube" href="http://www.youtube.com/gowsuspokane">YouTube</a>
+				<a class="ripple youtube" href="https://www.youtube.com/channel/UC_tMB45d6XrpNbo72ijxdLg">YouTube</a>
 			</li>
 			<li>
 				<a class="ripple linkedin" href="https://www.linkedin.com/company/wsu-elson-s-floyd-college-of-medicine">LinkedIn</a>
